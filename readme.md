@@ -5,8 +5,7 @@ This repo serves as the homepage for HRLA20 greenField project
 
 ## General Info ##
 
- * Master: Joey Freund, joey@cs.toronto.edu
- * Slavess: 
+ * Master: John
    * 1
    * 2
    * 3
