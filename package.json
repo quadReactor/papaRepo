@@ -1,0 +1,44 @@
+{
+  "name": "papa-repo",
+  "version": "1.0.0",
+  "description": "InstaSmurf",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "mocha test",
+    "dev-react": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quadReactor/papaRepo.git"
+  },
+  "keywords": [],
+  "author": "quadReactor",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/quadReactor/papaRepo/issues"
+  },
+  "homepage": "https://github.com/quadReactor/papaRepo#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.15.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1",
+    "webpack": "^3.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.6",
+    "morgan": "^1.9.0",
+    "react-redux": "^5.0.7"
+  }
+}
