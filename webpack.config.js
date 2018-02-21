@@ -1,29 +1,27 @@
 var webpack = require('webpack');
 var path = require('path');
 
-
-var BUILD_DIR = path.resolve(__dirname, './dist');
-var APP_DIR = path.resolve(__dirname, './src');
-
-
-var config = {
-  entry: APP_DIR + '/index.jsx',
+module.exports = {
+  entry: path.resolve(__dirname, './client/src'),
+  output: {
+    path: path.resolve(__dirname, './client/dist'),
+    filename: 'bundle.js'
+  },
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
-        include: APP_DIR,
+        test: /\.js[x]?/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
+        options: {
+          presets: ['react']
         }
       }
     ]
   },
-  output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js'
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };
 
-module.exports = config;
+
