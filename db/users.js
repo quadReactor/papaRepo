@@ -8,10 +8,9 @@ var userSchema = new Schema({
     password:{type: String},
     photo: [String],
     followers: {type: Object},
-    following: [String],
+    following: {type: Object},
     profilePic: {type: String},
     bio: {type: String},
-
 });
 
 let User = mongoose.model('User', userSchema);
