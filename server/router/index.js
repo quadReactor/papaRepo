@@ -1,6 +1,6 @@
 const express = require("express");
 const router = require("express").Router();
-const dbController = require("../controller");
+// const dbController = require("../controller");
 
 //Sign up ----------------------------------------
 router.get('/', () => {});
@@ -42,3 +42,5 @@ router.delete('/:username/content', () => {}); // delete post
 router.post('/:photoId/like', () => {}); // add a like
 
 router.delete('/:photoId/like', () => {}); // remove a like
+
+module.exports = router;
