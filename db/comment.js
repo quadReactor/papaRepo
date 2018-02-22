@@ -6,7 +6,7 @@ var commentSchema = new Schema({
   user : {type: String},
   photo: {type: Number},
   text: {type: String},
-//timeStamp : {typeL date, default: DateNow}
+  date: { type: Date, default: Date.now } //timeStamp 
     
 });
 
