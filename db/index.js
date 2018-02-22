@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/instagram')
+var mongoUri = 'mongodb://localhost/instagram'
+mongoose.connect(mongoUri);
 
 const db = mongoose.connection;
 
@@ -8,5 +9,5 @@ db.once('open', function() {
   console.log('connected to the database!!!')
 });
 
-
+module.exports = db;
 
