@@ -30,54 +30,54 @@ This repo serves as the homepage for HRLA20 greenField project
 
 ## Router ##
 
-*get('/');
+* get('/');
 
 ### Sign up ###
 
-*post("/login");
+*  post("/login");
 
-*post("/signup");
+*  post("/signup");
 
-*post("/logout");
+*  post("/logout");
 
 ### Render Feed ###
 
-*get('/:username')
+*  get('/:username')
 
-*get('/:username/follower')
+*  get('/:username/follower')
 
-*get('/:username/all')
+*  get('/:username/all')
 
 ### Modify Followers ###
 
-*post('/:username/follower');  add follower
-*put('/:username/follower');  approve follower
-*delete('/:username/follower'); remove follower
+*  post('/:username/follower');  add follower
+*  put('/:username/follower');  approve follower
+*  delete('/:username/follower'); remove follower
 
 ### comment ### 
 
-get('/:username/:photoId/comments')
+*  get('/:username/:photoId/comments')
 
 ### retrieve comments for individual photo to render ###
 
-*post('/:username/:photoId/comments') add
+*  post('/:username/:photoId/comments') add
 
-*delete('/:username/:photoId/comments') delete
+*  delete('/:username/:photoId/comments') delete
 
-*put('/:username/:photoId/comments'); edit
+*  put('/:username/:photoId/comments'); edit
 
 
 ### *Post New Photo ###
 
-*post('/:username/content'); add new post
+*  post('/:username/content'); add new post
 
-*router.delete('/:username/content'); delete post
+*  router.delete('/:username/content'); delete post
 
 ### Likes ###
 
-post('/:photoId/like') add a like
+*  post('/:photoId/like') add a like
 
-delete('/:photoId/like') remove a like
+*  delete('/:photoId/like') remove a like
 
 ## Scheme ##
 
