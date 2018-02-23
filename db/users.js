@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
-import photo from './photos';
+import Photo from './photos';
+import User from "./users"
 const Schema = mongoose.Schema
 
 var userSchema = new Schema({
-    // photo: String,
+    _id: Schema.Types.ObjectId,
     username: {type: String, unique: true}, //from firebase
     userId:{type: String, unique:true}, //from firebase
-    photo: [{type: Schema.Types.ObjectId, ref: 'photo'}], //[String],
-    pendingFollowers: [{type: String, unique: true}],
-    followers: [{type: String, unique: true}],
-    pendingFollowing: [{type: String, unique: true}],
-    following: [{type: String, unique: true}],
+    photo: [{type: Schema.Types.ObjectId, ref: 'Photo'}], //[String],
+    pendingFollowers: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    followers: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    pendingFollowing: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    following: [{type: Schema.Types.ObjectId, ref: 'User'}],
     profilePic: {type: String}, //url
     bio: {type: String},
 });
 
 let User = mongoose.model('User', userSchema);
 
-//export?
 module.exports = User;
