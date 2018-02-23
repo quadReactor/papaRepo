@@ -54,11 +54,11 @@ This repo serves as the homepage for HRLA20 greenField project
 *  put('/:username/follower');  approve follower
 *  delete('/:username/follower'); remove follower
 
-### comment ### 
+### Comment ### 
 
 *  get('/:username/:photoId/comments')
 
-### retrieve comments for individual photo to render ###
+### Retrieve Comments for Individual Photo ###
 
 *  post('/:username/:photoId/comments') add
 
@@ -67,7 +67,7 @@ This repo serves as the homepage for HRLA20 greenField project
 *  put('/:username/:photoId/comments'); edit
 
 
-### *Post New Photo ###
+### Post New Photo ###
 
 *  post('/:username/content'); add new post
 
