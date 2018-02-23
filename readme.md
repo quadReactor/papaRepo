@@ -31,11 +31,12 @@ This repo serves as the homepage for HRLA20 greenField project
 
 ## Scheme ##
 
-What | When | How Much
---- | --- | ---
-User  | Mon, 15 Sep | 1%
-Photos       | Sun, 28 Sep, 10 p.m. | 9%
-Comment | Fri, 10 Oct, 10 pm  | 8% 
+           | Users           | 
+---        | ---             | ---
+User       |String           | Uniq
+Photos     | [Photo_id]      |
+Followers  | [type = string] |
+Bio        | string          | 
 
 *Note:* We must fill this
 
