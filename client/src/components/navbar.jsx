@@ -5,48 +5,49 @@ import style from './../css/navbar.css'
 
 const NavBar = ({path, dispatch}) => (
     <ul className={style.navbar}>
-    <li>
-    <span
+    <li className={style.homeleft}>
+      <a
       role='link'
       tabIndex='0'
       className={isActive(path, '/')}
       onClick={() => dispatch({ type: 'HOME' })}
     >
-      <img className={style.logo} src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" />
-      <span className={style.billabong}>InstaSmurf</span>
-    </span>
+      <div className={style.home}>
+      <div><img className={style.logo} src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" /></div>
+      <div className={style.billabong}>InstaSmurf</div>
+      </div>
+      </a>
     </li>
 
-    <li>
-    <span
+    <li className={style.left}>
+      <a
       role='link'
       tabIndex='0'
       className={isActive(path, '/profile')}
       onClick={() => dispatch({ type: 'PROFILE', payload: { category: 'profile' } })}
     >
       Profile
-    </span>
+      </a>
     </li>
-    <li>
-    <span
+    <li className={style.left}>
+      <a
       role='link'
       tabIndex='0'
       className={isActive(path, '/follow')}
       onClick={() => dispatch({ type: 'follow', payload: { category: 'follow' } })}
     >
       Followers/Following
-    </span>
+      </a>
     </li>
-    <li>
-    <span 
-      className ={style.logout}
+    <li className ={style.logout}>
+      <a
       role='link'
       tabIndex='0'
       className={isActive(path, '/logout')}
       onClick={() => dispatch({ type: 'logout', payload: { category: 'logout' } })}
     >
       Logout
-    </span>
+    </a>
     </li>
   </ul>  
 ) 

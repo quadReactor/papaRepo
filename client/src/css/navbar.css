@@ -45,36 +45,78 @@ background: rgb(43, 47, 80);
 } */
 
 body {
-  display: block;
+  display: inline;
   margin: 0px;
+  background-color: rgb(43, 93, 200);
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-li span {
+a {
   display: block;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  text-decoration: none;
+  padding: 8px;
+  background-color: #e7e7e7;
+}
+ul {
+  cursor: pointer;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  background-color: #e7e7e7;
+}
+.homeleft {
+  float: left;
+
+  padding-top: 5px;
 }
 
-li {
+.left {
   float: left;
-  width: 10%
+  padding: 14px 16px;
+
 }
 
 .logout {
   float: right;
+  padding: 14px 16px;
+
 }
+
+a:hover {
+  color: rgb(143, 187, 248);
+}
+
+.homeleft :hover {
+  color: rgb(143, 187, 248);
+}
+
+li {
+  border-right: 1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+  border-left: 1px solid #bbb;;
+}
+li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  padding: 0px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(243, 49, 49);
+}
+
+
+li a .home{
+  padding: 0px;
+  padding-right: 20px;
+} 
+
 
 .logo {
   width: 40px;
-  padding: 4px 4px;
 }
 
 @font-face {
@@ -83,5 +125,23 @@ li {
 }
 
 .billabong {
+  padding: 5px 5px;
   font-family: 'billabong';
+  font-size: 30px;
+  color: rgb(243, 49, 49);
+}
+
+
+
+.home {
+  display: flex;
+}
+
+.active {
+  background-color: rgb(255, 142, 142);
+  color: white;
+}
+
+.active .home{
+  background-color: #e7e7e7;
 }
