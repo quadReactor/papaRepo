@@ -85,8 +85,10 @@ This repo serves as the homepage for HRLA20 greenField project
 ---        | ---          | ---
 User       |String        | Uniq
 UserId     |String        | Uniq
-Followers  |Array         | 
+Followers  |String Array         | 
+Pending Followers  |Array         | 
 Following  |Array         | 
+Pending Following  |Array       
 ProfilePic |String        | 
 Bio        |String        |
 
