@@ -32,7 +32,7 @@ This repo serves as the homepage for HRLA20 greenField project
 
 *get('/');
 
-//Sign up
+### Sign up ###
 
 *post("/login");
 
@@ -40,7 +40,7 @@ This repo serves as the homepage for HRLA20 greenField project
 
 *post("/logout");
 
-// Render Feed
+### Render Feed ###
 
 *get('/:username')
 
@@ -48,37 +48,36 @@ This repo serves as the homepage for HRLA20 greenField project
 
 *get('/:username/all')
 
-// Modify Followers 
+### Modify Followers ###
 
-router.post('/:username/follower', () => {}); // add follower
-router.put('/:username/follower', () => {}); // approve follower
-router.delete('/:username/follower', () => {}); // remove follower
+*post('/:username/follower');  add follower
+*put('/:username/follower');  approve follower
+*delete('/:username/follower'); remove follower
 
-// comment 
+### comment ### 
 
-router.get('/:username/:photoId/comments', (req, res) => {
-  //params now has two things in the object, username and photoID
-  console.log(req.params.photoId)
-  res.send("hiiii")
+get('/:username/:photoId/comments')
 
-}); //retrieve comments for individual photo to render
-router.post('/:username/:photoId/comments', () => {}); // add
+### retrieve comments for individual photo to render ###
 
-router.delete('/:username/:photoId/comments', () => {}); //delete
+*post('/:username/:photoId/comments') add
 
-router.put('/:username/:photoId/comments', () => {}); //edit 
+*delete('/:username/:photoId/comments') delete
 
-// Post New Photo ---------------------------------------------
+*put('/:username/:photoId/comments'); edit
 
-router.post('/:username/content', () => {}); // add new post
 
-router.delete('/:username/content', () => {}); // delete post
+###Post New Photo ###
 
-// Likes --------------------------------------------------------
+*post('/:username/content'); add new post
 
-router.post('/:photoId/like', () => {}); // add a like
+*router.delete('/:username/content'); delete post
 
-router.delete('/:photoId/like', () => {}); // remove a like
+### Likes ###
+
+post('/:photoId/like') add a like
+
+delete('/:photoId/like') remove a like
 
 ## Scheme ##
 
