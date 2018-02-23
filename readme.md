@@ -31,7 +31,7 @@ This repo serves as the homepage for HRLA20 greenField project
 
 ## Scheme ##
 
-           | Users           | 
+---        | Users           | ---
 ---        | ---             | ---
 User       |String           | Uniq
 Photos     | [Photo_id]      |
