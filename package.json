@@ -24,6 +24,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint-config-airbnb-bundle": "^1.2.0",
     "history": "^4.7.2",
     "nodemon": "^1.15.1",
     "react": "^16.2.0",
