@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-import photo from './photos';
-
-const Schema = mongoose.Schema
+import Photo from './photos';
+import User from './users';
+const Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
-  user : {type: String},
-  photo: [{type: Schema.Types.ObjectId, ref: 'photo'}],//{type: Number},
+  _id: Schema.Types.ObjectId,
+  user : {type: Schema.Types.ObjectId, ref: 'User'},
+  photo: {type: Schema.Types.ObjectId, ref: 'Photo'},
   text: {type: String},
   date: { type: Date, default: Date.now } //timeStamp 
     
