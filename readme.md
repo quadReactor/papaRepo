@@ -67,7 +67,7 @@ get('/:username/:photoId/comments')
 *put('/:username/:photoId/comments'); edit
 
 
-###Post New Photo ###
+### *Post New Photo ###
 
 *post('/:username/content'); add new post
 
