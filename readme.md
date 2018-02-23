@@ -1,7 +1,9 @@
 # greenField - instaSmurf #
 
+This repo serves as the homepage for HRLA20 greenField project. Backend in in Node and Node Express Library. Database is Mongo with Mongoose ORD. Amazon Web Services AWS-S3 will be used to host files. Firebase Will be used for login page and OAuth.
 
-# git workflow # 
+
+## Git Workflow ## 
 create org repo
 everyone clone org repo
 create feature branch
@@ -11,22 +13,19 @@ when finished
 *   git push origin FEATURE_NAME
 make pull request from feature branch to master
  
-//to get latest changes
-* git checkout master
-* git pull origin master
-* git checkout FEATURE_NAME
-* git rebase master
+### Getting Latest Changes ###
+*  git checkout master
+*  git pull origin master
+*  git checkout FEATURE_NAME
+*  git rebase master
 MASTER ONLY PULL AND REBASE
-
-
-This repo serves as the homepage for HRLA20 greenField project
 
 ## General Info ##
 
- * Master: John
-   * 1
-   * 2
-   * 3
+ * Master: John AWS S3 / Seed / Redux Front
+   * Front End Lead Jack
+   * Schema & Front Jeremy
+   * Schema and OAuth (firebase)
 
 ## Router ##
 
