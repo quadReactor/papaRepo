@@ -4,16 +4,20 @@ import Link, { NavLink } from 'redux-first-router-link';
 import style from './../css/navbar.css'
 
 const NavBar = ({path, dispatch}) => (
-    <div className={style.navbar}>
+    <ul className={style.navbar}>
+    <li>
     <span
       role='link'
       tabIndex='0'
       className={isActive(path, '/')}
       onClick={() => dispatch({ type: 'HOME' })}
     >
-      <img src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" />
+      <img className={style.logo} src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" />
+      <span className={style.billabong}>InstaSmurf</span>
     </span>
+    </li>
 
+    <li>
     <span
       role='link'
       tabIndex='0'
@@ -22,7 +26,8 @@ const NavBar = ({path, dispatch}) => (
     >
       Profile
     </span>
-
+    </li>
+    <li>
     <span
       role='link'
       tabIndex='0'
@@ -31,7 +36,8 @@ const NavBar = ({path, dispatch}) => (
     >
       Followers/Following
     </span>
-
+    </li>
+    <li>
     <span 
       className ={style.logout}
       role='link'
@@ -41,10 +47,9 @@ const NavBar = ({path, dispatch}) => (
     >
       Logout
     </span>
-  </div>  
-)
-
-console.log(style.navbar)
+    </li>
+  </ul>  
+) 
  
 
 const isActive = (actualPath, expectedPath) =>

@@ -18,6 +18,6 @@ export default {
     path: '/signup'
   }, 
   LOGOUT: {
-    path: '/signup'
+    path: '/logout'
   } 
 }
