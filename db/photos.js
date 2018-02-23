@@ -1,21 +1,13 @@
-const mongoose = require('mongoose');
-import Comment from './comment';
-import User from './users';
-import Photo from './photos'
-
+import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-var photosSchema = new Schema({
-    _id: Schema.Types.ObjectId,
-    users: {type: Schema.Types.ObjectId, ref: 'User'},
+const photosSchema = new Schema({
+    users: {type: String},
     description: String,
     photoUrl: String,
-    likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    comments: [{type: Schema.Types.ObjectId, ref: 'Photo'}],
-
+    likes: [{type: String}], //users
 });
 
-let Photo = mongoose.model('Photo', photosSchema);
+const Photo = mongoose.model('Photo', photosSchema);
 
-//export?
-module.exports = Photos;
+export default Photo;

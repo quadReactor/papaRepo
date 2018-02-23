@@ -1,17 +1,14 @@
-const mongoose = require('mongoose');
-import Photo from './photos';
-import User from './users';
+import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
-var commentSchema = new Schema({
-  _id: Schema.Types.ObjectId,
-  user : {type: Schema.Types.ObjectId, ref: 'User'},
-  photo: {type: Schema.Types.ObjectId, ref: 'Photo'},
+const commentSchema = new Schema({
+  user : {type: String},
+  photo: {type: Number}, //grap id from photo
   text: {type: String},
   date: { type: Date, default: Date.now } //timeStamp 
     
 });
 
-let Comment = mongoose.model('Comment', commentSchema)
+const Comment = mongoose.model('Comment', commentSchema)
 
-module.exports = Comment;
+export default Comment
