@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Link, { NavLink } from 'redux-first-router-link';
-import styles from './../css/navbar.css'
+import style from './../css/navbar.css'
 
 const NavBar = ({path, dispatch}) => (
-  <div>
+    <div className={style.navbar}>
     <span
       role='link'
       tabIndex='0'
@@ -33,7 +33,7 @@ const NavBar = ({path, dispatch}) => (
     </span>
 
     <span 
-      className = {styles.logout}
+      className ={style.logout}
       role='link'
       tabIndex='0'
       className={isActive(path, '/logout')}
@@ -43,10 +43,12 @@ const NavBar = ({path, dispatch}) => (
     </span>
   </div>  
 )
+
+console.log(style.navbar)
  
 
 const isActive = (actualPath, expectedPath) =>
-  actualPath === expectedPath ? styles.active : ''
+  actualPath === expectedPath ? style.active : ''
 
 const mapStateToProps = state => ({
   path: state.location.pathname
