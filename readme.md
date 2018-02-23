@@ -31,12 +31,28 @@ This repo serves as the homepage for HRLA20 greenField project
 
 ## Scheme ##
 
----        | Users           | ---
----        | ---             | ---
-User       |String           | Uniq
-Photos     | [Photo_id]      |
-Followers  | [type = string] |
-Bio        | string          | 
+---        | Users        | ---
+---        | ---          | ---
+User       |String        | Uniq
+UserId     |String        | Uniq
+Followers  |Array         | 
+Following  |Array         | 
+ProfilePic |String        | 
+Bio        |String        |
+
+---        | Comment      | ---
+---        | ---          | ---
+User       |String        | 
+Photo      |IDphoto       | 
+Text       |String        | 
+Date       |TimeStamp     | 
+
+---        | Photo        | ---
+---        | ---          | ---
+User       |String        | 
+PhotoUrl   |String        | 
+Description|String        | 
+Likes      |String Array  | 
 
 *Note:* We must fill this
 
