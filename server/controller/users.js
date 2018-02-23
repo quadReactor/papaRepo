@@ -104,11 +104,17 @@ module.exports = {
   },
 //Likes
   addLike: (req, res) => {
-    
+    Photo.findOneAndUpdate({_id: req.body.photo},{$push: {likes: req.params.username}}).exec((err,data)=>{
+      res.send("Liked")
+      //front end needs to list for update on event to rerender like count
+    })
   },
 
   removeLike: (req, res) => {
-    
+    Photo.findOneAndUpdate({_id: req.body.photo},{$pull: {likes: req.params.username}}).exec((err,data)=>{
+      res.send("Liked")
+      //front end needs to list for update on event to rerender like count
+    })
   },
 
 };
