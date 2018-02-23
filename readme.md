@@ -22,7 +22,7 @@ MASTER ONLY PULL AND REBASE
 
 ## General Info ##
 
- *  Master: John AWS S3 / Seed / Redux Front
+   * John AWS S3 / Seed / Redux Front
    * Front End Lead Jack
    * Schema & Front Jeremy
    * Schema and OAuth (firebase)
