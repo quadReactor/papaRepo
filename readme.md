@@ -28,6 +28,57 @@ This repo serves as the homepage for HRLA20 greenField project
    * 2
    * 3
 
+## Router ##
+
+*get('/');
+
+//Sign up
+
+*post("/login");
+
+*post("/signup");
+
+*post("/logout");
+
+// Render Feed
+
+*get('/:username')
+
+*get('/:username/follower')
+
+*get('/:username/all')
+
+// Modify Followers 
+
+router.post('/:username/follower', () => {}); // add follower
+router.put('/:username/follower', () => {}); // approve follower
+router.delete('/:username/follower', () => {}); // remove follower
+
+// comment 
+
+router.get('/:username/:photoId/comments', (req, res) => {
+  //params now has two things in the object, username and photoID
+  console.log(req.params.photoId)
+  res.send("hiiii")
+
+}); //retrieve comments for individual photo to render
+router.post('/:username/:photoId/comments', () => {}); // add
+
+router.delete('/:username/:photoId/comments', () => {}); //delete
+
+router.put('/:username/:photoId/comments', () => {}); //edit 
+
+// Post New Photo ---------------------------------------------
+
+router.post('/:username/content', () => {}); // add new post
+
+router.delete('/:username/content', () => {}); // delete post
+
+// Likes --------------------------------------------------------
+
+router.post('/:photoId/like', () => {}); // add a like
+
+router.delete('/:photoId/like', () => {}); // remove a like
 
 ## Scheme ##
 
