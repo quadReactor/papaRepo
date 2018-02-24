@@ -5,7 +5,7 @@ import routesMap from './routesMap'
 import * as reducers from './reducers'
 
 export default (history, preloadedState) => {
-  const { reducer, middleware, enhancers, thunk } = connectRoutes(
+  const { reducer, middleware, enhancers } = connectRoutes(
     history,
     routesMap
   )
