@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import App from './components/app.jsx';
 import configureStore from './configureStore';
+import Routes from './routesMap.js'
 
 import axios from 'axios';
 
@@ -14,5 +15,6 @@ const  store  = configureStore(history);
 render(
   <Provider store={store}>
     <App />
+    <Routes/>
   </Provider>
   , document.getElementById('app'));
