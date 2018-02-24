@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './post';
+import Post from './post.jsx';
 
 const Feed = () => (
   <div>
@@ -7,7 +7,7 @@ const Feed = () => (
     <Post />
     <Post />
     <Post />
-  </div>  
-)
- 
-export default Feed; 
+  </div>
+);
+
+export default Feed;

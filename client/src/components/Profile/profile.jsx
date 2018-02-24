@@ -1,11 +1,12 @@
 import React from 'react';
-import Post from './post';
+import Post from './../Feed/post.jsx';
 
 const Profile = () => (
   <div>
     Profile Page!
     <Post />
-  </div>  
-)
- 
-export default Profile; 
+  </div>
+);
+
+export default Profile;
+
