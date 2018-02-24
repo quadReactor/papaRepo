@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const photosSchema = new Schema({
-  users: { type: String },
+  user: { type: String },
   description: String,
   photoUrl: String,
   likes: [{ type: String }] //users
