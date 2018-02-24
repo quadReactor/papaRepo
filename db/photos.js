@@ -1,15 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const Schema = mongoose.Schema
-
-var photosSchema = new Schema({
-    // photo: String,
-    photoUrl: String,
-    likes: [String]
-
+const photosSchema = new Schema({
+  users: { type: String },
+  description: String,
+  photoUrl: String,
+  likes: [{ type: String }] //users
 });
 
-let Photos = mongoose.model('Photos', photosSchema);
+const Photo = mongoose.model("Photo", photosSchema);
 
-//export?
-module.exports = Photos;
+module.exports = Photo;

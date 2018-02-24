@@ -1,6 +1,10 @@
 const express = require("express");
 const router = require("express").Router();
-// const dbController = require("../controller");
+
+const commentCtrl = require("../controller/comments")
+const photosCtrl = require('../controller/photos.js')
+const userCtrl = require('../controller/users')
+
 
 //Sign up ----------------------------------------
 router.get('/', () => {});
@@ -10,8 +14,14 @@ router.post("/logout", () => {});
 
 //Render Feed ----------------------------------------
 // get calls photo collection 
-router.get('/:username', () => {}); 
-router.get('/:username/follower', () => {});
+router.get('/:username', (req, res) => {
+  res.send("hi")
+}); 
+router.get('/:username/follower', (req, res) => {
+  // req.params.username gives us username
+  console.log(req.params.username)
+  res.send("what up homie")
+});
 router.get('/:username/all', () => {});
 
 // Modify Followers --------------------------------------------------
@@ -21,7 +31,12 @@ router.delete('/:username/follower', () => {}); // remove follower
 
 // comment ---------------------------------------------------
 
-router.get('/:username/:photoId/comments', () => {}); //retrieve comments for individual photo to render
+router.get('/:username/:photoId/comments', (req, res) => {
+  //params now has two things in the object, username and photoID
+  console.log(req.params.photoId)
+  res.send("hiiii")
+
+}); //retrieve comments for individual photo to render
 router.post('/:username/:photoId/comments', () => {}); // add
 router.delete('/:username/:photoId/comments', () => {}); //delete
 router.put('/:username/:photoId/comments', () => {}); //edit 
