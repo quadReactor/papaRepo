@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { selectUser } from './../actions/index';
  
 //Component: 
-class UserList extends Componet {
+class UserList extends Component {
   render () {
     return (
       <h1> World </h1>
     )
   }
-}
+} 
 
 //Container:
 // takes users from store and adds them as property of this component 

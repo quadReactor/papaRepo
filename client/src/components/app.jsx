@@ -4,8 +4,6 @@ import NavBar from './navbar'
 
 const App = () => (
   <div>
-    Hello 
-    <UserList />  
     <NavBar />
   </div>  
 )

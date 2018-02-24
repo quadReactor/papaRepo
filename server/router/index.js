@@ -8,11 +8,8 @@ const userCtrl = require('../controller/users')
 
 //Sign up ----------------------------------------
 router.get('/', () => {});
-
 router.post("/login", () => {});
-
 router.post("/signup", () => {});
-
 router.post("/logout", () => {});
 
 //Render Feed ----------------------------------------
@@ -41,21 +38,17 @@ router.get('/:username/:photoId/comments', (req, res) => {
 
 }); //retrieve comments for individual photo to render
 router.post('/:username/:photoId/comments', () => {}); // add
-
 router.delete('/:username/:photoId/comments', () => {}); //delete
-
 router.put('/:username/:photoId/comments', () => {}); //edit 
 
 // Post New Photo ---------------------------------------------
 
 router.post('/:username/content', () => {}); // add new post
-
 router.delete('/:username/content', () => {}); // delete post
 
 // Likes --------------------------------------------------------
 
 router.post('/:photoId/like', () => {}); // add a like
-
 router.delete('/:photoId/like', () => {}); // remove a like
 
 module.exports = router;

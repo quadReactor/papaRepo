@@ -1,0 +1,147 @@
+/* .navbar {
+  width: 150px;
+  margin-left: 5px;
+  z-index: 2;
+}
+h2 {
+  font-size: 11px;
+  color: #646464;
+  font-weight: normal;
+  margin-top: 0px;
+  text-shadow: 1px 1px 1px #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+}
+.navbar a, .navbar span {
+  display: inline;
+  color: white;
+  background: rgb(35, 40, 42);
+  margin: 6px 0;
+  padding: 10px;
+  font-size: 0.875rem;
+  line-height: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: 0.3s ease all;
+}
+
+.navbar .active {
+  background-image: linear-gradient(270deg, #fed29d, #A58B66, rgb(255, 44, 145), rgb(200, 43, 48));
+  background-size: 720%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  transition: 0s ease all;
+}
+.navbar a:hover, .navbar span:hover {
+background: rgb(43, 47, 80);
+}
+.navbar .active a:hover, .navbar .span span:hover {
+  background: rgb(43, 93, 200);
+}
+
+.navbar .active:hover {
+  background: rgb(30, 146, 255);
+} */
+
+body {
+  display: inline;
+  margin: 0px;
+  background-color: rgb(43, 93, 200);
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #e7e7e7;
+}
+ul {
+  cursor: pointer;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  background-color: #e7e7e7;
+}
+.homeleft {
+  float: left;
+
+  padding-top: 5px;
+}
+
+.left {
+  float: left;
+  padding: 14px 16px;
+
+}
+
+.logout {
+  float: right;
+  padding: 14px 16px;
+
+}
+
+a:hover {
+  color: rgb(143, 187, 248);
+}
+
+.homeleft :hover {
+  color: rgb(143, 187, 248);
+}
+
+li {
+  border-right: 1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+  border-left: 1px solid #bbb;;
+}
+li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  padding: 0px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(243, 49, 49);
+}
+
+
+li a .home{
+  padding: 0px;
+  padding-right: 20px;
+} 
+
+
+.logo {
+  width: 40px;
+}
+
+@font-face {
+  font-family: 'billabong';
+  src: url("./billabong.ttf");
+}
+
+.billabong {
+  padding: 5px 5px;
+  font-family: 'billabong';
+  font-size: 30px;
+  color: rgb(243, 49, 49);
+}
+
+
+
+.home {
+  display: flex;
+}
+
+.active {
+  background-color: rgb(255, 142, 142);
+  color: white;
+}
+
+.active .home{
+  background-color: #e7e7e7;
+}

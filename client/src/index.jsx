@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import axios from 'axios';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import createHistory from 'history/createBrowserHistory';
 import { createStore } from 'redux';
 import App from './components/app.jsx';
-import allReducers from './reducers/index'
-import { connectRoutes } from 'redux-first-router'
+import configureStore from './configureStore';
 
-const store = createStore(allReducers);
+import axios from 'axios';
+
+
+const history = createHistory();
+const { store } = configureStore(history)
 
 render(
   <Provider store={store}>
