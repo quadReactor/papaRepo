@@ -1,54 +1,44 @@
 const express = require("express");
 const router = require("express").Router();
 
-const commentCtrl = require("../controller/comments")
-const photosCtrl = require('../controller/photos.js')
-const userCtrl = require('../controller/users')
+const commentCtrl = require("../controller/comments");
+const photosCtrl = require('../controller/photos.js');
+const userCtrl = require('../controller/users');
 
 
 // Sign up ----------------------------------------
 router.get('/', () => {});
 router.post("/login", () => {});
-router.post("/signup", () => {});
+router.post("/signup", userCtrl.addUser);
 router.post("/logout", () => {});
 
 // Render Feed ----------------------------------------
 // get calls photo collection 
-router.get('/:username', (req, res) => {
-  res.send();
-}); 
-router.get('/:username/follower', (req, res) => {
-  // req.params.username gives us username
-  console.log(req.params.username)
-  res.send("what up homie")
-});
-router.get('/:username/all', () => {});
+router.get('/:username', userCtrl.userFeed); 
+router.get('/:username/follower', userCtrl.followerFeed);
+router.get('/:username/all', userCtrl.allFeed);
 
 // Modify Followers --------------------------------------------------
-router.post('/:username/follower', () => {}); // add follower
-router.put('/:username/follower', () => {}); // approve follower
-router.delete('/:username/follower', () => {}); // remove follower
+router.post('/:username/follower', userCtrl.addFollower); // add follower
+router.put('/:username/follower', userCtrl.acceptFollower); // approve follower
+router.delete('/:username/follower', userCtrl.deleteFollower); // remove follower
+router.delete('/:username/follower/pending', userCtrl.deletePending);
 
 // comment ---------------------------------------------------
 
-router.get('/:username/:photoId/comments', (req, res) => {
-  //params now has two things in the object, username and photoID
-  console.log(req.params.photoId)
-  res.send("hiiii")
-
-}); //retrieve comments for individual photo to render
-router.post('/:username/:photoId/comments', () => {}); // add
-router.delete('/:username/:photoId/comments', () => {}); //delete
-router.put('/:username/:photoId/comments', () => {}); //edit 
+router.get('/:username/:photoId/comments', userCtrl.getComments); //retrieve comments for individual photo to render
+router.post('/:username/:photoId/comments', userCtrl.postComment); // add
+router.delete('/:username/:photoId/comments', userCtrl.deleteComment); //delete
+router.put('/:username/:photoId/comments', userCtrl.editComment); //edit 
 
 // Post New Photo ---------------------------------------------
 
-router.post('/:username/content', () => {}); // add new post
-router.delete('/:username/content', () => {}); // delete post
+router.post('/:username/content', userCtrl.addContent); // add new post
+router.delete('/:username/content', userCtrl.deleteComment); // delete post
 
 // Likes --------------------------------------------------------
 
-router.post('/:photoId/like', () => {}); // add a like
-router.delete('/:photoId/like', () => {}); // remove a like
+router.post('/:photoId/like', userCtrl.addLike); // add a like
+router.delete('/:photoId/like', userCtrl.removeLike); // remove a like
 
 module.exports = router;

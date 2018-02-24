@@ -1,9 +1,24 @@
 // all functions goes here
-const User = require('../../db/users');
-const Comment = require('../../db/comment');
-const Photo = require('../../db/photos');
+const User = require("../../db/users");
+const Comment = require("../../db/comment");
+const Photo = require("../../db/photos");
+const db = require("../../db")
 
 module.exports = {
+
+  //Add new user signup
+  addUser: (req, res) => {
+    const newUser = new User({
+      username: req.body.username, //from firebase
+      userId: req.body.userId, //from firebase
+      profilePic: req.body.bio, //url
+      bio:  req.body.bio 
+    });
+    newUser.save();
+
+    res.send('User Added')
+  },
+
   // Render Feed
   userFeed: (req, res) => {
     Photo.find({ username: req.params.username })
@@ -17,12 +32,12 @@ module.exports = {
   },
 
   followerFeed: (req, res) => {
-    User.find({ username: req.params.username }).then((data) => {
+    User.find({ username: req.params.username }).then(data => {
       const friendPhotos = [];
       for (const friend of data[0].following) {
         Photo.find({ username: friend })
           .limit(10)
-          .then((data) => {
+          .then(data => {
             friendPhotos = friendPhotos.concat(data);
           });
       }
@@ -49,15 +64,15 @@ module.exports = {
     // i am trying to follow "person"
     User.findOneAndUpdate(
       { username: req.body.username },
-      { $push: { pendingFollowers: req.params.username } },
+      { $push: { pendingFollowers: req.params.username } }
     ) // verfiy how you send up data req.body....
-      .then((data) => {
+      .then(data => {
         // data.pending
         User.findOneAndUpdate(
           { username: req.params.username },
-          { $push: { pendingFollowing: req.body.username } },
+          { $push: { pendingFollowing: req.body.username } }
         ).then(() => {
-          res.send('Pending Approval');
+          res.send("Pending Approval");
         });
       });
   },
@@ -67,40 +82,43 @@ module.exports = {
     // update of me
     User.findOneAndUpdate(
       { username: req.params.username },
-      { $push: { followers: req.body.username } },
+      { $push: { followers: req.body.username } }
     ) // verfiy how you send up data req.body....
-      .then(data =>
-        // data.pending
-        User.findOneAndUpdate(
-          { username: req.params.username },
-          { $pull: { pendingfollowers: { $in: [req.body.username] } } },
-        ), // verfiy how you send up data req.body....
+      .then(
+        data =>
+          // data.pending
+          User.findOneAndUpdate(
+            { username: req.params.username },
+            { $pull: { pendingfollowers: { $in: [req.body.username] } } }
+          ) // verfiy how you send up data req.body....
       )
       // updating the guy who wants to follow
-      .then(data =>
-        User.findOneAndUpdate(
-          { username: req.body.username },
-          { $push: { following: req.params.username } },
-        ), // verfiy how you send up data req.body....
+      .then(
+        data =>
+          User.findOneAndUpdate(
+            { username: req.body.username },
+            { $push: { following: req.params.username } }
+          ) // verfiy how you send up data req.body....
       )
       .then(data =>
         User.findOneAndUpdate(
           { username: req.body.username },
-          { $pull: { pendingfollowing: { $in: [req.params.username] } } },
-        ))
-      .then(data => res.send('you have finally accepted a follower'));
+          { $pull: { pendingfollowing: { $in: [req.params.username] } } }
+        )
+      )
+      .then(data => res.send("you have finally accepted a follower"));
   },
 
   deleteFollower: (req, res) => {
     User.findOneAndUpdate(
       { username: req.params.username },
-      { $pull: { followers: { $in: [req.body.username] } } },
+      { $pull: { followers: { $in: [req.body.username] } } }
     ).then(() => {
       User.findOneAndUpdate(
         { username: req.body.username },
-        { $pull: { following: { $in: [req.params.username] } } },
+        { $pull: { following: { $in: [req.params.username] } } }
       ).exec((err, data) => {
-        res.send('we deleted the follower');
+        res.send("we deleted the follower");
       });
     });
   },
@@ -108,13 +126,13 @@ module.exports = {
   deletePending: (req, res) => {
     User.findOneAndUpdate(
       { username: req.params.username },
-      { $pull: { pendingFollowers: { $in: [req.body.username] } } },
+      { $pull: { pendingFollowers: { $in: [req.body.username] } } }
     ).then(() => {
       User.findOneAndUpdate(
         { username: req.body.username },
-        { $pull: { pendingFollowing: { $in: [req.params.username] } } },
+        { $pull: { pendingFollowing: { $in: [req.params.username] } } }
       ).exec((err, data) => {
-        res.send('we deleted pending the follower');
+        res.send("we deleted pending the follower");
       });
     });
   },
@@ -122,7 +140,7 @@ module.exports = {
   // Comment
 
   getComments: (req, res) => {
-    comments.find({ photo: req.body.photo }).exec((err, data) => {
+    Comment.find({ photo: req.body.photo }).exec((err, data) => {
       if (err) {
         throw err;
       } else {
@@ -138,56 +156,65 @@ module.exports = {
     const newComment = new Comment({
       user: req.params.username,
       photo: req.body.photo,
-      text: req.body.text,
+      description: req.body.text
     });
     newComment.save();
+    res.send('Comment Posted');
   },
 
   deleteComment: (req, res) => {
-    Comment.remove({ _id: req.body.id }, (err) => {
+    Comment.remove({ _id: req.body.id }, err => {
       if (err) {
         throw err;
       } else {
-        res.send('deleted the comment');
+        res.send("deleted the comment");
       }
     });
   },
 
   editComment: (req, res) => {
-    Comment.findOneAndUpdate({ _id: req.body.id }, { $set: { text: req.body.text } }, (err) => {
-      if (err) {
-        throw err;
-      } else {
-        res.send('updated the comment');
+    Comment.findOneAndUpdate(
+      { _id: req.body.id },
+      { $set: { text: req.body.text } },
+      err => {
+        if (err) {
+          throw err;
+        } else {
+          res.send("updated the comment");
+        }
       }
-    });
+    );
   },
 
   // Posting new images
 
   addContent: (req, res) => {
     const newPhoto = new Photo({
-      user: req.body.username,
-      description: req.body.descripition,
+      user: req.params.username,
+      description: req.body.description,
       photoUrl: req.body.photoUrl,
-      likes: [],
+      likes: []
     });
     newPhoto.save();
+    res.send("Added Photo")
   },
 
   deleteContent: (req, res) => {
-    Photo.remove({ _id: req.body.id }, (err) => {
+    Photo.remove({ _id: req.body.id }, err => {
       if (err) {
         throw err;
       } else {
-        res.send('deleted the photo');
+        res.send("deleted the photo");
       }
     });
   },
   // Likes
   addLike: (req, res) => {
-    Photo.findOneAndUpdate({ _id: req.body.photo }, { $push: { likes: req.params.username } }).exec((err, data) => {
-      res.send('Liked');
+    Photo.findOneAndUpdate(
+      { _id: req.body.photo },
+      { $push: { likes: req.params.username } }
+    ).exec((err, data) => {
+      res.send("Liked");
       // front end needs to list for update on event to rerender like count
     });
   },
@@ -196,9 +223,11 @@ module.exports = {
     Photo.findOneAndUpdate(
       { _id: req.body.photo },
       {
-        $pull: { likes: { $in: [req.params.username] } },
+        $pull: { likes: { $in: [req.params.username] } }
         // front end needs to list for update on event to rerender like count
-      },
-    );
-  },
+      }
+    ).then(() => {
+      res.send('Removed Like');
+    });
+  }
 };
