@@ -5,7 +5,6 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon server",
-    "test": "mocha test",
     "dev-react": "webpack -d --watch"
   },
   "repository": {
