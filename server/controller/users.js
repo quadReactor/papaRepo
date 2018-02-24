@@ -122,8 +122,8 @@ module.exports = {
       });
     });
   },
-
-  deletePending: (req, res) => {
+// person being followed reject follower
+  denyRequest: (req, res) => {
     User.findOneAndUpdate(
       { username: req.params.username },
       { $pull: { pendingFollowers: { $in: [req.body.username] } } }
@@ -131,6 +131,20 @@ module.exports = {
       User.findOneAndUpdate(
         { username: req.body.username },
         { $pull: { pendingFollowing: { $in: [req.params.username] } } }
+      ).exec((err, data) => {
+        res.send("we deleted pending the follower");
+      });
+    });
+  },
+  // person being followed reject follower
+  deletePending: (req, res) => {
+    User.findOneAndUpdate(
+      { username: req.params.username },
+      { $pull: { pendingFollowing: { $in: [req.body.username] } } }
+    ).then(() => {
+      User.findOneAndUpdate(
+        { username: req.body.username },
+        { $pull: { pendingFollowers: { $in: [req.params.username] } } }
       ).exec((err, data) => {
         res.send("we deleted pending the follower");
       });
@@ -155,8 +169,8 @@ module.exports = {
     // req.body.photo - photo reference
     const newComment = new Comment({
       user: req.params.username,
-      photo: req.body.photo,
-      description: req.body.text
+      photoId: req.params.photoId,
+      text: req.body.text
     });
     newComment.save();
     res.send('Comment Posted');
@@ -190,7 +204,7 @@ module.exports = {
 
   addContent: (req, res) => {
     const newPhoto = new Photo({
-      user: req.params.username,
+      username: req.params.username,
       description: req.body.description,
       photoUrl: req.body.photoUrl,
       likes: []
@@ -211,7 +225,7 @@ module.exports = {
   // Likes
   addLike: (req, res) => {
     Photo.findOneAndUpdate(
-      { _id: req.body.photo },
+      { _id: req.params.photoId },
       { $push: { likes: req.params.username } }
     ).exec((err, data) => {
       res.send("Liked");
@@ -221,7 +235,7 @@ module.exports = {
 
   removeLike: (req, res) => {
     Photo.findOneAndUpdate(
-      { _id: req.body.photo },
+      { _id: req.params.photoId },
       {
         $pull: { likes: { $in: [req.params.username] } }
         // front end needs to list for update on event to rerender like count

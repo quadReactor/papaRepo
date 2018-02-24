@@ -22,7 +22,9 @@ router.get('/:username/all', userCtrl.allFeed);
 router.post('/:username/follower', userCtrl.addFollower); // add follower
 router.put('/:username/follower', userCtrl.acceptFollower); // approve follower
 router.delete('/:username/follower', userCtrl.deleteFollower); // remove follower
-router.delete('/:username/follower/pending', userCtrl.deletePending);
+router.delete('/:username/follower/pending', userCtrl.denyRequest); // deny follower
+
+router.delete('/:username/following/pending', userCtrl.deletePending);// stop following before accept
 
 // comment ---------------------------------------------------
 
