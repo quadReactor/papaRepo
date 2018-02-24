@@ -24,7 +24,7 @@ const NavBar = ({path, dispatch}) => (
       role='link'
       tabIndex='0'
       className={isActive(path, '/profile')}
-      onClick={() => dispatch({ type: 'PROFILE', payload: { category: 'profile' } })}
+      onClick={() => dispatch({ type: 'PROFILE' })}
     >
       Profile
       </a>
@@ -34,7 +34,7 @@ const NavBar = ({path, dispatch}) => (
       role='link'
       tabIndex='0'
       className={isActive(path, '/follow')}
-      onClick={() => dispatch({ type: 'follow', payload: { category: 'follow' } })}
+      onClick={() => dispatch({ type: 'FOLLOW'})}
     >
       Followers/Following
       </a>
@@ -44,7 +44,7 @@ const NavBar = ({path, dispatch}) => (
       role='link'
       tabIndex='0'
       className={isActive(path, '/logout')}
-      onClick={() => dispatch({ type: 'logout', payload: { category: 'logout' } })}
+      onClick={() => dispatch({ type: 'LOGOUT'})}
     >
       Logout
     </a>
