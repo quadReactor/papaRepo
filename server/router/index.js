@@ -6,16 +6,16 @@ const photosCtrl = require('../controller/photos.js')
 const userCtrl = require('../controller/users')
 
 
-//Sign up ----------------------------------------
+// Sign up ----------------------------------------
 router.get('/', () => {});
 router.post("/login", () => {});
 router.post("/signup", () => {});
 router.post("/logout", () => {});
 
-//Render Feed ----------------------------------------
+// Render Feed ----------------------------------------
 // get calls photo collection 
 router.get('/:username', (req, res) => {
-  res.send("hi")
+  res.send();
 }); 
 router.get('/:username/follower', (req, res) => {
   // req.params.username gives us username

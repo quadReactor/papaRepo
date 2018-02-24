@@ -1,6 +1,6 @@
 // all functions goes here
 const User = require('../../db/users');
-const Comment = require('../../db/comments');
+const Comment = require('../../db/comment');
 const Photo = require('../../db/photos');
 
 module.exports = {
