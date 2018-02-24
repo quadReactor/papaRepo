@@ -1,11 +1,10 @@
 language: node_js
 node_js:
   - "stable"
- install:
-   - npm install
- services:
-   - mongodb
-script:
+install:
+  - npm install
+services:
+  - mongodb
   - npm run dev-react
   - npm run start
-after_success:
+script:
