@@ -177,7 +177,7 @@ module.exports = {
   },
 
   deleteComment: (req, res) => {
-    Comment.remove({ _id: req.body.id }, err => {
+    Comment.remove({ photoId: req.params.photoId }, err => {
       if (err) {
         throw err;
       } else {
@@ -188,7 +188,7 @@ module.exports = {
 
   editComment: (req, res) => {
     Comment.findOneAndUpdate(
-      { _id: req.body.id },
+      { photoId: req.params.photoId },
       { $set: { text: req.body.text } },
       err => {
         if (err) {
@@ -207,7 +207,6 @@ module.exports = {
       username: req.params.username,
       description: req.body.description,
       photoUrl: req.body.photoUrl,
-      likes: []
     });
     newPhoto.save();
     res.send("Added Photo")
