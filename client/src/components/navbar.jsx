@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Link from 'redux-first-router-link';
-import style from './../css/navbar.css'
+import style from './../css/navbar.css';
 
-export default props => {
-
-  return(
+export default () =>
+  (
+  <div className={style.fixed}>
     <div className={style.navbar}>
-      <Link 
+      <Link
         to='/'
-        className={style.homeleft} 
+        className={style.homeleft}
       >
         <div className={style.home}>
           <div>
             <img 
-            className={style.logo} 
+            className={style.logo}
             src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" 
             />
           </div>
@@ -22,17 +22,17 @@ export default props => {
         </div>
       </Link>
 
-      <Link to='/profile' className={style.left}> 
+      <Link to='/profile' className={style.profile} className={style.left}>
         Profile
       </Link>
 
-      <Link to='/follow' className={style.left}>
+      <Link to='/follow' className={style.follow}>
         Followers/Following
       </Link>
-      
+
       <Link to='/logout' className ={style.logout}>
         Logout
       </Link>
-    </div>  
-  )
-};
+    </div>
+    </div>
+  );

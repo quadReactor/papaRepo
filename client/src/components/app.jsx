@@ -1,13 +1,47 @@
-import React from 'react';
-import UserList from './user-list';
-import NavBar from './navbar';
-import Routes from './../routesMap.js';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const App = () => (
-  <div>
-    <NavBar />
-    <Routes />
-  </div>  
-)
- 
-export default App; 
+import Navbar from './navbar.jsx';
+import Feed from './Feed/feed.jsx';
+import Profile from './Profile/profile.jsx';
+import Login from './Login/login.jsx';
+import Follow from './Follow/follow.jsx';
+
+class App extends Component {
+  render() {
+    let route;
+
+    switch (this.props.page) {
+      case 'Feed':
+        route = <Feed />;
+        break;
+      case 'Profile':
+        route = <Profile />;
+        break;
+      case 'Login':
+        route = <Login />;
+        break;
+      case 'Follow':
+        route = <Follow />;
+        break;
+      default:
+        break;
+    }
+
+    return (
+      <div>
+        <Navbar />
+        {route}
+      </div>  
+    )
+  }
+}
+
+
+const mapStateToProps = (state) => {
+  return {
+    page: state.page
+  } 
+}
+
+export default connect(mapStateToProps)(App);
