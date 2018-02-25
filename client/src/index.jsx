@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 const history = createHistory();
-const  store  = configureStore(history);
+const store = configureStore(history);
 
 render(
   <Provider store={store}>

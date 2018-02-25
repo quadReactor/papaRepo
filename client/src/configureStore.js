@@ -1,27 +1,27 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 
-import { connectRoutes } from 'redux-first-router'
+import { connectRoutes } from 'redux-first-router';
 
-import routesMap from './routesMap'
-import options from './options'
-import * as reducers from './reducers'
-import * as actionCreators from './actions'
+import routesMap from './routesMap';
+import options from './options';
+import * as reducers from './reducers';
+import * as actionCreators from './actions';
 
-export default history => {
-  const { 
+export default (history) => {
+  const {
     reducer,
     middleware,
-    enhancer
-  } = connectRoutes(history, routesMap, options)
-  
+    enhancer,
+  } = connectRoutes(history, routesMap, options);
+
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionCreators })
-  : compose
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionCreators })
+    : compose;
 
-  const rootReducer = combineReducers({ ...reducers, location: reducer })
-  const middlewares = applyMiddleware(middleware)
-  const enhancers = composeEnhancers(enhancer, middlewares)
+  const rootReducer = combineReducers({ ...reducers, location: reducer });
+  const middlewares = applyMiddleware(middleware);
+  const enhancers = composeEnhancers(enhancer, middlewares);
 
 
-  return createStore(rootReducer, enhancers)
-}
+  return createStore(rootReducer, enhancers);
+};
