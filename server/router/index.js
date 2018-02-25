@@ -21,10 +21,10 @@ router.get('/:username/all', userCtrl.allFeed);
 // Modify Followers --------------------------------------------------
 router.post('/:username/follower', userCtrl.addFollower); // add follower
 router.put('/:username/follower', userCtrl.acceptFollower); // approve follower
-router.delete('/:username/follower', userCtrl.deleteFollower); // remove follower
-router.delete('/:username/follower/pending', userCtrl.denyRequest); // deny follower
+router.put('/:username/follower', userCtrl.deleteFollower); // remove follower
+router.put('/:username/follower/pending', userCtrl.denyRequest); // deny follower
 
-router.delete('/:username/following/pending', userCtrl.deletePending);// stop following before accept
+router.put('/:username/following/pending', userCtrl.deletePending);// stop following before accept
 
 // comment ---------------------------------------------------
 
