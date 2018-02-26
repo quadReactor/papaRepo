@@ -36,7 +36,7 @@ router.put('/:username/:photoId/comments', commentCtrl.editComment); // edit
 // Post New Photo ---------------------------------------------
 
 router.post('/:username/content', photosCtrl.addContent); // add new post
-router.delete('/:username/content', photosCtrl.deleteComment); // delete post
+router.delete('/:username/content', photosCtrl.deleteContent); // delete post
 
 // Likes --------------------------------------------------------
 
