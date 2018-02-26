@@ -12,13 +12,13 @@ module.exports = {
     });
   },
 
-  addComment: (input) => {
+  addComment: (input, callback) => {
     const newComment = new Comment({
       user: input.params.username,
       photoId: input.params.photoId,
       text: input.body.text,
     });
-    newComment.save();
+    newComment.save(callback());
   },
 
   deleteComment: (input, callback) => {

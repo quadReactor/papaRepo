@@ -2,7 +2,7 @@ const User = require('../../db/users');
 const db = require('../../db');
 
 module.exports = {
-  addUser: (input) => {
+  addUser: (input, callback) => {
     const newUser = new User({
       username: input.body.username, // from firebase
       userId: input.body.userId, // from firebase
@@ -13,8 +13,7 @@ module.exports = {
       pendingFollowing: [],
       following: [],
     });
-    newUser.save();
-
+    newUser.save(callback());
   },
 
   findUser: (input, callback) => {
