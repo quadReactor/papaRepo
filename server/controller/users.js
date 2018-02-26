@@ -1,5 +1,5 @@
 // all functions goes here
-const User = require('../model/User');
+const User = require('../model/user');
 const Photo = require('../model/photo');
 // const User = require("../../db/users");
 // const Comment = require("../../db/comment");
