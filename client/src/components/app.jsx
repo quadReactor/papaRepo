@@ -39,9 +39,10 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
+
   return {
-    page: state.page
-  } 
-}
+    page: state.page,
+  };
+};
 
 export default connect(mapStateToProps)(App);

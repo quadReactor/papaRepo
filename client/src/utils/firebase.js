@@ -26,7 +26,6 @@ const FireBaseTools = {
 
   /**
    * Login with provider => p is provider "email", "facebook", "github", "google", or "twitter"
-   * Uses Popup therefore provider must be an OAuth provider. EmailAuthProvider will throw an error
    *
    * @returns {any|!firebase.Thenable.<*>|firebase.Thenable<any>}
    */
@@ -47,6 +46,18 @@ const FireBaseTools = {
     message: 'logout',
   })),
 
+  /**
+     * Retrieve the current user (Promise)
+     * @returns {Promise}
+     */
+  fetchUser: () => new Promise((resolve, reject) => {
+    const unsub = firebaseAuth.onAuthStateChanged((user) => {
+      unsub();
+      resolve(user);
+    }, (error) => {
+      reject(error);
+    });
+  })
   /**
    * Send an account email verification message for the currently logged in user
    *
@@ -71,15 +82,3 @@ const FireBaseTools = {
 export default FireBaseTools;
 
 
-/**
-   * Retrieve the current user (Promise)
-   * @returns {Promise}
-   */
-// fetchUser: () => new Promise((resolve, reject) => {
-//   const unsub = firebaseAuth.onAuthStateChanged((user) => {
-//     unsub();
-//     resolve(user);
-//   }, (error) => {
-//     reject(error);
-//   });
-// })

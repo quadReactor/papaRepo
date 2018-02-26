@@ -15,7 +15,7 @@ export default () =>
           <div>
             <img 
             className={style.logo}
-            src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png" 
+            src="http://icons.iconarchive.com/icons/iconshock/smurf/256/papa-smurf-icon.png"
             />
           </div>
         <div className={style.billabong}>InstaSmurf</div>

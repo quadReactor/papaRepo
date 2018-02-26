@@ -2,8 +2,8 @@ import FireBaseTools from '../utils/firebase';
 
 import {
   LOGIN_WITH_PROVIDER_FIREBASE,
-  // FETCH_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
+  FETCH_FIREBASE_USER,
 } from '../actions/types';
 
 function loginWithProvider(provider) {
@@ -14,9 +14,9 @@ function logoutUser(user) {
   FireBaseTools.logoutUser(user);
 }
 
-// function fetchUser() {
-//   FireBaseTools.fetchUser();
-// }
+function fetchUser() {
+  FireBaseTools.fetchUser();
+}
 
 export default function (state = null, action) {
   switch (action.type) {
@@ -26,8 +26,8 @@ export default function (state = null, action) {
     case LOGIN_WITH_PROVIDER_FIREBASE:
       return loginWithProvider(action.provider);
 
-    // case FETCH_FIREBASE_USER:
-    //   return fetchUser(action.user);
+    case FETCH_FIREBASE_USER:
+      return fetchUser(action.user);
 
     default:
       return state;

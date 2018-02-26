@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-
+import ReduxPromise from 'redux-promise';
 import { connectRoutes } from 'redux-first-router';
 
 import routesMap from './routesMap';
 import options from './options';
 import * as reducers from './reducers';
-import * as actionCreators from './actions';
+import * as actionCreators from './actions/types';
 
 export default (history) => {
   const {
@@ -19,7 +19,7 @@ export default (history) => {
     : compose;
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
-  const middlewares = applyMiddleware(middleware);
+  const middlewares = applyMiddleware(middleware, ReduxPromise);
   const enhancers = composeEnhancers(enhancer, middlewares);
 
 
