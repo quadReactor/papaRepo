@@ -10,12 +10,8 @@ module.exports = {
   // moved
   // Add new user signup
   addUser: (req, res) => {
-    User.addUser(req, (err) => {
-      if (err) {
-        throw err;
-      }
-      res.send('User Added');
-    });
+    User.addUser(req);
+    res.send('User Added');
   },
 
   // Render Feed
