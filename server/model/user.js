@@ -2,14 +2,14 @@ const User = require('../../db/users');
 const db = require('../../db');
 
 module.exports = {
-  addUser: (input) => {
+  addUser: (input, callback) => {
     const newUser = new User({
       username: input.body.username, // from firebase
       userId: input.body.userId, // from firebase
       profilePic: input.body.bio, // url
       bio: input.body.bio,
     });
-    newUser.save();
+    newUser.save().exec(callback);
   },
 
   findUser: (input, callback) => {
@@ -48,7 +48,7 @@ module.exports = {
     });
   },
 
-  addFollwers: (input, callback) => {
+  addFollowers: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
       { $push: { followers: input.body.username } },
@@ -61,7 +61,7 @@ module.exports = {
     });
   },
 
-  addFollwing: (input, callback) => {
+  addFollowing: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.body.username },
       { $push: { following: input.params.username } },
