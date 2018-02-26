@@ -9,7 +9,7 @@ const userSchema = new Schema({
   pendingFollowing: [{ type: String, unique: true }],
   following: [{ type: String, unique: true }],
   profilePic: { type: String }, //url
-  bio: { type: String }
+  bio: { type: String },
 });
 
 const User = mongoose.model("User", userSchema);

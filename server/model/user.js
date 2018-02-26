@@ -2,20 +2,19 @@ const User = require('../../db/users');
 const db = require('../../db');
 
 module.exports = {
-  addUser: (input, callback) => {
+  addUser: (input) => {
     const newUser = new User({
       username: input.body.username, // from firebase
       userId: input.body.userId, // from firebase
       profilePic: input.body.bio, // url
       bio: input.body.bio,
+      pendingFollowers: [],
+      followers: [],
+      pendingFollowing: [],
+      following: [],
     });
-    newUser.save().exec((err, data) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, data);
-      }
-    });
+    newUser.save();
+
   },
 
   findUser: (input, callback) => {
