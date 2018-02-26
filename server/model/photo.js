@@ -75,7 +75,6 @@ module.exports = {
       }
     });
   },
-
   removeLike: (input, callback) => {
     // front end needs to list for update on event to rerender like count
     Photo.findOneAndUpdate(
