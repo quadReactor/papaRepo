@@ -5,7 +5,7 @@ const Photo = require("../../db/photos");
 const db = require("../../db")
 
 module.exports = {
-
+//moved
   //Add new user signup
   addUser: (req, res) => {
     const newUser = new User({
@@ -21,6 +21,7 @@ module.exports = {
 
   // Render Feed
   userFeed: (req, res) => {
+    //moved
     Photo.find({ username: req.params.username })
       .limit(20)
       .exec((err, data) => {
@@ -32,6 +33,9 @@ module.exports = {
   },
 
   followerFeed: (req, res) => {
+//moved
+//findUser 
+//findFollowerPhoto
     User.find({ username: req.params.username }).then(data => {
       const friendPhotos = [];
       for (const friend of data[0].following) {
@@ -47,6 +51,7 @@ module.exports = {
   },
 
   allFeed: (req, res) => {
+    //moved
     Photo.find()
       .limit(40)
       .exec((err, data) => {
@@ -59,6 +64,10 @@ module.exports = {
   },
   // Follower
   addFollower: (req, res) => {
+    //addPendingFollowers
+    //addPendingFollowing
+
+
     // req.body.username = person im adding
     // req.params.username = me
     // i am trying to follow "person"
@@ -78,8 +87,10 @@ module.exports = {
   },
 
   acceptFollower: (req, res) => {
-    // need to fix - with quad steps
-    // update of me
+ // addFollowers
+ //removePendingFollowers
+ //addFollowing
+ //removePendingFollowing
     User.findOneAndUpdate(
       { username: req.params.username },
       { $push: { followers: req.body.username } }
@@ -110,6 +121,8 @@ module.exports = {
   },
 
   deleteFollower: (req, res) => {
+    //deleteFollower
+    //deleteFollowing
     User.findOneAndUpdate(
       { username: req.params.username },
       { $pull: { followers: { $in: [req.body.username] } } }
@@ -124,6 +137,8 @@ module.exports = {
   },
 // person being followed reject follower
   denyRequest: (req, res) => {
+    //removePendingFollowers
+    //removePendingFollowing
     User.findOneAndUpdate(
       { username: req.params.username },
       { $pull: { pendingFollowers: { $in: [req.body.username] } } }
@@ -138,6 +153,8 @@ module.exports = {
   },
   // person being followed reject follower
   deletePending: (req, res) => {
+    //removePendingFollowers
+    //removePendingFollowing
     User.findOneAndUpdate(
       { username: req.params.username },
       { $pull: { pendingFollowing: { $in: [req.body.username] } } }
@@ -203,6 +220,7 @@ module.exports = {
   // Posting new images
 
   addContent: (req, res) => {
+    //addPhoto
     const newPhoto = new Photo({
       username: req.params.username,
       description: req.body.description,
@@ -213,6 +231,7 @@ module.exports = {
   },
 
   deleteContent: (req, res) => {
+    //removePhoto
     Photo.remove({ _id: req.body.id }, err => {
       if (err) {
         throw err;
@@ -223,6 +242,7 @@ module.exports = {
   },
   // Likes
   addLike: (req, res) => {
+    //addLike
     Photo.findOneAndUpdate(
       { _id: req.params.photoId },
       { $push: { likes: req.params.username } }
@@ -233,6 +253,7 @@ module.exports = {
   },
 
   removeLike: (req, res) => {
+    //removeLike
     Photo.findOneAndUpdate(
       { _id: req.params.photoId },
       {
