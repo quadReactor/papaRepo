@@ -1,5 +1,5 @@
-const Photo = require("../../db/photos");
-const db = require("../../db");
+const Photo = require('../../db/photos');
+const db = require('../../db');
 
 module.exports = {
   userFeed: (input, callback) => {
@@ -19,7 +19,7 @@ module.exports = {
     for (const friend of data[0].following) {
       Photo.find({ username: friend })
         .limit(10)
-        .then(data => {
+        .then((data) => {
           friendPhotos = friendPhotos.concat(data);
         })
         .exec((err, data) => {
@@ -59,7 +59,7 @@ module.exports = {
   addLike: (input, callback) => {
     Photo.findOneAndUpdate(
       { _id: input.params.photoId },
-      { $push: { likes: input.params.username } }
+      { $push: { likes: input.params.username } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -80,5 +80,5 @@ module.exports = {
         callback(null, data);
       }
     });
-  }
+  },
 };
