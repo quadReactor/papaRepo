@@ -10,7 +10,12 @@ module.exports = {
   // moved
   // Add new user signup
   addUser: (req, res) => {
-    User.addUser(req, () => res.send('User Added'));
+    User.addUser(req, (err) => {
+      if (err) {
+        throw err;
+      }
+      res.send('User Added');
+    });
   },
 
   // Render Feed
@@ -187,8 +192,14 @@ module.exports = {
   deletePending: (req, res) => {
     // removePendingFollowers
     // removePendingFollowing
-    User.removePendingFollowing(req, () => {
-      User.removePendingFollowers(req, () => {
+    User.removePendingFollowing(req, (err) => {
+      if (err) {
+        throw err;
+      }
+      User.removePendingFollowers(req, (error) => {
+        if (error) {
+          throw error;
+        }
         res.send('Removed Pending Followering Request');
       });
     });
