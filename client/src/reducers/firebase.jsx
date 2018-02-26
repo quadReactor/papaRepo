@@ -1,4 +1,5 @@
 import FireBaseTools from '../utils/firebase';
+
 import {
   LOGIN_WITH_PROVIDER_FIREBASE,
   // FETCH_FIREBASE_USER,

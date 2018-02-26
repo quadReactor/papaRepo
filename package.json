@@ -44,7 +44,6 @@
     "express": "^4.16.2",
     "firebase": "^4.10.1",
     "history": "^4.7.2",
-    "jquery": "^3.3.1",
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
     "react": "^16.2.0",
