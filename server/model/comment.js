@@ -1,5 +1,5 @@
-const Comment = require("../../db/comment");
-const db = require("../../db");
+const Comment = require('../../db/comment');
+const db = require('../../db');
 
 module.exports = {
   getComments: (input, callback) => {
@@ -28,7 +28,7 @@ module.exports = {
   editComment: (input, callback) => {
     Comment.findOneAndUpdate(
       { photoId: input.params.photoId },
-      { $set: { text: input.body.text } }
+      { $set: { text: input.body.text } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -36,5 +36,5 @@ module.exports = {
         callback(null, data);
       }
     });
-  }
+  },
 };

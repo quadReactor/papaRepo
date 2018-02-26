@@ -1,13 +1,13 @@
-const User = require("../../db/users");
-const db = require("../../db");
+const User = require('../../db/users');
+const db = require('../../db');
 
 module.exports = {
-  addUser: input => {
+  addUser: (input) => {
     const newUser = new User({
-      username: input.body.username, //from firebase
-      userId: input.body.userId, //from firebase
-      profilePic: input.body.bio, //url
-      bio: input.body.bio
+      username: input.body.username, // from firebase
+      userId: input.body.userId, // from firebase
+      profilePic: input.body.bio, // url
+      bio: input.body.bio,
     });
     newUser.save();
   },
@@ -25,7 +25,7 @@ module.exports = {
   addPendingFollowers: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.body.username },
-      { $push: { pendingFollowers: input.params.username } }
+      { $push: { pendingFollowers: input.params.username } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -38,7 +38,7 @@ module.exports = {
   addPendingFollowing: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
-      { $push: { pendingFollowing: input.body.username } }
+      { $push: { pendingFollowing: input.body.username } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -51,7 +51,7 @@ module.exports = {
   addFollwers: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
-      { $push: { followers: input.body.username } }
+      { $push: { followers: input.body.username } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -64,7 +64,7 @@ module.exports = {
   addFollwing: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.body.username },
-      { $push: { following: input.params.username } }
+      { $push: { following: input.params.username } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -77,7 +77,7 @@ module.exports = {
   removePendingFollowers: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
-      { $pull: { pendingFollowers: { $in: [input.body.username] } } }
+      { $pull: { pendingFollowers: { $in: [input.body.username] } } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -90,7 +90,7 @@ module.exports = {
   removePendingFollowing: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.body.username },
-      { $pull: { pendingFollowing: { $in: [input.params.username] } } }
+      { $pull: { pendingFollowing: { $in: [input.params.username] } } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -103,7 +103,7 @@ module.exports = {
   deleteFollower: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
-      { $pull: { followers: { $in: [input.body.username] } } }
+      { $pull: { followers: { $in: [input.body.username] } } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -116,7 +116,7 @@ module.exports = {
   deleteFollowing: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.body.username },
-      { $pull: { following: { $in: [input.params.username] } } }
+      { $pull: { following: { $in: [input.params.username] } } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -124,5 +124,5 @@ module.exports = {
         callback(null, data);
       }
     });
-  }
+  },
 };
