@@ -28,10 +28,7 @@ module.exports = {
       if (err) {
         throw err;
       }
-      Photo.findFollowerPhoto(data, (error, photos) => {
-        if (error) {
-          throw error;
-        }
+      Photo.findFollowerPhoto(data, (photos) => {
         res.send(photos);
       });
     });
