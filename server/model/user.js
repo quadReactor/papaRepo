@@ -9,7 +9,13 @@ module.exports = {
       profilePic: input.body.bio, // url
       bio: input.body.bio,
     });
-    newUser.save().exec(callback);
+    newUser.save().exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
   },
 
   findUser: (input, callback) => {

@@ -22,7 +22,13 @@ module.exports = {
   },
 
   deleteComment: (input, callback) => {
-    Comment.remove({ photoId: input.params.photoId }, callback);
+    Comment.remove({ photoId: input.params.photoId }).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
   },
 
   editComment: (input, callback) => {
