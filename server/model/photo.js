@@ -49,7 +49,10 @@ module.exports = {
       username: input.params.username,
       description: input.body.description,
       photoUrl: input.body.photoUrl,
+<<<<<<< HEAD
       likes: [],
+=======
+>>>>>>> 0bbed90a03617050538ed8ba38c4178fa2e71161
     });
     newPhoto.save().then(callback);
   },
