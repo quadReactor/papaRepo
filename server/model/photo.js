@@ -35,6 +35,7 @@ module.exports = {
   allFeed: (callback) => {
     Photo.find()
       .limit(40)
+      .sort('created')
       .exec((err, data) => {
         if (err) {
           callback(err, null);
@@ -44,18 +45,25 @@ module.exports = {
       });
   },
 
-  addPhoto: (input) => {
+  addPhoto: (input, callback) => {
     const newPhoto = new Photo({
       username: input.params.username,
       description: input.body.description,
       photoUrl: input.body.photoUrl,
     });
-    newPhoto.save();
+    newPhoto.save().then(callback);
   },
 
   removePhoto: (input, callback) => {
-    Photo.remove({ _id: input.body.id }, callback);
+    Photo.remove({ _id: input.body.id }).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
   },
+
   addLike: (input, callback) => {
     Photo.findOneAndUpdate(
       { _id: input.params.photoId },
@@ -68,6 +76,7 @@ module.exports = {
       }
     });
   },
+
   removeLike: (input, callback) => {
     // front end needs to list for update on event to rerender like count
     Photo.findOneAndUpdate(
