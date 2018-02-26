@@ -15,21 +15,20 @@ module.exports = {
   },
 
   findFollowerPhoto: (data, callback) => {
-    const friendPhotos = [];
+    let friendPhotos = [];
     for (const friend of data[0].following) {
-      Photo.find({ username: friend })
-        .limit(10)
-        .then((data) => {
-          friendPhotos = friendPhotos.concat(data);
-        })
-        .exec((err, data) => {
-          if (err) {
-            callback(err, null);
-          } else {
-            callback(null, friendPhotos);
-          }
-        });
+      const dat = Photo.find({ username: friend }).limit(10);
+      friendPhotos = friendPhotos.concat(dat);
+
+      // .exec((err) => {
+      //   if (err) {
+      //     callback(err, null);
+      //   } else {
+      //     callback(null, friendPhotos);
+      //   }
+      // });
     }
+    callback(friendPhotos);
   },
 
   allFeed: (callback) => {
