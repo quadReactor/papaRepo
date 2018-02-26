@@ -53,10 +53,7 @@ module.exports = {
   },
 
   editComment: (req, res) => {
-    Comment.editComment(req, (err) => {
-      if (err) {
-        throw err;
-      }
+    Comment.editComment(req, () => {
       res.send('Comment Edited');
     });
     // Comment.findOneAndUpdate(

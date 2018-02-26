@@ -51,7 +51,7 @@ module.exports = {
       photoUrl: input.body.photoUrl,
       likes: [],
     });
-    newPhoto.save().then(callback);
+    newPhoto.save(callback());
   },
 
   removePhoto: (input, callback) => {

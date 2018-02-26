@@ -38,10 +38,7 @@ module.exports = {
 
   addContent: (req, res) => {
     // addPhoto
-    Photo.addPhoto(req, (err) => {
-      if (err) {
-        throw err;
-      }
+    Photo.addPhoto(req, () => {
       res.send('Photo Added');
     });
     // const newPhoto = new Photo({
