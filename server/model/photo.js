@@ -16,8 +16,6 @@ module.exports = {
 
   findFollowerPhoto: (data, callback) => {
     let friendPhotos = [];
-    console.log(data, 'data');
-    console.log(data[0].following, 'Follwing list');
     const arr = data[0].following;
 
     function getPhoto(user) {
@@ -33,17 +31,6 @@ module.exports = {
       callback(friendPhotos);
     }
     processArray(arr);
-    // for (const friend of data[0].following) {
-    // Photo.find({ username: { $in: [data[0].following] } }).exec((err, dat) => {
-    //   console.log(dat, '!!!!!!!!!!!!!!!!!!!!');
-    // });
-
-    // .limit(10)
-    // .then((dat) => {
-    //   console.log(dat, '!!!!!!!!!!!!!!!!!!');
-    //   // friendPhotos = friendPhotos.concat(dat);
-    // });
-    // }
   },
 
   allFeed: (callback) => {
@@ -93,7 +80,6 @@ module.exports = {
   },
 
   removeLike: (input, callback) => {
-    // front end needs to list for update on event to rerender like count
     Photo.findOneAndUpdate(
       { _id: input.params.photoId },
       { $pull: { likes: { $in: [input.params.username] } } },
