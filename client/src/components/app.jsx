@@ -32,16 +32,17 @@ class App extends Component {
       <div>
         <Navbar />
         {route}
-      </div>  
-    )
+      </div>
+    );
   }
 }
 
 
 const mapStateToProps = (state) => {
+
   return {
-    page: state.page
-  } 
-}
+    page: state.page,
+  };
+};
 
 export default connect(mapStateToProps)(App);

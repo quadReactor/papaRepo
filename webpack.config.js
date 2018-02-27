@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: path.resolve(__dirname, './client/src'),
   output: {
     path: path.resolve(__dirname, './client/dist'),

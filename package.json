@@ -42,8 +42,8 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "firebase": "^4.10.1",
     "history": "^4.7.2",
-    "jquery": "^3.3.1",
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
     "react": "^16.2.0",
@@ -51,10 +51,11 @@
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0",
-    "url-loader": "^0.6.2",
     "redux-first-router": "0.0.16-next",
     "redux-first-router-link": "^1.4.2",
-    "style-loader": "^0.20.2"
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.20.2",
+    "url-loader": "^0.6.2"
   }
 }

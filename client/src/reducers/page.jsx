@@ -1,4 +1,4 @@
-import { NOT_FOUND } from 'redux-first-router'
+import { NOT_FOUND } from 'redux-first-router';
 
 const components = {
   HOME: 'Feed',

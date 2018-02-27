@@ -107,12 +107,3 @@ PhotoUrl   |String        |
 Description|String        | 
 Likes      |String Array  | 
 
-*Note:* We must fill this
-
-
-## Work Break Down ##
-
- * Week 1
-   * 1
-   * 2
-   * 3

@@ -1,0 +1,2 @@
+export const LOGIN_FIREBASE = 'LOGIN_FIREBASE';
+export const LOGOUT_FIREBASE = 'LOGOUT_FIREBASE';
