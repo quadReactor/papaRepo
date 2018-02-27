@@ -7,16 +7,12 @@ import { fetchUser, logoutUser } from '../actions/firebase_actions';
 import style from './../css/navbar.css';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.props.fetchUser();
-  }
 
   logOut() {
-    this.props.logoutUser().then((data) => {
-      this.props.fetchUser();
-    });
+    this.props.logoutUser();
+    // .then((data) => {
+    //   this.props.fetchUser();
+    // });
   }
 
   render() {

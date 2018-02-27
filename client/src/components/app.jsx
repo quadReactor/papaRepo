@@ -32,8 +32,8 @@ class App extends Component {
       <div>
         <Navbar />
         {route}
-      </div>  
-    )
+      </div>
+    );
   }
 }
 

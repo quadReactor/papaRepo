@@ -23,13 +23,13 @@ class Login extends Component {
       <div>
         <h4>Login with</h4>
           <a
-            href="#" onClick={() => {
+            onClick={() => {
                 this.loginWithProvider('google');
             }} data-provider="twitter"
           >Google</a>
-          
+
           <a
-            href="#" onClick={() => {
+            onClick={() => {
               this.loginWithProvider('github');
             }} data-provider="twitter"
           >Github</a>

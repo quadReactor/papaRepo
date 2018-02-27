@@ -30,14 +30,14 @@ const FireBaseTools = {
     message: 'logout',
   })),
 
-  fetchUser: () => new Promise((resolve, reject) => {
-    const unsub = firebaseAuth.onAuthStateChanged((user) => {
-      unsub();
-      resolve(user);
-    }, (error) => {
-      reject(error);
-    });
-  }),
+  // fetchUser: () => new Promise((resolve, reject) => {
+  //   const unsub = firebaseAuth.onAuthStateChanged((user) => {
+  //     unsub();
+  //     resolve(user);
+  //   }, (error) => {
+  //     reject(error);
+  //   });
+  // }),
 };
 
 export default FireBaseTools;
