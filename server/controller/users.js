@@ -3,35 +3,24 @@ const User = require('../model/user');
 const Photo = require('../model/photo');
 
 module.exports = {
-  // moved
-  // Add new user signup
   addUser: (req, res) => {
     User.addUser(req, () => {
       res.send('User Added');
     });
   },
 
-  // Render Feed
-
   followerFeed: (req, res) => {
-    // moved
-    // findUser
-    // findFollowerPhoto
     User.findUser(req, (err, data) => {
       if (err) {
         throw err;
       }
       Photo.findFollowerPhoto(data, (photos) => {
-        console.log("send")
         res.send(photos);
       });
     });
   },
 
-  // Follower
   addFollower: (req, res) => {
-    // addPendingFollowers
-    // addPendingFollowing
     User.addPendingFollowers(req, (err) => {
       if (err) {
         throw err;
@@ -46,10 +35,6 @@ module.exports = {
   },
 
   acceptFollower: (req, res) => {
-    // addFollowers
-    // removePendingFollowers
-    // addFollowing
-    // removePendingFollowing
     User.addFollowers(req, (e) => {
       if (e) {
         throw e;
@@ -74,8 +59,6 @@ module.exports = {
   },
 
   deleteFollower: (req, res) => {
-    // deleteFollower
-    // deleteFollowing
     User.deleteFollower(req, (err) => {
       if (err) {
         throw err;
@@ -89,8 +72,6 @@ module.exports = {
     });
   },
   stopFollowing: (req, res) => {
-    // deleteFollower
-    // deleteFollowing
     User.stopFollower(req, (err) => {
       if (err) {
         throw err;
@@ -103,10 +84,8 @@ module.exports = {
       });
     });
   },
-  // person being followed reject follower
+
   denyRequest: (req, res) => {
-    // removePendingFollowers
-    // removePendingFollowing
     User.removePendingFollowers(req, (err) => {
       if (err) {
         throw err;
@@ -119,10 +98,8 @@ module.exports = {
       });
     });
   },
-  // person being followed reject follower
+
   deletePending: (req, res) => {
-    // removePendingFollowers
-    // removePendingFollowing
     User.stopPendingFollowing(req, (err) => {
       if (err) {
         throw err;
