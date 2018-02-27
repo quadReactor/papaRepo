@@ -36,11 +36,11 @@ router.put('/:username/:commentId/comments', commentCtrl.editComment); // edit
 // Post New Photo ---------------------------------------------
 
 router.post('/:username/content', photosCtrl.addContent); // add new post
-router.delete('/:username/content', photosCtrl.deleteContent); // delete post
+router.delete('/:photoId/content', photosCtrl.deleteContent); // delete post
 
 // Likes --------------------------------------------------------
 
-router.post('/:photoId/like', photosCtrl.addLike); // add a like
-router.delete('/:photoId/like', photosCtrl.removeLike); // remove a like
+router.post('/:username/:photoId/like', photosCtrl.addLike); // add a like
+router.put('/:username/:photoId/like', photosCtrl.removeLike); // remove a like
 
 module.exports = router;

@@ -16,19 +16,34 @@ module.exports = {
 
   findFollowerPhoto: (data, callback) => {
     let friendPhotos = [];
-    for (const friend of data[0].following) {
-      const dat = Photo.find({ username: friend }).limit(10);
-      friendPhotos = friendPhotos.concat(dat);
+    console.log(data, 'data');
+    console.log(data[0].following, 'Follwing list');
+    const arr = data[0].following;
 
-      // .exec((err) => {
-      //   if (err) {
-      //     callback(err, null);
-      //   } else {
-      //     callback(null, friendPhotos);
-      //   }
-      // });
+    function getPhoto(user) {
+      return Photo.find({ username: user });
     }
-    callback(friendPhotos);
+
+    async function processArray(array) {
+      for (const person of array) {
+        const per = await getPhoto(person);
+        friendPhotos = friendPhotos.concat(per);
+      }
+
+      callback(friendPhotos);
+    }
+    processArray(arr);
+    // for (const friend of data[0].following) {
+    // Photo.find({ username: { $in: [data[0].following] } }).exec((err, dat) => {
+    //   console.log(dat, '!!!!!!!!!!!!!!!!!!!!');
+    // });
+
+    // .limit(10)
+    // .then((dat) => {
+    //   console.log(dat, '!!!!!!!!!!!!!!!!!!');
+    //   // friendPhotos = friendPhotos.concat(dat);
+    // });
+    // }
   },
 
   allFeed: (callback) => {
@@ -55,7 +70,7 @@ module.exports = {
   },
 
   removePhoto: (input, callback) => {
-    Photo.remove({ _id: input.body.id }).exec((err, data) => {
+    Photo.remove({ _id: input.params.photoId }).exec((err, data) => {
       if (err) {
         callback(err, null);
       } else {

@@ -22,6 +22,7 @@ module.exports = {
         throw err;
       }
       Photo.findFollowerPhoto(data, (photos) => {
+        console.log("send")
         res.send(photos);
       });
     });
