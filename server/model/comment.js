@@ -22,7 +22,7 @@ module.exports = {
   },
 
   deleteComment: (input, callback) => {
-    Comment.remove({ photoId: input.params.photoId }).exec((err, data) => {
+    Comment.remove({ _id: input.params.commentId }).exec((err, data) => {
       if (err) {
         callback(err, null);
       } else {
@@ -33,7 +33,7 @@ module.exports = {
 
   editComment: (input, callback) => {
     Comment.findOneAndUpdate(
-      { photoId: input.params.photoId },
+      { _id: input.params.commentId },
       { $set: { text: input.body.text } },
     ).exec((err, data) => {
       if (err) {

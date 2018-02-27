@@ -30,8 +30,8 @@ router.put('/:username/stopfollowing', userCtrl.stopFollowing); // stop followin
 
 router.get('/:username/:photoId/comments', commentCtrl.getComments); // retrieve comments for individual photo to render
 router.post('/:username/:photoId/comments', commentCtrl.postComment); // add
-router.delete('/:username/:photoId/comments', commentCtrl.deleteComment); // delete
-router.put('/:username/:photoId/comments', commentCtrl.editComment); // edit
+router.delete('/:username/:commentId/comments', commentCtrl.deleteComment); // delete
+router.put('/:username/:commentId/comments', commentCtrl.editComment); // edit
 
 // Post New Photo ---------------------------------------------
 
