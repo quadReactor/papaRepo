@@ -3,7 +3,7 @@ import ReduxPromise from 'redux-promise';
 import { connectRoutes } from 'redux-first-router';
 
 import routesMap from './routesMap';
-import requireAuth from './utils/authenticated';
+import authenticator from './utils/authenticator';
 import * as reducers from './reducers';
 import * as actionCreators from './actions/types';
 
@@ -12,7 +12,7 @@ export default (history) => {
     reducer,
     middleware,
     enhancer,
-  } = connectRoutes(history, routesMap);
+  } = connectRoutes(history, routesMap, authenticator);
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionCreators })

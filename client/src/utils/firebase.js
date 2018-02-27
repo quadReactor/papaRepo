@@ -19,7 +19,7 @@ const FireBaseTools = {
 
   loginWithProvider: (p) => {
     const provider = FireBaseTools.getProvider(p);
-    return firebaseAuth.signInWithPopup(provider).then(firebaseAuth.currentUser).catch(error => ({
+    return firebaseAuth.signInWithPopup(provider).then(firebase.auth().currentUser).catch(error => ({
       errorCode: error.code,
       errorMessage: error.message,
     }));
@@ -30,14 +30,12 @@ const FireBaseTools = {
     message: 'logout',
   })),
 
-  // fetchUser: () => new Promise((resolve, reject) => {
-  //   const unsub = firebaseAuth.onAuthStateChanged((user) => {
-  //     unsub();
-  //     resolve(user);
-  //   }, (error) => {
-  //     reject(error);
+  // checkUser: () => {
+  //   // firebase.auth().onAuthStateChanged((user) => {
+  //   //   window.user = user;
   //   });
-  // }),
+  // },
+
 };
 
 export default FireBaseTools;
