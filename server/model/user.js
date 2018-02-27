@@ -104,6 +104,32 @@ module.exports = {
     });
   },
 
+  stopPendingFollowers: (input, callback) => {
+    User.findOneAndUpdate(
+      { username: input.body.username },
+      { $pull: { pendingFollowers: { $in: [input.params.username] } } },
+    ).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+
+  stopPendingFollowing: (input, callback) => {
+    User.findOneAndUpdate(
+      { username: input.params.username },
+      { $pull: { pendingFollowing: { $in: [input.body.username] } } },
+    ).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+
   deleteFollower: (input, callback) => {
     User.findOneAndUpdate(
       { username: input.params.username },
@@ -121,6 +147,32 @@ module.exports = {
     User.findOneAndUpdate(
       { username: input.body.username },
       { $pull: { following: { $in: [input.params.username] } } },
+    ).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+  
+  stopFollower: (input, callback) => {
+    User.findOneAndUpdate(
+      { username: input.body.username },
+      { $pull: { followers: { $in: [input.params.username] } } },
+    ).exec((err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+
+  stopFollowing: (input, callback) => {
+    User.findOneAndUpdate(
+      { username: input.params.username },
+      { $pull: { following: { $in: [input.body.username] } } },
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
