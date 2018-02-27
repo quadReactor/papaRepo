@@ -11,9 +11,6 @@ module.exports = {
   },
 
   postComment: (req, res) => {
-    // req.body.text- comment
-    // req.params.username - user
-    // req.body.photo - photo reference
     Comment.addComment(req, (err) => {
       if (err) {
         throw err;
