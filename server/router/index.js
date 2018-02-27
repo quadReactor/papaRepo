@@ -19,13 +19,13 @@ router.get('/:username/follower', userCtrl.followerFeed);
 router.get('/:username/all', photosCtrl.allFeed);
 
 // Modify Followers --------------------------------------------------
-router.post('/:username/follower', userCtrl.addFollower); // add follower
-router.put('/:username/follower', userCtrl.acceptFollower); // approve follower
-router.put('/:username/follower', userCtrl.deleteFollower); // remove follower
-router.put('/:username/follower/pending', userCtrl.denyRequest); // deny follower
+router.post('/:username/addfollower', userCtrl.addFollower); // add follower
+router.put('/:username/approvefollower', userCtrl.acceptFollower); // approve follower
+router.put('/:username/removefollower', userCtrl.deleteFollower); // remove follower
+router.put('/:username/denyfollower', userCtrl.denyRequest); // deny follower
 
-router.put('/:username/following/pending', userCtrl.deletePending); // stop following before accept
-
+router.put('/:username/stoppendingfollowing', userCtrl.deletePending); // stop following before accept
+router.put('/:username/stopfollowing', userCtrl.stopFollowing); // stop following
 // comment ---------------------------------------------------
 
 router.get('/:username/:photoId/comments', commentCtrl.getComments); // retrieve comments for individual photo to render
