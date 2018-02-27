@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginWithProvider } from '../../actions/firebase_actions';
+import firebase from 'firebase';
+
+import { login } from '../../actions/firebase_actions';
+import { firebaseAuth } from './../../utils/firebase';
+
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.loginWithProvider = this.loginWithProvider.bind(this);
+  getProvider = (provider) => {
+    switch (provider) {
+      case 'github':
+        return new firebase.auth.GithubAuthProvider();
+      case 'google':
+        return new firebase.auth.GoogleAuthProvider();
+      default:
+        throw new Error('Provider is not supported!!!');
+    }
   }
 
-  loginWithProvider(provider) {
-    this.props.loginWithProvider(provider).then((data) => {
-      if (data.payload.errorCode) {
-        console.log(data.payload.errorMessage);
-      } else {
-        console.log(data);
-      }
-    });
+  loginWithProvider = (p) => {
+    const provider = this.getProvider(p);
+    firebaseAuth.signInWithPopup(provider)
+      .then(Promise.resolve(firebase.auth().currentUser))
+      .then(result => this.login(result))
+      .catch(error => ({
+        errorCode: error.code,
+        errorMessage: error.message,
+      }));
   }
+
   render() {
     return (
       <div>
         <h4>Login with</h4>
           <a
             onClick={() => {
-                this.loginWithProvider('google');
-            }} data-provider="twitter"
+              this.loginWithProvider('google');
+            }}
           >Google</a>
-
           <a
             onClick={() => {
-              this.loginWithProvider('github');
-            }} data-provider="twitter"
+              this.loginWithProvider('google');
+            }}
           >Github</a>
       </div>
     );
@@ -40,7 +51,7 @@ class Login extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    loginWithProvider,
+    login,
   }, dispatch);
 }
 

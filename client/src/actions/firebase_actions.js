@@ -1,26 +1,18 @@
-import {
-  LOGIN_WITH_PROVIDER_FIREBASE,
-  FETCH_FIREBASE_USER,
-  LOGOUT_FIREBASE_USER,
-} from './types';
+import { LOGIN_FIREBASE, LOGOUT_FIREBASE } from './types';
 
 
-export function loginWithProvider(provider) {
+export function login(result) {
+  console.log(result)
   return {
-    type: LOGIN_WITH_PROVIDER_FIREBASE,
-    provider,
+    type: LOGIN_FIREBASE,
+    payload: result,
   };
 }
 
-export function fetchUser() {
+export function logout(user) {
   return {
-    type: FETCH_FIREBASE_USER,
-  };
-}
-
-export function logoutUser(user) {
-  return {
-    type: LOGOUT_FIREBASE_USER,
+    type: LOGOUT_FIREBASE,
     user,
   };
 }
+

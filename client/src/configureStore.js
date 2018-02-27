@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import { connectRoutes } from 'redux-first-router';
+import thunk from 'redux-thunk';
 
 import routesMap from './routesMap';
 import authenticator from './utils/authenticator';
@@ -19,7 +20,7 @@ export default (history) => {
     : compose;
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
-  const middlewares = applyMiddleware(middleware, ReduxPromise);
+  const middlewares = applyMiddleware(middleware, thunk, ReduxPromise);
   const enhancers = composeEnhancers(enhancer, middlewares);
 
 

@@ -7,12 +7,8 @@ import { fetchUser, logoutUser } from '../actions/firebase_actions';
 import style from './../css/navbar.css';
 
 class Navbar extends Component {
-
   logOut() {
     this.props.logoutUser();
-    // .then((data) => {
-    //   this.props.fetchUser();
-    // });
   }
 
   render() {
@@ -52,7 +48,7 @@ class Navbar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchUser, logoutUser }, dispatch);
+  return bindActionCreators({ logoutUser }, dispatch);
 }
 
 
