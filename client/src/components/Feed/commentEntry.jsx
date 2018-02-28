@@ -1,36 +1,44 @@
 import React from 'react';
-import axios from 'axios';
-
-class CommentEntry extends React.Component {
-  constructor(props) {
-    super(props);
-    this.editComment = this.editComment.bind(this);
-    this.deleteComment = this.editComment.bind(this);
-  }
-
-  editComment() {
-    // just delete comment and re add?
-    // more efficent?
-  }
-  deleteComment() {
-    // delete request to remove comment
-    // do anthoer get request to rerender comment
-    axios.delete(`/api/${this.props.username}/${this.props.photoId}/comments`);
-  }
-
-  render() {
-    return (
-        I'm a comment!
-        <div>
-          <h3>{this.comment.user}</h3>
-          <p>{this.comment.text}</p>
-          <p>{this.comment.created}</p>
-        </div>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
-    );
-  }
-}
-
+const CommentEntry = () => (
+  <div>
+    I'm a comment!
+  </div>
+);
 export default CommentEntry;
+
+// import React from 'react';
+// import axios from 'axios';
+
+// class CommentEntry extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.editComment = this.editComment.bind(this);
+//     this.deleteComment = this.editComment.bind(this);
+//   }
+
+//   editComment() {
+//     // just delete comment and re add?
+//     // more efficent?
+//   }
+//   deleteComment() {
+//     // delete request to remove comment
+//     // do anthoer get request to rerender comment
+//     axios.delete(`/api/${this.props.username}/${this.props.photoId}/comments`);
+//   }
+
+//   render() {
+//     return (
+//         I'm a comment!
+//         <div>
+//           <h3>{this.comment.user}</h3>
+//           <p>{this.comment.text}</p>
+//           <p>{this.comment.created}</p>
+//         </div>
+//         <button>Edit</button>
+//         <button>Delete</button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default CommentEntry;
