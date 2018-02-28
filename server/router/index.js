@@ -8,7 +8,7 @@ const userCtrl = require('../controller/users');
 
 // Sign up ----------------------------------------
 
-router.get('/', () => {});
+router.get('/:username/current', userCtrl.getUser);
 router.post('/login', () => {});
 router.post('/signup', userCtrl.addUser);
 router.post('/logout', () => {});
