@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const photosSchema = new Schema({
   username: { type: String },
+  displayname: { type: String },
   description: String,
   photoUrl: String,
   likes: [{ type: String }], // users

@@ -14,7 +14,8 @@ module.exports = {
 
   addComment: (input, callback) => {
     const newComment = new Comment({
-      user: input.params.username,
+      username: input.params.username, // email
+      displayname: input.body.displayname,
       photoId: input.params.photoId,
       text: input.body.text,
     });

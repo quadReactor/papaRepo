@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: { type: String, unique: true }, // from firebase
-  userId: { type: String, unique: true }, // from firebase
+  username: { type: String, unique: true }, // from firebase EMAIL
+  diplayname: { type: String }, // from firebase
   pendingFollowers: [{ type: String }],
   followers: [{ type: String }],
   pendingFollowing: [{ type: String }],

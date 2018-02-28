@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-  user: { type: String },
+  username: { type: String },
+  displayname: { type: String },
   photoId: { type: String }, // grap id from photo
   text: { type: String },
   created: { type: Date, default: Date.now }, // timeStamp
