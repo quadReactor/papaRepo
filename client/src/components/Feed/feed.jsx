@@ -10,9 +10,9 @@ class Feed extends React.Component {
   render() {
     return (
       <div>
-        <AddPost username={()=>{}} />
+        <AddPost username={firebase}/>
         {this.props.posts.map((post) => {
-          <Post key={post._id} post={post} photoId={post._id} username={()=>{}} />;
+          <Post key={post._id} post={post} photoId={post._id} username={firebase}/>;
         })}
       </div>
     );
