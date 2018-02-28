@@ -1,48 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Post from './post.jsx';
 import Navbar from './../Navbar/navbar.jsx';
+import AddPost from './addPost.jsx';
 
-const Feed = () => (
-  <div>
-    <Navbar />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-    <Post />
-  </div>
-);
-export default Feed;
-// import React from 'react';
-// import Post from './post.jsx';
-// import AddPost from './addPost.jsx';
+class Feed extends Component {
+  render() {
+    return (
+      <div>
+        <Navbar />
+        {/* <AddPost username={firebase}/> */}
+        {this.props.photos.map((post) => 
+           <Post key={post._id} post={post}/>
+        )}
+      </div>
+    );
+  }
+}
 
-// class Feed extends React.Component {
-//   constructor() {
-//     super();
-//   }
-//   // pass down  username from firebase photoid
-//   render() {
-//     return (
-//       <div>
-//         <AddPost username={firebase}/>
-//         {this.props.posts.map((post) => {
-//           <Post key={post._id} post={post} photoId={post._id} username={firebase}/>;
-//         })}
-//       </div>
-//     );
-//   }
-// }
+function mapStateToProps(state) {
+  return { photos: state.photos };
+}
 
-// export default Feed;
+export default connect(mapStateToProps)(Feed);

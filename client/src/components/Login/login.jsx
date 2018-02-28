@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return { user: state.currentUser };
+  return { user: state.user };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

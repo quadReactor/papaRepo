@@ -7,9 +7,14 @@ export default {
       utils.loginWithProvider(provider)
         .then((res) => {
           if (res) {
+            const userData = {
+              username: res.user.email,
+              displayname: res.user.displayName,
+              profilePic: res.user.photoURL,
+            };
             dispatch({
               type: 'LOGIN_SUCCESS',
-              payload: res,
+              payload: userData,
             });
             dispatch({ type: 'HOME' });
           } else {
