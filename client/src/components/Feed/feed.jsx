@@ -1,8 +1,10 @@
 import React from 'react';
 import Post from './post.jsx';
+import Navbar from './../Navbar/navbar.jsx';
+
 const Feed = () => (
   <div>
-    I'm the Feed!
+    <Navbar />
     <Post />
     <Post />
     <Post />

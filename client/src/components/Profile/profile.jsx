@@ -1,9 +1,10 @@
 import React from 'react';
 import Post from './../Feed/post.jsx';
+import Navbar from './../Navbar/navbar.jsx';
 
 const Profile = () => (
   <div>
-    Profile Page!
+    <Navbar />
     <Post />
   </div>
 );

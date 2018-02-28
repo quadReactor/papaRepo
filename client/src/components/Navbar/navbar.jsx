@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Link from 'redux-first-router-link';
 
-import actions from '../actions/firebase_actions';
-import style from './../css/navbar.css';
+import actions from '../../actions/firebase_actions';
+import style from './navbar.css';
 
 class Navbar extends Component {
-
   render() {
     return (
       <div className={style.fixed}>
