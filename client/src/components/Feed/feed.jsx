@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './post.jsx';
-import Navbar from './../navbar.jsx';
+import Navbar from './../Navbar/navbar.jsx';
 
 const Feed = () => (
   <div>

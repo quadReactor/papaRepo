@@ -1,9 +1,9 @@
 import React from 'react';
-import Pending from './pending';
-import Following from './following';
-import Followers from './followers';
-import AddFollowers from './addFollowers';
-import Navbar from './../navbar.jsx';
+import Pending from './pending.jsx';
+import Following from './following.jsx';
+import Followers from './followers.jsx';
+import AddFollowers from './addFollowers.jsx';
+import Navbar from './../Navbar/navbar.jsx';
 
 const Follow = () => (
   <div>
@@ -12,7 +12,7 @@ const Follow = () => (
     <Pending />
     <Following />
     <Followers />
-  </div>  
-)
- 
-export default Follow; 
+  </div>
+);
+
+export default Follow;

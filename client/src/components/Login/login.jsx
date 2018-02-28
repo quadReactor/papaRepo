@@ -19,7 +19,7 @@ class Login extends Component {
           >Google</a>
           <a className={style.buttons}
             onClick={() => {
-              this.props.login('google');
+              this.props.login('github');
             }}
           >Github</a>
           <img
