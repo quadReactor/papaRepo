@@ -1,12 +1,12 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: path.resolve(__dirname, './client/src'),
+  entry: ['babel-polyfill', path.resolve(__dirname, './client/src')],
   output: {
     path: path.resolve(__dirname, './client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -15,8 +15,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react', 'stage-2']
-        }
+          presets: ['es2015', 'react', 'stage-2'],
+        },
       },
       {
         test: /\.css$/,
@@ -35,7 +35,6 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {}  
           }
         ]
       }

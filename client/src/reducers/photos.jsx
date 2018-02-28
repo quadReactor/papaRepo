@@ -1,7 +1,7 @@
 export default (state = [], action = {}) => {
   switch (action.type) {
-    case 'PHOTOS_FETCHED':
-      return action.payload.photos;
+    case 'PHOTOS_RECIEVED':
+      return action.payload;
     default:
       return state;
   }

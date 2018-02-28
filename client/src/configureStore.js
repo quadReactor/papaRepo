@@ -17,7 +17,7 @@ export default (history) => {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
-  const middlewares = applyMiddleware(middleware, thunk, ReduxPromise);
+  const middlewares = applyMiddleware(middleware, thunk);
   const enhancers = composeEnhancers(enhancer, middlewares);
 
 
