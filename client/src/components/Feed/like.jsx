@@ -15,7 +15,6 @@ class Like extends React.Component {
 			axios.put(`/api/${this.props.username}/${this.props.photoId}/like`,{})
 		}
 		this.setState({like:!this.state.like})
-	 
 	}
 
 	render () {
