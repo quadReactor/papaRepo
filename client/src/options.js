@@ -24,7 +24,7 @@ export default {
     const { type } = getState().location;
 
     if (type === 'LOGIN') {
-      setTimeout(() => 'do something here')
+      setTimeout(() => 'do something here');
     }
   },
 };

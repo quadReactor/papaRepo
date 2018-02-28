@@ -1,47 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import firebase from 'firebase';
 
-import { login } from '../../actions/firebase_actions';
-import { firebaseAuth } from './../../utils/firebase';
+import actions from '../../actions/firebase_actions';
 
 
 class Login extends Component {
-  getProvider = (provider) => {
-    switch (provider) {
-      case 'github':
-        return new firebase.auth.GithubAuthProvider();
-      case 'google':
-        return new firebase.auth.GoogleAuthProvider();
-      default:
-        throw new Error('Provider is not supported!!!');
-    }
-  }
-
-  loginWithProvider = (p) => {
-    const provider = this.getProvider(p);
-    firebaseAuth.signInWithPopup(provider)
-      .then(Promise.resolve(firebase.auth().currentUser))
-      .then(result => this.login(result))
-      .catch(error => ({
-        errorCode: error.code,
-        errorMessage: error.message,
-      }));
-  }
-
   render() {
     return (
       <div>
         <h4>Login with</h4>
           <a
             onClick={() => {
-              this.loginWithProvider('google');
+              this.props.login('google');
             }}
           >Google</a>
           <a
             onClick={() => {
-              this.loginWithProvider('google');
+              this.props.login('google');
             }}
           >Github</a>
       </div>
@@ -51,7 +27,7 @@ class Login extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    login,
+    login: actions.login,
   }, dispatch);
 }
 

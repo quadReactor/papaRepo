@@ -1,18 +1,29 @@
-import { LOGIN_FIREBASE, LOGOUT_FIREBASE } from './types';
+import utils from './../utils/firebase';
 
 
-export function login(result) {
-  console.log(result)
-  return {
-    type: LOGIN_FIREBASE,
-    payload: result,
-  };
-}
+export default {
+  login(provider) {
+    return (dispatch) => {
+      utils.loginWithProvider(provider)
+        .then((res) => {
+          if (res) {
+            dispatch({
+              type: 'LOGIN_SUCCESS',
+              payload: res,
+            });
+            dispatch({ type: 'HOME' });
+          } else {
+            dispatch({ type: 'LOGIN_FAILURE' });
+          }
+        });
+    };
+  },
 
-export function logout(user) {
-  return {
-    type: LOGOUT_FIREBASE,
-    user,
-  };
-}
-
+  logout() {
+    return (dispatch) => {
+      utils.logoutUser()
+        .then(dispatch({ type: 'LOGOUT_FIREBASE' }))
+        .catch(console.log)
+    };
+  },
+};

@@ -2,17 +2,14 @@ import { redirect } from 'redux-first-router';
 import fb from './firebase';
 
 export default {
-  onBeforeChange: (dispatch, getState) => {
+  onAfterChange: (dispatch, getState) => {
     const page = getState().location;
-    const allowed = false;
-    const homeAlready = (page.type !== 'home');
+    const allowed = localStorage.length;
+    const homeAlready = (page.type === 'LOGIN');
 
     if (!allowed && !homeAlready) {
-      const action = redirect({ type: 'LOGOUT' });
+      const action = { type: 'LOGIN' };
       dispatch(action);
     }
-  },
-  onAfterChange: (dispatch, getState) => {
-    const { type } = getState().location;
   },
 };

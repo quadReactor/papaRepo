@@ -1,13 +1,16 @@
-import { LOGIN_FIREBASE, LOGOUT_FIREBASE } from '../actions/types';
+// import firebaseActions from './../actions/firebase_actions';
 
-export default function (state = null, action) {
+
+export default (state = null, action) => {
   switch (action.type) {
-    case LOGOUT_FIREBASE:
-      return action.user;
-    case LOGIN_FIREBASE:
-      console.log('in reducer', action.result);
-      return action.result;
+    case 'LOGIN_SUCCESS':
+      return action.payload;
+    case 'LOGIN_FAILURE':
+      return null;
+    case 'LOGOUT_FIREBASE':
+      return null;
     default:
       return state;
   }
-}
+};
+
