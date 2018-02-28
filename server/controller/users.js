@@ -3,6 +3,15 @@ const User = require('../model/user');
 const Photo = require('../model/photo');
 
 module.exports = {
+  getUser: (req, res) => {
+    User.findUser(req, (err, data) => {
+      if (err) {
+        throw err;
+      }
+      res.send(data);
+    });
+  },
+
   addUser: (req, res) => {
     User.addUser(req, () => {
       res.send('User Added');
