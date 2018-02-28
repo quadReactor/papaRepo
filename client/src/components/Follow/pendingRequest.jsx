@@ -1,19 +1,19 @@
 import React from 'react';
 import Person from './person.jsx';
 
-const Pending = () => <div>pending smurfs</div>;
-export default Pending;
+const PendingRequest = () => <div>pending smurfs Request</div>;
+export default PendingRequest;
 
-// Render Pending Following
+// Render Pending Followers
 
-// class Pending extends React.Component {
+// class PendingRequest extends React.Component {
 //   constructor() {
 //     super();
 //   }
 //   render() {
 //     return (
 //       <div>
-//         {this.props.currentUser.pendingFollowering.map((person) => {
+//         {this.props.currentUser.pendingFollowers.map((person) => {
 //           <Person person={person} />;
 //         })}
 //       </div>
