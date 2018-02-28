@@ -22,7 +22,7 @@ class Login extends Component {
   loginWithProvider = (p) => {
     const provider = this.getProvider(p);
     firebaseAuth.signInWithPopup(provider)
-      .then(Promise.resolve(firebase.auth().currentUser))
+      .then(firebase.auth().currentUser)
       .then(result => this.login(result))
       .catch(error => ({
         errorCode: error.code,

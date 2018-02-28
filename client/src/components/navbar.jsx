@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Link from 'redux-first-router-link';
 
-import { fetchUser, logoutUser } from '../actions/firebase_actions';
+import { logout } from '../actions/firebase_actions';
 import style from './../css/navbar.css';
 
 class Navbar extends Component {
-  logOut() {
-    this.props.logoutUser();
+  logout() {
+    this.props.logout();
   }
 
   render() {
@@ -38,7 +38,7 @@ class Navbar extends Component {
             Followers/Following
           </Link>
 
-          <Link to='/logout' onClick={() => this.logOut } className ={style.logout}>
+          <Link to='/logout' onClick={() => this.logout } className ={style.logout}>
             Logout
           </Link>
         </div>
@@ -48,7 +48,7 @@ class Navbar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logoutUser }, dispatch);
+  return bindActionCreators({ logout }, dispatch);
 }
 
 
