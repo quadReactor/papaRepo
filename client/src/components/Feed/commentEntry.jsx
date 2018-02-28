@@ -1,20 +1,20 @@
 import React from 'react';
 
 class CommentEntry extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.editComment = this.editComment.bind(this);
+    this.deleteComment = this.editComment.bind(this);
   }
 
-  EditComment() {
-    //just delete comment and re add?
-    //more efficent?
-    
+  editComment() {
+    // just delete comment and re add?
+    // more efficent?
   }
   deleteComment() {
-    //delete request to remove comment
-    //do anthoer get request to rerender comment
-    axios
-      .delete(`/api/${this.props.username}/${this.props.photoId}/comments`)
+    // delete request to remove comment
+    // do anthoer get request to rerender comment
+    axios.delete(`/api/${this.props.username}/${this.props.photoId}/comments`);
   }
 
   render() {
