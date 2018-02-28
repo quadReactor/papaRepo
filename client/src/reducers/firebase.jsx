@@ -4,11 +4,11 @@
 export default (state = null, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return { ...state, user: action.payload };
+      return action.payload;
     case 'LOGIN_FAILURE':
-      return { ...state, user: null };
+      return null;
     case 'LOGOUT_FIREBASE':
-      return { ...state, user: null };
+      return null;
     default:
       return state;
   }

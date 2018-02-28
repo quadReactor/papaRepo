@@ -13,7 +13,7 @@ export default (history) => {
     reducer,
     middleware,
     enhancer,
-  } = connectRoutes(history, routesMap);
+  } = connectRoutes(history, routesMap, authenticator);
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionCreators })
