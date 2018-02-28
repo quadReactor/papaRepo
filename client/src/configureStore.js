@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import routesMap from './routesMap';
 import authenticator from './utils/authenticator';
 import * as reducers from './reducers';
-import * as actionCreators from './actions/types';
 
 export default (history) => {
   const {
@@ -15,9 +14,7 @@ export default (history) => {
     enhancer,
   } = connectRoutes(history, routesMap, authenticator);
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionCreators })
-    : compose;
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
   const rootReducer = combineReducers({ ...reducers, location: reducer });
   const middlewares = applyMiddleware(middleware, thunk, ReduxPromise);

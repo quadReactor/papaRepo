@@ -11,6 +11,7 @@ export default {
               type: 'LOGIN_SUCCESS',
               payload: res,
             });
+            dispatch({ type: 'HOME' });
           } else {
             dispatch({ type: 'LOGIN_FAILURE' });
           }
