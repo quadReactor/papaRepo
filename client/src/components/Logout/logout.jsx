@@ -7,7 +7,7 @@ const Logout = () => (
   <div>
     <h3 className={style.loginWith}>Thanks for stopping by</h3>
     <Link to='/login' >
-      <a className={style.buttons}>Login Again!</a>
+      <div className={style.buttons}>Login Again!</div>
     </Link>
   </div>
 );

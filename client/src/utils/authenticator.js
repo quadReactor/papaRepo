@@ -1,5 +1,5 @@
-import { redirect } from 'redux-first-router';
-import fb from './firebase';
+// import { redirect } from 'redux-first-router';
+// import fb from './firebase';
 
 export default {
   onAfterChange: (dispatch, getState) => {

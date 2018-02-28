@@ -5,7 +5,7 @@ import Navbar from './../Navbar/navbar.jsx';
 const Profile = () => (
   <div>
     <Navbar />
-    <Post />
+    {/* <Post /> */}
   </div>
 );
 
