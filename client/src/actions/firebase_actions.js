@@ -1,10 +1,10 @@
-import { loginWithProvider, logoutUser } from './../utils/firebase';
+import utils from './../utils/firebase';
 
 
 export default {
   login(provider) {
     return (dispatch) => {
-      loginWithProvider(provider)
+      utils.loginWithProvider(provider)
         .then((res) => {
           if (res) {
             dispatch({
@@ -20,10 +20,9 @@ export default {
 
   logout() {
     return (dispatch) => {
-      logoutUser()
-        .then(() => {
-          dispatch({ type: 'LOGOUT' });
-        });
+      utils.logoutUser()
+        .then(dispatch({ type: 'LOGOUT_FIREBASE' }))
+        .catch(console.log)
     };
   },
 };

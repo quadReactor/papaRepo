@@ -19,18 +19,14 @@ const FireBaseTools = {
 
   loginWithProvider: (p) => {
     const provider = FireBaseTools.getProvider(p);
-    firebaseAuth.signInWithPopup(provider)
-      .then(firebase.auth().currentUser)
-      .then(result => Promise.resolve(result))
+    return firebaseAuth.signInWithPopup(provider)
       .catch(error => ({
         errorCode: error.code,
         errorMessage: error.message,
       }));
   },
 
-  logoutUser: () => firebaseAuth.signOut()
-    .then(console.log('in logout'))
-    .then(result => Promise.resolve(result)),
+  logoutUser: () => firebaseAuth.signOut(),
 
 };
 
