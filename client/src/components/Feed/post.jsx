@@ -26,6 +26,7 @@ class Post extends React.Component {
             <h3>{this.props.post.user}</h3>
             <p>{this.props.post.description}</p>
             <p>{this.props.post.created}</p>
+            <like likes={this.props.post.like} username={this.props.username} photoId={this.props.photoId}/>
             <button OnClick={ ()=> {
               this.getComments()
               this.setState({showComments:true})
