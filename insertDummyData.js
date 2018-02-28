@@ -9,7 +9,7 @@ const db = require('./db/index.js');
 // to run use node insertDummyData.js in the terminal
 
 // input Users into db
-const insertAll = function () {
+const insertAll = () => {
   User.collection.insertMany(getUsers, (err, results) => {
     if (err) {
       console.log('Error ', err);
@@ -20,7 +20,7 @@ const insertAll = function () {
 insertAll();
 
 // input Photos into db
-const insertPhotos = function () {
+const insertPhotos = () => {
   Photo.collection.insertMany(getPhotos, (err, results) => {
     if (err) {
       console.log('Error ', err);
@@ -32,7 +32,7 @@ const insertPhotos = function () {
 insertPhotos();
 
 // insert comments into Db
-const insertComments = function () {
+const insertComments = () => {
   Comment.collection.insertMany(getComments, (err, results) => {
     if (err) {
       console.log('Error ', err);

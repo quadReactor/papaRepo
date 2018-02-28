@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon server",
-    "dev-react": "webpack -d --watch"
+    "dev-react": "webpack -d --watch",
+    "seed-data": "node insertDummyData.js"
   },
   "repository": {
     "type": "git",
