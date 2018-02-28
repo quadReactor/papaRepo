@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import firebase from 'firebase';
 
 import actions from '../../actions/firebase_actions';
-import { firebaseAuth } from './../../utils/firebase';
 
 
 class Login extends Component {

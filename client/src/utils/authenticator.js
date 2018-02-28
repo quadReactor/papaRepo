@@ -3,9 +3,8 @@ import fb from './firebase';
 
 export default {
   onAfterChange: (dispatch, getState) => {
-    console.log(localStorage)
     const page = getState().location;
-    const allowed = localStorage.uid;
+    const allowed = localStorage.length;
     const homeAlready = (page.type === 'LOGIN');
 
     if (!allowed && !homeAlready) {
@@ -13,7 +12,4 @@ export default {
       dispatch(action);
     }
   },
-  //  onAfterChange: (dispatch, getState) => {
-  //    console.log('taco test taco test')
-  //  },
 };
