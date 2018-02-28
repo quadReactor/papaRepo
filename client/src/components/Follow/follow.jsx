@@ -7,11 +7,19 @@ import Navbar from './../Navbar/navbar.jsx';
 
 const Follow = () => (
   <div>
+    <br />
+    <br />
+    <br />
+    <br />
     <Navbar />
     <AddFollowers />
+    <h3>Pending Request</h3>
     <Pending />
+    <h3>Following</h3>
     <Following />
+    <h3>Followers</h3>
     <Followers />
+    <h3>Pending Followers</h3>
   </div>
 );
 
