@@ -3,9 +3,19 @@
     "username": "Papa@gmail.com",
     "displayname": "Papa",
     "pendingFollowers": [],
-    "followers": ["Brainy", "Hefty", "Smurfette", "Grouchy"],
+    "followers": [
+      "Brainy@gmail.com",
+      "Hefty@gmail.com",
+      "Smurfette@gmail.com",
+      "Grouchy@gmail.com"
+    ],
     "pendingFollowing": [],
-    "following": ["Brainy", "Hefty", "Smurfette", "Grouchy"],
+    "following": [
+      "Brainy@gmail.com",
+      "Hefty@gmail.com",
+      "Smurfette@gmail.com",
+      "Grouchy@gmail.com"
+    ],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/b/bd/Papa_Smurf123.png/revision/latest?cb=20130805130238",
     "bio": "Red Smurf Hat!"
@@ -14,9 +24,9 @@
     "username": "Brainy@gmail.com",
     "displayname": "Brainy",
     "pendingFollowers": [],
-    "followers": ["Papa", "Grouchy"],
-    "pendingFollowing": ["Hefty"],
-    "following": ["Papa", "Smurfette"],
+    "followers": ["Papa@gmail.com", "Grouchy@gmail.com"],
+    "pendingFollowing": ["Hefty@gmail.com"],
+    "following": ["Papa@gmail.com", "Smurfette@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/e/e8/Brainy.jpg/revision/latest?cb=20090609234412",
     "bio": "I got glasses"
@@ -24,10 +34,10 @@
   {
     "username": "Hefty@gmail.com",
     "displayname": "Hefty",
-    "pendingFollowers": ["Brainy"],
-    "followers": ["Papa", "Grouchy"],
+    "pendingFollowers": ["Brainy@gmail.com"],
+    "followers": ["Papa@gmail.com", "Grouchy@gmail.com"],
     "pendingFollowing": [],
-    "following": ["Papa", "Smurfette"],
+    "following": ["Papa@gmail.com", "Smurfette@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/3/37/Hefty_Smurf.png/revision/latest?cb=20170414161450",
     "bio": "I'm the Strongest!"
@@ -35,10 +45,10 @@
   {
     "username": "Smurfette@gmail.com",
     "displayname": "Smurfette",
-    "pendingFollowers": ["Grouchy"],
-    "followers": ["Papa", "Brainy", "Hefty"],
+    "pendingFollowers": ["Grouchy@gmail.com"],
+    "followers": ["Papa@gmail.com", "Brainy@gmail.com", "Hefty@gmail.com"],
     "pendingFollowing": [],
-    "following": ["Papa"],
+    "following": ["Papa@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/b/b7/Smurfette_old.jpg/revision/latest?cb=20090610000054",
     "bio": "I am the only gir?"
@@ -47,9 +57,9 @@
     "username": "Grouchy@gmail.com",
     "displayname": "Grouchy",
     "pendingFollowers": [],
-    "followers": ["Papa"],
-    "pendingFollowing": ["Smurfette"],
-    "following": ["Papa", "Hefty", "Brainy"],
+    "followers": ["Papa@gmail.com"],
+    "pendingFollowing": ["Smurfette@gmail.com"],
+    "following": ["Papa@gmail.com", "Hefty@gmail.com", "Brainy@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/d/d7/819028-grouchy_large.jpg/revision/latest?cb=20130624233208",
     "bio": "I hate life"
