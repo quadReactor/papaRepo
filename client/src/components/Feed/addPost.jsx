@@ -1,4 +1,5 @@
 // url comment
+import React from 'react';
 
 class AddPost extends React.Component {
   // function to render input box
@@ -35,9 +36,7 @@ class AddPost extends React.Component {
           onClick={() => {
             this.setState({ posting: true });
           }}
-        >
-          Add Comment
-        </button>
+        />
       </div>
     );
   }
@@ -50,7 +49,7 @@ class AddPost extends React.Component {
     axios
       .post(`/api/${this.props.username}/content`, { description: val, photoUrl: url })
       .then((res) => {
-        console.log('Comment Posted');
+        console.log('Content Posted');
         this.setState({ posting: false });
       });
   }
@@ -63,4 +62,4 @@ class AddPost extends React.Component {
   }
 }
 
-export default AddComment;
+export default AddPost;
