@@ -6,7 +6,7 @@ const photosSchema = new Schema({
   username: { type: String },
   description: String,
   photoUrl: String,
-  likes: [{ type: String, unique: true }], // users
+  likes: [{ type: String }], // users
   created: { type: Date, default: Date.now },
 });
 
