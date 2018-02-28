@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class CommentEntry extends React.Component {
   constructor(props) {
@@ -19,7 +20,6 @@ class CommentEntry extends React.Component {
 
   render() {
     return (
-      <div>
         I'm a comment!
         <div>
           <h3>{this.comment.user}</h3>

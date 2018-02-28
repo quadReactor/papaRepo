@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './post.jsx';
+import AddPost from './addPost.jsx';
 
 class Feed extends React.Component {
   constructor() {
@@ -9,9 +10,9 @@ class Feed extends React.Component {
   render() {
     return (
       <div>
-        <AddPost username={firebase}/>
+        <AddPost username={()=>{}} />
         {this.props.posts.map((post) => {
-          <Post key={post._id} post={post} photoId={post._id} username={firebase}/>;
+          <Post key={post._id} post={post} photoId={post._id} username={()=>{}} />;
         })}
       </div>
     );

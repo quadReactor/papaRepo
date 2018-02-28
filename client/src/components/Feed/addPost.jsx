@@ -1,5 +1,6 @@
 // url comment
 import React from 'react';
+import axios from 'axios';
 
 class AddPost extends React.Component {
   // function to render input box

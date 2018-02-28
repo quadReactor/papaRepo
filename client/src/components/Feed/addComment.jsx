@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class AddComment extends React.Component {
   // function to render input box
@@ -41,9 +42,9 @@ class AddComment extends React.Component {
     const val = this.refs.newText.value; // grabs value from text area
     axios
       .post(`/api/${this.props.username}/${this.props.photoId}/comments`, { text: val })
-      .then((res) => {
-        console.log('Comment Posted');
+      .then(() => {
         this.setState({ commeting: false });
+        console.log('Comment Posted');
       });
   }
 
