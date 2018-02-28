@@ -7,7 +7,7 @@
     "description": "selfie",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/1/12/Papasmurfmovie2017.png/revision/latest?cb=20161016005227",
-    "likes": ["Smurfette", "Brainy", "Hefty"]
+    "likes": ["Smurfette@gmail.com", "Brainy@gmail.com", "Hefty@gmail.com"]
   },
   {
     "_.id": "2",
@@ -17,7 +17,13 @@
     "description": "I'm so pretty",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/a/a9/Movie_Smurfette.png/revision/latest?cb=20161211015747",
-    "likes": ["Smurfette", "Brainy", "Papa", "Hefty", "Grouchy"]
+    "likes": [
+      "Smurfette@gmail.com",
+      "Brainy@gmail.com",
+      "Papa@gmail.com",
+      "Hefty@gmail.com",
+      "Grouchy@gmail.com"
+    ]
   },
   {
     "_.id": "3",
@@ -27,7 +33,12 @@
     "description": "Jack is lame, but i am so pretty",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/8/8a/Smurfette_2017Movie.png/revision/latest?cb=20161002194049",
-    "likes": ["Brainy", "Papa", "Hefty", "Grouchy"]
+    "likes": [
+      "Brainy@gmail.com",
+      "Papa@gmail.com",
+      "Hefty@gmail.com",
+      "Grouchy@gmail.com"
+    ]
   },
   {
     "_.id": "4",
@@ -37,7 +48,7 @@
     "description": "I am leaving the planet for no raisens!",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/b/ba/Brainy_Smurf_2017Movie_2.png/revision/latest?cb=20161016004349",
-    "likes": ["Papa"]
+    "likes": ["Papa@gmail.com"]
   },
   {
     "_.id": "5",
@@ -47,6 +58,6 @@
     "description": "I am so angry!",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/e/e1/Grouchy_Magic_Flute.jpg/revision/latest?cb=20130105114942",
-    "likes": ["Papa", "Brainy"]
+    "likes": ["Papa@gmail.com", "Brainy@gmail.com"]
   }
 ]
