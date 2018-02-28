@@ -1,7 +1,7 @@
 [
   {
-    "username": "Papa",
-    "userId": "1",
+    "username": "Papa@gmail.com",
+    "displayname": "Papa",
     "pendingFollowers": [],
     "followers": ["Brainy", "Hefty", "Smurfette", "Grouchy"],
     "pendingFollowing": [],
@@ -11,8 +11,8 @@
     "bio": "Red Smurf Hat!"
   },
   {
-    "username": "Brainy",
-    "userId": "2",
+    "username": "Brainy@gmail.com",
+    "displayname": "Brainy",
     "pendingFollowers": [],
     "followers": ["Papa", "Grouchy"],
     "pendingFollowing": ["Hefty"],
@@ -22,8 +22,8 @@
     "bio": "I got glasses"
   },
   {
-    "username": "Hefty",
-    "userId": "3",
+    "username": "Hefty@gmail.com",
+    "displayname": "Hefty",
     "pendingFollowers": ["Brainy"],
     "followers": ["Papa", "Grouchy"],
     "pendingFollowing": [],
@@ -33,8 +33,8 @@
     "bio": "I'm the Strongest!"
   },
   {
-    "username": "Smurfette",
-    "userId": "4",
+    "username": "Smurfette@gmail.com",
+    "displayname": "Smurfette",
     "pendingFollowers": ["Grouchy"],
     "followers": ["Papa", "Brainy", "Hefty"],
     "pendingFollowing": [],
@@ -44,8 +44,8 @@
     "bio": "I am the only gir?"
   },
   {
-    "username": "Grouchy",
-    "userId": "5",
+    "username": "Grouchy@gmail.com",
+    "displayname": "Grouchy",
     "pendingFollowers": [],
     "followers": ["Papa"],
     "pendingFollowing": ["Smurfette"],

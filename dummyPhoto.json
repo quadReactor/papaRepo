@@ -2,7 +2,8 @@
   {
     "_.id": "1",
     "created": "2018-02-26T23:00:24.917Z",
-    "username": "PaPa",
+    "username": "Papa@gmail.com",
+    "displayname": "PaPa",
     "description": "selfie",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/1/12/Papasmurfmovie2017.png/revision/latest?cb=20161016005227",
@@ -11,7 +12,8 @@
   {
     "_.id": "2",
     "created": "2018-02-26T23:01:24.917Z",
-    "username": "Smurfette",
+    "username": "Smurfette@gmail.com",
+    "displayname": "Smurfette",
     "description": "I'm so pretty",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/a/a9/Movie_Smurfette.png/revision/latest?cb=20161211015747",
@@ -20,7 +22,8 @@
   {
     "_.id": "3",
     "created": "2018-02-26T23:02:24.917Z",
-    "username": "Smurfette",
+    "username": "Smurfette@gmail.com",
+    "displayname": "Smurfette",
     "description": "Jack is lame, but i am so pretty",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/8/8a/Smurfette_2017Movie.png/revision/latest?cb=20161002194049",
@@ -29,7 +32,8 @@
   {
     "_.id": "4",
     "created": "2018-02-26T23:03:24.917Z",
-    "username": "Brainy",
+    "username": "Brainy@gmail.com",
+    "displayname": "Brainy",
     "description": "I am leaving the planet for no raisens!",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/b/ba/Brainy_Smurf_2017Movie_2.png/revision/latest?cb=20161016004349",
@@ -38,7 +42,8 @@
   {
     "_.id": "5",
     "created": "2018-02-26T23:04:24.917Z",
-    "username": "Grouchy",
+    "username": "Grouchy@gmail.com",
+    "displayname": "Grouchy",
     "description": "I am so angry!",
     "photoUrl":
       "https://vignette.wikia.nocookie.net/smurfs/images/e/e1/Grouchy_Magic_Flute.jpg/revision/latest?cb=20130105114942",
