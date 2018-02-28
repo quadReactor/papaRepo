@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Navbar from './navbar.jsx';
 import Feed from './Feed/feed.jsx';
 import Profile from './Profile/profile.jsx';
-import Login from './Login/login.jsx';
+import Login from './Login/Login.jsx';
 import Follow from './Follow/follow.jsx';
+import Logout from './Logout/logout.jsx';
 
 class App extends Component {
   render() {
@@ -24,13 +24,15 @@ class App extends Component {
       case 'Follow':
         route = <Follow />;
         break;
+      case 'Logout':
+        route = <Logout />;
+        break;
       default:
         break;
     }
 
     return (
       <div>
-        <Navbar />
         {route}
       </div>
     );
