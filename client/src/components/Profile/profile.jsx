@@ -17,7 +17,6 @@ export default Profile;
 //   }
 
 //   render() {
-//     return (
 //       <div>
 //         <Navbar />
 //         <br />
