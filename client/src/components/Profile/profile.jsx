@@ -24,7 +24,9 @@ class Profile extends React.Component {
         <h2>Bio</h2>
         <div>{this.props.currentUser.bio}</div>
         <h2>Feed</h2>
-        {this.props.photos.map(photo => <UserPost key={photo._id} photo={photo} />)}
+        {this.props.photos.map(photo => (
+          <UserPost key={photo._id} photo={photo} photoId={photo._id} />
+        ))}
       </div>
     );
   }

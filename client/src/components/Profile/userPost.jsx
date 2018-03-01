@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import axios from 'axios';
 import Comments from '../Feed/Comments.jsx';
+import Like from '../Feed/Like.jsx';
 import actions from '../../actions/feed_actions';
 
 class UserPost extends Component {
@@ -13,14 +15,20 @@ class UserPost extends Component {
     this.getComments = this.getComments.bind(this);
   }
   getComments(user, photoID) {
-    this.props.getComments(user, photoID);
+    // axios.get('/api/user/photoID/comments');
   }
-  removePhoto() {}
+
+  removePhoto(id) {
+    // axios.delete(`/api/${id}/content`).then(() => {
+    //   console.log('clicked delete photo', id);
+    // });
+    // rerender page ? get request to update the store current user?
+  }
 
   renderPost() {
     return (
       <div>
-        <button onClick={() => removePhoto(this.props.photo._id)}>Delete</button> <br />
+        <button onClick={() => this.removePhoto(this.props.photo._id)}>Delete</button> <br />
         <img src={this.props.photo.photoUrl} />
         <div>
           <h3>{this.props.photo.displayname}</h3>
@@ -34,9 +42,6 @@ class UserPost extends Component {
           <button
             onClick={() => {
               this.getComments(this.props.currentUser.username, this.props.photo.tempId);
-              {
-                /* this.getComments(this.props.currentUser.username, this.props.photo._id); */
-              }
               this.setState({ showComments: true });
             }}
           >
