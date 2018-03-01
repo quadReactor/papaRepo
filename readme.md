@@ -32,6 +32,19 @@ create org repo
 * Schema & Front & seed data & Front End Components & Moral Support Jeremy
 * Backend & Front End Components Elbert
 
+## DevStack
+
+\*Front End
+
+* React
+* Redux
+* Redux First Router
+* Firebase Auth
+
+* Backend & Database
+* Node Express
+* Mongoose MongoDB
+
 ## Setup up
 
 * git clone https://github.com/quadReactor/papaRepo.git
