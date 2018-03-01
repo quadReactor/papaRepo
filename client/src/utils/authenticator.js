@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 const userKey = Object.keys(window.localStorage)
   .filter(it => it.startsWith('firebase:authUser'))[0];
@@ -12,11 +13,21 @@ const userData = {
 
 
 export default {
-  onBeforeChange: (dispatch, getState) => {
+  onBeforeChange: async (dispatch, getState) => {
     const authUser = getState().firebaseUser;
+    const currUser = getState().currentUser;
+    if (!!user && !currUser) {
+      console.log('in here')
+      // let updatedUserFromDatabase = await axios.get(`/api/${username}/current`);
+      const updatedUserFromDatabase = await axios.get(`/api/Papa@gmail.com/current`);
+      dispatch({
+        type: 'USER_RECIEVED',
+        payload: updatedUserFromDatabase,
+      });
+    }
     if (!!user && !authUser) {
       dispatch({
-        type: 'VERIFY_TOKEN_SUCCESS',
+        type: 'RELOAD_USER_STATE_SUCCESS',
         payload: userData,
       });
     }

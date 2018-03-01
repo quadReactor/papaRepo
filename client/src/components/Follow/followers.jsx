@@ -17,11 +17,13 @@ class Followers extends React.Component {
   render() {
     // change currentUser to store name
     return (
+      this.props.followers ?
       <div>
         {this.props.followers.map((person, index) => (
           <FollowerPerson key={index} person={person} stop={this.deleteFollower} />
         ))}
-      </div>
+      </div> :
+        null
     );
   }
 }

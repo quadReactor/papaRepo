@@ -39,7 +39,19 @@ export default {
       }
     },
   },
-  FOLLOW: '/follow',
+  FOLLOW: {
+    path: '/follow',
+    thunk: async (dispatch, getState) => {
+      try {
+        //const { username, profilePic, displayname } = await getState().firebaseUser;
+        // let userFromDatabase = await axios.get(`/api/${username}/current`);
+        const userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
+        dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
   LOGIN: '/login',
   SIGNUP: '/signup',
   LOGOUT: '/logout',

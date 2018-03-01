@@ -3,7 +3,7 @@ export default (state = null, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
       return action.payload;
-    case 'VERIFY_TOKEN_SUCCESS':
+    case 'RELOAD_USER_STATE_SUCCESS':
       return action.payload;
     case 'LOGIN_FAILURE':
       return null;

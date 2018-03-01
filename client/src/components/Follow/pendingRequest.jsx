@@ -28,11 +28,13 @@ class PendingRequest extends React.Component {
   render() {
     // change currentUser to store name
     return (
+      this.props.pendingFollowers ? 
       <div>
         {this.props.pendingFollowers.map((person) => {
           <Person person={person} stop={this.deny} accept={this.accept} />;
         })}
-      </div>
+      </div> :
+        null
     );
   }
 }

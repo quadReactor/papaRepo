@@ -23,11 +23,13 @@ class Pending extends React.Component {
   render() {
     // change currentUser to store name
     return (
+      this.props.pendingFollowing ?
       <div>
         {this.props.pendingFollowing.map((person) => {
           <Person person={person} stop={this.stopRequest} />;
         })}
-      </div>
+      </div> :
+      null
     );
   }
 }
