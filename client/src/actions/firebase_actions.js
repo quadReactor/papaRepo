@@ -16,11 +16,11 @@ export default {
               type: 'LOGIN_SUCCESS',
               payload: userData,
             });
-            dispatch({ type: 'HOME' });
           } else {
             dispatch({ type: 'LOGIN_FAILURE' });
           }
-        });
+        })
+        .then(() => dispatch({ type: 'HOME' }));
     };
   },
 
