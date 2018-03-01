@@ -12,7 +12,7 @@ class Navbar extends Component {
       <div className={style.fixed}>
         <div className={style.navbar}>
           <Link
-            to='/'
+            to='/feed'
             className={style.homeleft}
           >
             <div className={style.home}>

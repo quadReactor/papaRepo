@@ -6,8 +6,8 @@ module.exports = {
     const newUser = new User({
       username: input.body.username, // from firebase Email
       displayname: input.body.displayname, // from firebase
-      profilePic: input.body.bio, // url
-      bio: input.body.bio,
+      profilePic: input.body.profilePic, // url
+      bio: 'placeholder bio',
       pendingFollowers: [],
       followers: [],
       pendingFollowing: [],
