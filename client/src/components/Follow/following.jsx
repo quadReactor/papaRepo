@@ -9,6 +9,7 @@ export default Following;
 // class Following extends React.Component {
 //   constructor() {
 //     super();
+//     this.stopFollowing = this.stopFollowing.bind(this);
 //   }
 
 //   stopFollowing (person) {
@@ -17,11 +18,12 @@ export default Following;
 //   }
 
 //   render() {
+//     //change currentUser to store name
 //     return (
 //       <div>
 //         {this.props.currentUser.following.map((person) => {
 //           <Person person={person} /> <br />
-//           <button>Delete</button>
+//           <button onClick={()=>{this.stopFollowing(person)}} >Delete</button>
 //         })}
 //       </div>
 //     );

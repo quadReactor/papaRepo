@@ -9,6 +9,7 @@ export default Followers;
 // class Followers extends React.Component {
 //   constructor() {
 //     super();
+//     this.deleteFollowing = this.deleteFollowing.bind(this);
 //   }
 //   deleteFollowing (person) {
 //     axios.put(`/api/${this.props.username}/removefollower`, {username: person});
@@ -16,11 +17,12 @@ export default Followers;
 //   }
 
 //   render() {
+//     //change currentUser to store name
 //     return (
 //       <div>
 //         {this.props.currentUser.following.map((person) => {
 //           <Person person={person} /> <br />
-//           <button onClick={this.deleteFollowing(person)} >Delete</button>
+//           <button onClick={()=>{this.deleteFollowing(person)}} >Delete</button>
 //         })}
 //       </div>
 //     );
