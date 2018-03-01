@@ -10,7 +10,7 @@ class Feed extends Component {
       <div>
         <Navbar />
         {/* <AddPost username={firebase}/> */}
-        {this.props.photos.map(photo => <Post key={photo['_.id']} photo={photo} />)}
+        {this.props.photos.map(photo => <Post key={photo._id} photo={photo} />)}
       </div>
     );
   }

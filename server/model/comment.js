@@ -3,7 +3,8 @@ const db = require('../../db');
 
 module.exports = {
   getComments: (input, callback) => {
-    Comment.find({ photo: input.body.photo }).exec((err, data) => {
+    //Comment.find({ _id: input.params.photoId }).exec((err, data) => {
+    Comment.find({ photoId: input.params.photoId }).exec((err, data) => {
       if (err) {
         callback(err, null);
       } else {

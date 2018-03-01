@@ -37,4 +37,8 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(mapDispatchToProps)(Login);
+function mapStateToProps() {
+  return { };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
