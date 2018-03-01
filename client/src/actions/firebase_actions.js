@@ -6,7 +6,7 @@ export default {
     return (dispatch) => {
       utils.loginWithProvider(provider)
         .then((res) => {
-          if (res) {
+          if (res.user) {
             const userData = {
               username: res.user.email,
               displayname: res.user.displayName,
@@ -17,6 +17,7 @@ export default {
               payload: userData,
             });
           } else {
+            console.log(res);
             dispatch({ type: 'LOGIN_FAILURE' });
           }
         })
