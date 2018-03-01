@@ -27,7 +27,6 @@ const Follow = () => (
 
     <h3>Followers</h3>
     <Followers />
-    <h3>Pending Followers</h3>
   </div>
 );
 
