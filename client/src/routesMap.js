@@ -5,8 +5,9 @@ export default {
     path: '/',
     thunk: async (dispatch, getState) => {
       try {
-        const { username, profilePic, displayname } = await getState().firebaseUser;
-        let userFromDatabase = await axios.get(`/api/${username}/current`);
+        //const { username, profilePic, displayname } = await getState().firebaseUser;
+        // let userFromDatabase = await axios.get(`/api/${username}/current`);
+        let userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
         if (userFromDatabase.length === 0) {
           userFromDatabase = await createNew(username, profilePic, displayname)
         }
@@ -28,9 +29,9 @@ export default {
     path: '/feed',
     thunk: async (dispatch, getState) => {
       try {
-        const { username } = getState().user;
-        const photos = await axios.get(`/api/${username}/follower`);
-        console.log(photos.data);
+        //const { username } = getState().firebaseUser;
+        // const photos = await axios.get(`/api/${username}/follower`);
+        const photos = await axios.get(`/api/Papa@gmail.com/follower`);
         dispatch({ type: 'PHOTOS_RECIEVED', payload: photos.data });
       } catch (error) {
         console.error(error);

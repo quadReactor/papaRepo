@@ -1,4 +1,4 @@
-export default (state = ['hi'], action = {}) => {
+export default (state = [], action = {}) => {
   switch (action.type) {
     case 'PHOTOS_RECIEVED':
       return action.payload;
