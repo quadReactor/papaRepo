@@ -29,3 +29,9 @@ export default Pending;
 //     );
 //   }
 // }
+
+// function mapStateToProps(state) {
+//   return { photos: state.photos };
+// }
+
+// export default connect(mapStateToProps)(Pending)
