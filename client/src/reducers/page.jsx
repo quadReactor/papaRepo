@@ -3,6 +3,7 @@ import { NOT_FOUND } from 'redux-first-router';
 const components = {
   HOME: 'Feed',
   FEED: 'Feed',
+  EVERYONE: 'Everyone',
   FOLLOW: 'Follow',
   PROFILE: 'Profile',
   LOGIN: 'Login',
@@ -11,4 +12,5 @@ const components = {
   [NOT_FOUND]: 'Login',
 };
 
-export default (state = 'HOME', action = {}) => components[action.type] || state;
+export default (state = 'HOME', action = {}) =>
+  components[action.type] || state;

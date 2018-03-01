@@ -17,11 +17,13 @@ class Following extends React.Component {
   render() {
     // change currentUser to store name
     return (
+      this.props.following ?
       <div>
         {this.props.following.map((person, index) => (
           <FollowingPerson key={index} person={person} stop={this.stopFollowing} />
         ))}
-      </div>
+      </div> :
+        null
     );
   }
 }

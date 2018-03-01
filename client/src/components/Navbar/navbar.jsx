@@ -26,12 +26,16 @@ class Navbar extends Component {
             </div>
           </Link>
 
+          <Link to='/everyone' className={style.profile} className={style.left}>
+            Everyone
+          </Link>
+
           <Link to='/profile' className={style.profile} className={style.left}>
-            Profile
+            User Profile
           </Link>
 
           <Link to='/follow' className={style.follow}>
-            Followers/Following
+            Update Follows
           </Link>
 
           <Link to='/logout' onClick={this.props.logout} className ={style.logout}>
