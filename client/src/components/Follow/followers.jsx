@@ -1,30 +1,36 @@
 import React from 'react';
-import Person from './person.jsx';
+import FollowerPerson from './followerPerson';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-const Followers = () => <div>Smurfs who follow me</div>;
-export default Followers;
+class Followers extends React.Component {
+  constructor() {
+    super();
+    this.deleteFollower = this.deleteFollower.bind(this);
+  }
 
-// Render Followers
+  deleteFollower(person) {
+    console.log('i was clicked', person);
+    // axios.put(`/api/${this.props.username}/removefollower`, {username: person});
+  }
 
-// class Followers extends React.Component {
-//   constructor() {
-//     super();
-//     this.deleteFollowing = this.deleteFollowing.bind(this);
-//   }
-//   deleteFollowing (person) {
-//     axios.put(`/api/${this.props.username}/removefollower`, {username: person});
-//     //rerender list
-//   }
+  render() {
+    // change currentUser to store name
+    return (
+      <div>
+        {this.props.followers.map((person, index) => (
+          <FollowerPerson key={index} person={person} stop={this.deleteFollower} />
+        ))}
+      </div>
+    );
+  }
+}
 
-//   render() {
-//     //change currentUser to store name
-//     return (
-//       <div>
-//         {this.props.currentUser.following.map((person) => {
-//           <Person person={person} /> <br />
-//           <button onClick={()=>{this.deleteFollowing(person)}} >Delete</button>
-//         })}
-//       </div>
-//     );
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    followers: state.currentUser.followers,
+    username: state.currentUser.username,
+  };
+}
+
+export default connect(mapStateToProps)(Followers);
