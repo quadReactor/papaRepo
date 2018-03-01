@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentEntry from './commentEntry.jsx';
+import CommentEntry from './CommentEntry.jsx';
 
 const Comment = () => (
   <div>
