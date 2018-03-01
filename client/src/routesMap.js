@@ -39,6 +39,19 @@ export default {
       }
     },
   },
+  EVERYONE: {
+    path: '/everyone',
+    thunk: async (dispatch, getState) => {
+      try {
+        //const { username } = getState().firebaseUser;
+        // const photos = await axios.get(`/api/${username}/all`);
+        const photos = await axios.get(`/api/Papa@gmail.com/all`);
+        dispatch({ type: 'PHOTOS_RECIEVED', payload: photos.data });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
   FOLLOW: {
     path: '/follow',
     thunk: async (dispatch, getState) => {

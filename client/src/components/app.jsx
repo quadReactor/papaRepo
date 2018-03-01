@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import Feed from './Feed/feed.jsx';
 import Profile from './Profile/profile.jsx';
-import Login from './Login/Login.jsx';
+import Login from './Login/login.jsx';
 import Follow from './Follow/follow.jsx';
 import Logout from './Logout/logout.jsx';
+import Everyone from './Feed/Everyone.jsx';
 
 class App extends Component {
   render() {
@@ -17,6 +18,9 @@ class App extends Component {
         break;
       case 'Profile':
         route = <Profile />;
+        break;
+      case 'Everyone':
+        route = <Everyone />;
         break;
       case 'Login':
         route = <Login />;

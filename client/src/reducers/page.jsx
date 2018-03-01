@@ -3,6 +3,7 @@ import { NOT_FOUND } from 'redux-first-router';
 const components = {
   HOME: 'Feed',
   FEED: 'Feed',
+  EVERYONE: 'Everyone',
   FOLLOW: 'Follow',
   PROFILE: 'Profile',
   LOGIN: 'Login',

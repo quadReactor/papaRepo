@@ -15,16 +15,6 @@ const userData = {
 export default {
   onBeforeChange: async (dispatch, getState) => {
     const authUser = getState().firebaseUser;
-    const currUser = getState().currentUser;
-    if (!!user && !currUser) {
-      console.log('in here')
-      // let updatedUserFromDatabase = await axios.get(`/api/${username}/current`);
-      const updatedUserFromDatabase = await axios.get(`/api/Papa@gmail.com/current`);
-      dispatch({
-        type: 'USER_RECIEVED',
-        payload: updatedUserFromDatabase,
-      });
-    }
     if (!!user && !authUser) {
       dispatch({
         type: 'RELOAD_USER_STATE_SUCCESS',
