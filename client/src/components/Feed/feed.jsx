@@ -10,9 +10,7 @@ class Feed extends Component {
       <div>
         <Navbar />
         {/* <AddPost username={firebase}/> */}
-        {this.props.photos.map((post) => 
-           <Post key={post._id} post={post}/>
-        )}
+        {this.props.photos.map(photo => <Post key={photo['_.id']} photo={photo} />)}
       </div>
     );
   }
@@ -23,3 +21,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Feed);
+
+{
+  /* // photoUrl={photo.photoUrl} desc={photo.description} userName={photo.username} */
+}

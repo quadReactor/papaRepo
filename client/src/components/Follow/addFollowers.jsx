@@ -5,7 +5,6 @@ const AddFollowers = () => (
     <form>
       <input placeholder="add a follower" />
     </form>
-  </div>  
-)
- 
-export default AddFollowers; 
+  </div>
+);
+export default AddFollowers;
