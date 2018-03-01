@@ -15,11 +15,12 @@ class UserPost extends Component {
   getComments(user, photoID) {
     this.props.getComments(user, photoID);
   }
+  removePhoto() {}
 
   renderPost() {
     return (
       <div>
-        <button>Delete</button> <br />
+        <button onClick={() => removePhoto(this.props.photo._id)}>Delete</button> <br />
         <img src={this.props.photo.photoUrl} />
         <div>
           <h3>{this.props.photo.displayname}</h3>

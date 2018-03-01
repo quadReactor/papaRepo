@@ -29,6 +29,15 @@ create org repo
 
 * John AWS S3
 * Front End Lead & OAuth Jack
-* Schema & Front & seed data & Moral Support Jeremy
-* Backend Elbert
+* Schema & Front & seed data & Front End Components & Moral Support Jeremy
+* Backend & Front End Components Elbert
 
+## Setup up
+
+* git clone https://github.com/quadReactor/papaRepo.git
+* npm install
+* mongod (start datatbase)
+* npm run dev-react (webpack)
+* npm start (server)
+
+* localhost:3000 (url in browser)
