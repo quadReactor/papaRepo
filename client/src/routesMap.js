@@ -12,6 +12,7 @@ export default {
           userFromDatabase = await createNew(username, profilePic, displayname)
         }
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
+        dispatch({ type: 'FEED' });
       } catch (error) {
         console.error(error);
       }
