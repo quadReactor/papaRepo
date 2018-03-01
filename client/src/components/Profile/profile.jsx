@@ -1,13 +1,41 @@
 import React from 'react';
-import Post from './../Feed/post.jsx';
+import { connect } from 'react-redux';
+import UserPost from './userPost.jsx';
 import Navbar from './../Navbar/navbar.jsx';
 
-const Profile = () => (
+const Profile = () => {
   <div>
     <Navbar />
-    {/* <Post /> */}
-  </div>
-);
+  </div>;
+};
 
 export default Profile;
 
+// class Profile extends React.Component {
+//   constructor() {
+//     super();
+//   }
+
+//   render() {
+//       <div>
+//         <Navbar />
+//         <br />
+//         <br />
+//         <br />
+//         <h2>Bio</h2>
+//         <div>{this.props.currentUser.bio}</div>
+//         <h2>Feed</h2>
+//         {this.props.photos.map(photo => <UserPost key={photo._id} photo={photo} />)}
+//       </div>
+//     );
+//   }
+// }
+
+// function mapStateToProps(state) {
+//   return {
+//     currentUser: state.currentUser,
+//     photos: state.photos,
+//   };
+// }
+
+// export default connect(mapStateToProps)(Profile);
