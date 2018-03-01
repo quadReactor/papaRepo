@@ -3,7 +3,7 @@ import Pending from './Pending.jsx';
 import PendingRequest from './PendingRequest.jsx';
 import Following from './Following.jsx';
 import Followers from './Followers.jsx';
-import AddFollowers from './addFollowers.jsx';
+import AddFollowers from './AddFollowers.jsx';
 import Navbar from './../Navbar/Navbar.jsx';
 
 const Follow = () => (

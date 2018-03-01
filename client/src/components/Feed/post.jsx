@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Comments from './comments.jsx';
+import Comments from './Comments.jsx';
 import actions from '../../actions/feed_actions';
 
 

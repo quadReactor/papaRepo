@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Post from './post.jsx';
-import Navbar from './../Navbar/navbar.jsx';
-import AddPost from './addPost.jsx';
+import Post from './Post.jsx';
+import Navbar from './../Navbar/Navbar.jsx';
+import AddPost from './AddPost.jsx';
 
 class Feed extends Component {
   render() {

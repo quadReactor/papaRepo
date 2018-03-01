@@ -1,7 +1,8 @@
 import React from 'react';
-import pendingRequestPerson from './pendingRequestPerson';
+import pendingRequestPerson from './pendingRequestPerson.jsx';
 import axios from 'axios';
 import { connect } from 'react-redux';
+
 
 // const PendingRequest = () => <div>pending smurfs Request</div>;
 // export default PendingRequest;
