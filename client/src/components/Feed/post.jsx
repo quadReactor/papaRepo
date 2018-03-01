@@ -10,12 +10,8 @@ class Post extends React.Component {
     };
     this.getComments = this.getComments.bind(this);
   }
-  getComments() {
-    console.log('i got cliked');
-    // username photoid passed down in props from feed
-    // axios.get(`/api/${this.props.username}/${this.props.photoId}/comments`).then(() => {
-    //   // do something here to add comments to the store
-    // });
+  getComments(photoID) {
+    this.props.getComments(photoID);
   }
 
   renderPost() {
@@ -33,7 +29,7 @@ class Post extends React.Component {
           /> */}
           <button
             onClick={() => {
-              this.getComments();
+              this.getComments(this.props.photoID);
               this.setState({ showComments: true });
             }}
           >
@@ -82,3 +78,15 @@ class Post extends React.Component {
   }
 }
 export default Post;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    login: actions.login,
+  }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return { currentUser: state.currentUser };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
