@@ -3,11 +3,6 @@ import FollowingPerson from './FollowingPerson';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-// const Following = () => <div>Smurfs i'm following</div>;
-// export default Following;
-
-// Render Following
-
 class Following extends React.Component {
   constructor() {
     super();

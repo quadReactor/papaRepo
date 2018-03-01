@@ -1,36 +1,47 @@
 import React from 'react';
-import Person from './person.jsx';
+import pendingRequestPerson from './pendingRequestPerson';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-const PendingRequest = () => <div>pending smurfs Request</div>;
-export default PendingRequest;
+// const PendingRequest = () => <div>pending smurfs Request</div>;
+// export default PendingRequest;
 
 // Render Pending Followers
 
-// class PendingRequest extends React.Component {
-//   constructor() {
-//     super();
-//     this.accept = this.accept.bind(this);
-//     this.deny = this.deny.bind(this);
-//   }
+class PendingRequest extends React.Component {
+  constructor() {
+    super();
+    this.accept = this.accept.bind(this);
+    this.deny = this.deny.bind(this);
+  }
 
-//   accept(person) {
-//     axios.put(`/api/${this.props.username}/approvefollower`, {username: person});
-//   }
+  accept(person) {
+    console.log('accepted');
+    // axios.put(`/api/${this.props.username}/approvefollower`, {username: person});
+  }
 
-//   deny(person) {
-//     axios.put(`/api/${this.props.username}/denyfollower`, {username: person});
-//   }
+  deny(person) {
+    console.log('denied');
+    // axios.put(`/api/${this.props.username}/denyfollower`, {username: person});
+  }
 
-//   render() {
-//     //change currentUser to store name
-//     return (
-//       <div>
-//         {this.props.currentUser.pendingFollowers.map((person) => {
-//           <Person person={person} /> <br />
-//           <button onClick={()=>{this.accept(person)}} >Accept</button>
-//           <button onClick={()=>{this.deny(person)}} >Deny</button>
-//         })}
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    // change currentUser to store name
+    return (
+      <div>
+        {this.props.pendingFollowers.map((person) => {
+          <Person person={person} stop={this.deny} accept={this.accept} />;
+        })}
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    pendingFollowers: state.currentUser.pendingFollowers,
+    username: state.currentUser.username,
+  };
+}
+
+export default connect(mapStateToProps)(PendingRequest);
