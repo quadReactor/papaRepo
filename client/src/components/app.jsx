@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Feed from './Feed/feed.jsx';
-import Profile from './Profile/profile.jsx';
-import Login from './Login/login.jsx';
-import Follow from './Follow/follow.jsx';
-import Logout from './Logout/logout.jsx';
+import Feed from './Feed/Feed.jsx';
+import Profile from './Profile/Profile.jsx';
+import Login from './Login/Login.jsx';
+import Follow from './Follow/Follow.jsx';
+import Logout from './Logout/Logout.jsx';
 import Everyone from './Feed/Everyone.jsx';
 
 class App extends Component {
   render() {
     let route;
-
     switch (this.props.page) {
       case 'Feed':
         route = <Feed />;

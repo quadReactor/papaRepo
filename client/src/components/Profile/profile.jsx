@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserPost from './userPost.jsx';
-import Navbar from './../Navbar/navbar.jsx';
+import Navbar from './../Navbar/Navbar.jsx';
 
-const Profile = () => {
+const Profile = () =>
   <div>
     <Navbar />
   </div>;
-};
+
 
 export default Profile;
 

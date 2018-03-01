@@ -12,4 +12,5 @@ const components = {
   [NOT_FOUND]: 'Login',
 };
 
-export default (state = 'HOME', action = {}) => components[action.type] || state;
+export default (state = 'HOME', action = {}) =>
+  components[action.type] || state;
