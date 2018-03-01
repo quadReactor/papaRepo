@@ -1,27 +1,26 @@
-import React from 'react';
-import Comments from './comments';
-import axios from 'axios';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Comments from './comments.jsx';
+import actions from '../../actions/feed_actions';
 
-class Post extends React.Component {
-  constructor() {
-    super();
+
+class Post extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       showComments: false,
     };
     this.getComments = this.getComments.bind(this);
   }
-  getComments() {
-    console.log('i got cliked');
-    // username photoid passed down in props from feed
-    // axios.get(`/api/${this.props.username}/${this.props.photoId}/comments`).then(() => {
-    //   // do something here to add comments to the store
-    // });
+  getComments(user, photoID) {
+    this.props.getComments(user, photoID);
   }
 
   renderPost() {
     return (
       <div>
-        <img src={this.props.photo.photoUrl} />>
+        <img src={this.props.photo.photoUrl} />
         <div>
           <h3>{this.props.photo.displayname}</h3>
           <p>{this.props.photo.description}</p>
@@ -33,7 +32,8 @@ class Post extends React.Component {
           /> */}
           <button
             onClick={() => {
-              this.getComments();
+              this.getComments(this.props.currentUser.username, this.props.photo.tempId);
+              {/* this.getComments(this.props.currentUser.username, this.props.photo._id); */}
               this.setState({ showComments: true });
             }}
           >
@@ -67,7 +67,6 @@ class Post extends React.Component {
           </button>
         </div>
         <div>
-          <Comments />
         </div>
       </div>
     );
@@ -81,4 +80,18 @@ class Post extends React.Component {
     return this.renderPostAndComments();
   }
 }
-export default Post;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getComments: actions.getComments,
+  }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    comments: state.comments,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
