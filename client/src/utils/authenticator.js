@@ -5,7 +5,7 @@ const userKey = Object.keys(window.localStorage)
 
 const user = userKey ? JSON.parse(localStorage.getItem(userKey)) : undefined;
 
-const userData = {
+const userData = !!user && {
   username: user.email,
   displayname: user.displayName,
   profilePic: user.photoURL,
