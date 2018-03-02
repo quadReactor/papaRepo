@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserPost from './userPost.jsx';
-import Navbar from './../Navbar/Navbar.jsx';
-import NewPost from './newPost.jsx';
+import UserPost from './UserPost.jsx';
+import Navbar from './../Navbar/navbar.jsx';
+import NewPost from './NewPost.jsx';
 
 class Profile extends React.Component {
   constructor() {

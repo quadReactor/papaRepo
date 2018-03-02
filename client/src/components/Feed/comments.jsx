@@ -1,14 +1,14 @@
 import React from 'react';
 import CommentEntry from './CommentEntry.jsx';
 
-const Comment = () => (
+const Comments = () => (
   <div>
     <CommentEntry />
     <CommentEntry />
     <CommentEntry />
   </div>
 );
-export default Comment;
+export default Comments;
 
 // import React, { Component } from 'react';
 // import CommentEntry from './commentEntry.jsx';

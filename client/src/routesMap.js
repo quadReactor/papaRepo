@@ -24,7 +24,7 @@ export default {
       try {
         // const { username, profilePic, displayname } = await getState().firebaseUser;
         // let userFromDatabase = await axios.get(`/api/${username}/current`);
-        const userFromDatabase = await axios.get('/api/Papa@gmail.com/current'); // hardcode
+        const userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
       } catch (error) {
         console.error(error);

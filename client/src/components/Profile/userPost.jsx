@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
-import Comments from '../Feed/Comments.jsx';
+import Comments from '../Feed/comments.jsx';
 import Like from '../Feed/Like.jsx';
 import actions from '../../actions/feed_actions';
 
