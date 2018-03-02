@@ -32,7 +32,9 @@ class PendingRequest extends React.Component {
           <PendingRequestPerson key={index} person={person} stop={this.deny} accept={this.accept} />
         ))}
       </div>
-    ) : null;
+    ) : (
+      <div>No Pending Follower Request</div>
+    ); // null
   }
 }
 

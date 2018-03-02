@@ -3,9 +3,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import PendingPerson from './pendingPerson';
 
-// const Pending = () => <div>pending smurfs</div>;
-// export default Pending;
-
 // Render Pending Following
 
 class Pending extends React.Component {
