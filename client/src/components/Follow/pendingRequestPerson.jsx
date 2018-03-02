@@ -1,25 +1,36 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 // Rendering Pending Person
 // needs accept button
-const PendingRequestPerson = ({ person, stop, accept }) => (
+const PendingRequestPerson = ({
+  person, stop, accept, pendingFollowers,
+}) => (
   <div>
     {person}
     <input
       type="button"
       value="Deny Following"
       onClick={() => {
-        stop(person);
+        if (pendingFollowers.includes(person)) {
+          stop(person);
+        }
       }}
     />
     <input
       type="button"
       value="Accept Following"
       onClick={() => {
-        accept(person);
+        if (pendingFollowers.includes(person)) {
+          accept(person);
+        }
       }}
     />
   </div>
 );
+function mapStateToProps(state) {
+  return {
+    pendingFollowers: state.currentUser.pendingFollowers,
+  };
+}
 
-export default PendingRequestPerson;
+export default connect(mapStateToProps)(PendingRequestPerson);

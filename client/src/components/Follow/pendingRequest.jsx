@@ -1,7 +1,7 @@
 import React from 'react';
-import PendingRequestPerson from './pendingRequestPerson.jsx';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import PendingRequestPerson from './pendingRequestPerson.jsx';
 
 // const PendingRequest = () => <div>pending smurfs Request</div>;
 // export default PendingRequest;
@@ -32,7 +32,9 @@ class PendingRequest extends React.Component {
           <PendingRequestPerson key={index} person={person} stop={this.deny} accept={this.accept} />
         ))}
       </div>
-    ) : null;
+    ) : (
+      <div>No Pending Follower Request</div>
+    ); // null
   }
 }
 

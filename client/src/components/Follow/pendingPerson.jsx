@@ -1,27 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 // Rendering Pending Person
 
-const PendingPerson = ({ person, stop }) => (
+const PendingPerson = ({ person, stop, pendingFollowing }) => (
   <div>
     {person}
     <input
       type="button"
       value="Delete Following"
       onClick={() => {
-        stop(person);
+        if (pendingFollowing.includes(person)) {
+          stop(person);
+        }
       }}
     />
   </div>
 );
 
-export default PendingPerson;
+function mapStateToProps(state) {
+  return {
+    pendingFollowing: state.currentUser.pendingFollowing,
+  };
+}
 
-// {person}
-//     <input
-//       type="button"
-//       value="Delete Following"
-//       onClick={() => {
-//         stop(person);
-//       }}
-//     />
+export default connect(mapStateToProps)(PendingPerson);
