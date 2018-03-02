@@ -2,17 +2,24 @@ import React from 'react';
 
 // Rendering Pending Person
 // needs accept button
-const pendingRequestPerson = ({ person, stop }) => (
+const PendingRequestPerson = ({ person, stop, accept }) => (
   <div>
     {person}
     <input
       type="button"
-      value="Delete Following"
+      value="Deny Following"
       onClick={() => {
         stop(person);
+      }}
+    />
+    <input
+      type="button"
+      value="Accept Following"
+      onClick={() => {
+        accept(person);
       }}
     />
   </div>
 );
 
-export default pendingRequestPerson;
+export default PendingRequestPerson;

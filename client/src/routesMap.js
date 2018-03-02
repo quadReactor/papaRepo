@@ -5,11 +5,11 @@ export default {
     path: '/',
     thunk: async (dispatch, getState) => {
       try {
-        //const { username, profilePic, displayname } = await getState().firebaseUser;
+        // const { username, profilePic, displayname } = await getState().firebaseUser;
         // let userFromDatabase = await axios.get(`/api/${username}/current`);
-        let userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
+        let userFromDatabase = await axios.get('/api/Papa@gmail.com/current'); // hardcode
         if (userFromDatabase.length === 0) {
-          userFromDatabase = await createNew(username, profilePic, displayname)
+          userFromDatabase = await createNew(username, profilePic, displayname);
         }
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
         dispatch({ type: 'FEED' });
@@ -22,9 +22,9 @@ export default {
     path: '/profile',
     thunk: async (dispatch, getState) => {
       try {
-        //const { username, profilePic, displayname } = await getState().firebaseUser;
+        // const { username, profilePic, displayname } = await getState().firebaseUser;
         // let userFromDatabase = await axios.get(`/api/${username}/current`);
-        let userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
+        const userFromDatabase = await axios.get('/api/Papa@gmail.com/current'); // hardcode
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
       } catch (error) {
         console.error(error);
@@ -35,9 +35,9 @@ export default {
     path: '/feed',
     thunk: async (dispatch, getState) => {
       try {
-        //const { username } = getState().firebaseUser;
+        // const { username } = getState().firebaseUser;
         // const photos = await axios.get(`/api/${username}/follower`);
-        const photos = await axios.get(`/api/Papa@gmail.com/follower`);
+        const photos = await axios.get('/api/Papa@gmail.com/follower');
         dispatch({ type: 'PHOTOS_RECIEVED', payload: photos.data });
       } catch (error) {
         console.error(error);
@@ -48,9 +48,9 @@ export default {
     path: '/everyone',
     thunk: async (dispatch, getState) => {
       try {
-        //const { username } = getState().firebaseUser;
+        // const { username } = getState().firebaseUser;
         // const photos = await axios.get(`/api/${username}/all`);
-        const photos = await axios.get(`/api/Papa@gmail.com/all`);
+        const photos = await axios.get('/api/Papa@gmail.com/all');
         dispatch({ type: 'PHOTOS_RECIEVED', payload: photos.data });
       } catch (error) {
         console.error(error);
@@ -61,9 +61,9 @@ export default {
     path: '/follow',
     thunk: async (dispatch, getState) => {
       try {
-        //const { username, profilePic, displayname } = await getState().firebaseUser;
+        // const { username, profilePic, displayname } = await getState().firebaseUser;
         // let userFromDatabase = await axios.get(`/api/${username}/current`);
-        const userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
+        const userFromDatabase = await axios.get('/api/Papa@gmail.com/current'); // hardcode
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
       } catch (error) {
         console.error(error);
@@ -81,8 +81,7 @@ const createNew = (u, p, d) => {
     displayname: d,
     profilePic: p,
   };
-  axios.post('/api/signup', signupObj)
-    .then(() => axios.get(`/api/${u}/current`));
+  axios.post('/api/signup', signupObj).then(() => axios.get(`/api/${u}/current`));
 };
 
-//add all button
+// add all button
