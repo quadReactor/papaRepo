@@ -1,7 +1,7 @@
 import React from 'react';
-import FollowingPerson from './FollowingPerson';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import FollowingPerson from './FollowingPerson';
 
 class Following extends React.Component {
   constructor() {
