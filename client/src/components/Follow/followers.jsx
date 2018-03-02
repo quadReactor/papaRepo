@@ -10,21 +10,19 @@ class Followers extends React.Component {
   }
 
   deleteFollower(person) {
-    console.log('i was clicked', person);
-    // axios.put(`/api/${this.props.username}/removefollower`, {username: person});
+    // console.log('i was clicked', person);
+    axios.put(`/api/${this.props.username}/removefollower`, { username: person });
   }
 
   render() {
     // change currentUser to store name
-    return (
-      this.props.followers ?
+    return this.props.followers ? (
       <div>
         {this.props.followers.map((person, index) => (
           <FollowerPerson key={index} person={person} stop={this.deleteFollower} />
         ))}
-      </div> :
-        null
-    );
+      </div>
+    ) : null;
   }
 }
 

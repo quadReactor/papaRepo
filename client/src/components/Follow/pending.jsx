@@ -16,8 +16,7 @@ class Pending extends React.Component {
   }
 
   stopRequest(person) {
-    console.log('i clicked -- pending', person);
-    // axios.put(`/api/${this.props.username}/stoppendingfollowing`, {username: person});
+    axios.put(`/api/${this.props.username}/stoppendingfollowing`, { username: person });
   }
 
   render() {

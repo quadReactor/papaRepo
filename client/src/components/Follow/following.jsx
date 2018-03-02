@@ -10,21 +10,18 @@ class Following extends React.Component {
   }
 
   stopFollowing(person) {
-    console.log('i was clicked', person);
-    // axios.put(`/api/${this.props.username}/stopfollowing`, { username: person });
+    axios.put(`/api/${this.props.username}/stopfollowing`, { username: person });
   }
 
   render() {
     // change currentUser to store name
-    return (
-      this.props.following ?
+    return this.props.following ? (
       <div>
         {this.props.following.map((person, index) => (
           <FollowingPerson key={index} person={person} stop={this.stopFollowing} />
         ))}
-      </div> :
-        null
-    );
+      </div>
+    ) : null;
   }
 }
 

@@ -16,13 +16,12 @@ class PendingRequest extends React.Component {
   }
 
   accept(person) {
-    console.log('accepted');
-    // axios.put(`/api/${this.props.username}/approvefollower`, {username: person});
+    // console.log('accepted');
+    axios.put(`/api/${this.props.username}/approvefollower`, { username: person });
   }
 
   deny(person) {
-    console.log('denied');
-    // axios.put(`/api/${this.props.username}/denyfollower`, {username: person});
+    axios.put(`/api/${this.props.username}/denyfollower`, { username: person });
   }
 
   render() {
