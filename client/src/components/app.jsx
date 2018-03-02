@@ -6,7 +6,7 @@ import Profile from './Profile/Profile.jsx';
 import Login from './Login/Login.jsx';
 import Follow from './Follow/Follow.jsx';
 import Logout from './Logout/Logout.jsx';
-import Everyone from './Feed/Everyone.jsx';
+import style from './app.css';
 
 class App extends Component {
   render() {
@@ -19,7 +19,7 @@ class App extends Component {
         route = <Profile />;
         break;
       case 'Everyone':
-        route = <Everyone />;
+        route = <Feed />;
         break;
       case 'Login':
         route = <Login />;
@@ -35,7 +35,7 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className={style.background}>
         {route}
       </div>
     );

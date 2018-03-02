@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Post from './Post.jsx';
 import Navbar from './../Navbar/Navbar.jsx';
-import AddPost from './AddPost.jsx';
+import style from './feed.css';
 
 class Feed extends Component {
   render() {
     return (
-      <div>
+      <div >
         <Navbar />
-        {/* <AddPost username={firebase}/> */}
+        <div className={style.body}>
         {this.props.photos.map(photo => <Post key={photo._id} photo={photo} />)}
+        </div>
       </div>
     );
   }
@@ -22,6 +24,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Feed);
 
-{
-  /* // photoUrl={photo.photoUrl} desc={photo.description} userName={photo.username} */
-}

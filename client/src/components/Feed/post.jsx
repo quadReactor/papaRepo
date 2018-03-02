@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import Comments from './Comments.jsx';
+import style from './feed.css';
 import actions from '../../actions/feed_actions';
 
 
@@ -19,7 +21,7 @@ class Post extends Component {
 
   renderPost() {
     return (
-      <div>
+      <div className={style.post}>
         <img src={this.props.photo.photoUrl} />
         <div>
           <h3>{this.props.photo.displayname}</h3>
@@ -33,7 +35,7 @@ class Post extends Component {
           <button
             onClick={() => {
               this.getComments(this.props.currentUser.username, this.props.photo.tempId);
-              {/* this.getComments(this.props.currentUser.username, this.props.photo._id); */}
+              {/* this.getComments(this.props.currentUser.username, this.props.photo._id);  REALCODE*/} 
               this.setState({ showComments: true });
             }}
           >

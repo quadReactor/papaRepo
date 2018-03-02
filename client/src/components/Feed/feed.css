@@ -1,0 +1,13 @@
+.body {
+  margin: auto;
+  margin-top: 130px;
+  width: 70%;
+  border: solid red;
+  padding: 100px;
+}
+
+.post {
+  border: solid blue;
+  padding: 80px;
+  margin: 40px;
+}
