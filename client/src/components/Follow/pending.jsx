@@ -1,5 +1,5 @@
 import React from 'react';
-import pendingPerson from './pendingPerson';
+import PendingPerson from './pendingPerson';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
@@ -16,21 +16,18 @@ class Pending extends React.Component {
   }
 
   stopRequest(person) {
-    console.log('i clicked -- pending', person);
-    // axios.put(`/api/${this.props.username}/stoppendingfollowing`, {username: person});
+    axios.put(`/api/${this.props.username}/stoppendingfollowing`, { username: person });
   }
 
   render() {
     // change currentUser to store name
-    return (
-      this.props.pendingFollowing ?
+    return this.props.pendingFollowing ? (
       <div>
-        {this.props.pendingFollowing.map((person) => {
-          <Person person={person} stop={this.stopRequest} />;
-        })}
-      </div> :
-      null
-    );
+        {this.props.pendingFollowing.map((person, index) => (
+          <PendingPerson key={index} person={person} stop={this.stopRequest} />
+        ))}
+      </div>
+    ) : null;
   }
 }
 
