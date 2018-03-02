@@ -4,12 +4,9 @@ import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import actions from '../../actions/feed_actions';
 
+// Implement File Upload here
+// Implemented MVP Url submission
 class NewPost extends React.Component {
-  //   // function to render input box
-  //   // input text field
-  //   // send button (on click call save fuction)
-  //   // function to render button to click when a user wants
-  //   // function save Grab data and send post request comment
   constructor() {
     super();
     this.state = {
@@ -38,7 +35,6 @@ class NewPost extends React.Component {
   }
   handleSubmit() {
     const value = this.state.val;
-    console.log('val:', value);
     axios
       .post(`/api/${this.props.currentUser.username}/content`, {
         description: value.description,

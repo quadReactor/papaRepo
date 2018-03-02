@@ -19,9 +19,9 @@ class UserPost extends Component {
   }
 
   removePhoto(id) {
-    // axios.delete(`/api/${id}/content`).then(() => {
-    //   console.log('clicked delete photo', id);
-    // });
+    axios.delete(`/api/${id}/content`).then(() => {
+      console.log('clicked delete photo', id);
+    });
     // rerender page ? get request to update the store current user?
   }
 
