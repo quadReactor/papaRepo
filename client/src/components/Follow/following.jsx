@@ -21,7 +21,9 @@ class Following extends React.Component {
           <FollowingPerson key={index} person={person} stop={this.stopFollowing} />
         ))}
       </div>
-    ) : null;
+    ) : (
+      <div>Not Following</div>
+    );
   }
 }
 

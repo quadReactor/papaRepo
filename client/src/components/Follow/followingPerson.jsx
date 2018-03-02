@@ -1,16 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const FollowingPerson = ({ person, stop }) => (
+const FollowingPerson = ({ person, stop, following }) => (
   <div>
     {person}
     <input
       type="button"
       value="Delete Following"
       onClick={() => {
-        stop(person);
+        if (following.includes(person)) {
+          stop(person);
+        }
       }}
     />
   </div>
 );
 
-export default FollowingPerson;
+function mapStateToProps(state) {
+  return {
+    following: state.currentUser.following,
+  };
+}
+
+export default connect(mapStateToProps)(FollowingPerson);

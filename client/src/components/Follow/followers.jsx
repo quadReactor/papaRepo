@@ -22,7 +22,9 @@ class Followers extends React.Component {
           <FollowerPerson key={index} person={person} stop={this.deleteFollower} />
         ))}
       </div>
-    ) : null;
+    ) : (
+      <div>No Followers</div>
+    );
   }
 }
 
