@@ -8,20 +8,20 @@ class Like extends React.Component {
       like: false,
     };
   }
-  toggleLike() {
-    if (this.state.like) {
-      // remove like
-    } else {
-      // add like
-      axios.put(`/api/${this.props.username}/${this.props.photoId}/like`, {});
-    }
-    this.setState({ like: !this.state.like });
-  }
+  // toggleLike() {
+  //   if (this.state.like) {
+  //     // remove like
+  //   } else {
+  //     // add like
+  //     axios.put(`/api/${this.props.username}/${this.props.photoId}/like`, {});
+  //   }
+  //   this.setState({ like: !this.state.like });
+  // }
 
   render() {
     return (
-    <div>LIKE</div>
-    )
+    <div>Likes: {this.props.likes.length}</div>
+    );
     // return (
     //   <div>
     //     <img onClick={this.toggleLike} src="this is a like button immage" />

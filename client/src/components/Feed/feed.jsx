@@ -11,8 +11,15 @@ class Feed extends Component {
       <div >
         <Navbar />
         <div className={style.body}>
-        {this.props.photos.length ?
-          this.props.photos.map(photo => <Post key={photo._id} photo={photo} />)
+        {
+          this.props.page === 'Feed'
+          ? <div>Your Followers Feed!</div>
+          : <div>All Smurf Photos Feed!</div>
+        }
+        {
+          this.props.photos.length
+          ? this.props.photos
+            .map(photo => <Post key={photo._id} photo={photo} />)
           : 'No Photos to show! Follow other smurfs or switch to "Everyone" Tab'
         }
         </div>
@@ -24,6 +31,7 @@ class Feed extends Component {
 function mapStateToProps(state) {
   return {
     photos: state.photos,
+    page: state.page,
   };
 }
 

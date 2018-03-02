@@ -1,13 +1,13 @@
 .body {
   margin: auto;
-  margin-top: 130px;
-  width: 70%;
+  margin-top: 100px;
+  width: 80%;
   border: solid red;
-  padding: 100px;
+  padding: 50px;
 }
 
 .post {
   border: solid blue;
-  padding: 80px;
-  margin: 40px;
+  padding: 40px;
+  margin: 20px;
 }

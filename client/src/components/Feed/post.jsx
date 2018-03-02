@@ -25,6 +25,7 @@ class Post extends Component {
   }
 
   render() {
+    console.log(this.props.photo);
     return (
         <div className={style.post}>
           <img src={this.props.photo.photoUrl} />
@@ -33,7 +34,7 @@ class Post extends Component {
             <p>{this.props.photo.description}</p>
             <p>{this.props.photo.created}</p>
             <Like
-              likes={this.props.photo.like}
+              likes={this.props.photo.likes}
               username={this.props.photo.username}
               photoId={this.props.photo.tempId}
             />

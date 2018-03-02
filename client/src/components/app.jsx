@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Feed from './Feed/feed.jsx';
-import Profile from './Profile/Profile.jsx';
+import Profile from './Profile/profile.jsx';
 import Login from './Login/Login.jsx';
 import Follow from './Follow/follow.jsx';
 import Logout from './Logout/Logout.jsx';
