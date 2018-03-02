@@ -2,14 +2,15 @@
   {
     "username": "Papa@gmail.com",
     "displayname": "Papa",
-    "pendingFollowers": [],
+    "pendingFollowers": ["Clumsy@gmail.com"],
     "followers": [
       "Brainy@gmail.com",
       "Hefty@gmail.com",
       "Smurfette@gmail.com",
-      "Grouchy@gmail.com"
+      "Grouchy@gmail.com",
+      "Clumsy@gmail.com"
     ],
-    "pendingFollowing": [],
+    "pendingFollowing": ["Clumsy@gmail.com"],
     "following": [
       "Brainy@gmail.com",
       "Hefty@gmail.com",
@@ -34,7 +35,7 @@
   {
     "username": "Hefty@gmail.com",
     "displayname": "Hefty",
-    "pendingFollowers": ["Brainy@gmail.com"],
+    "pendingFollowers": ["Brainy@gmail.com", "Hefty@gmail.com"],
     "followers": ["Papa@gmail.com", "Grouchy@gmail.com"],
     "pendingFollowing": [],
     "following": ["Papa@gmail.com", "Smurfette@gmail.com"],
@@ -47,7 +48,7 @@
     "displayname": "Smurfette",
     "pendingFollowers": ["Grouchy@gmail.com"],
     "followers": ["Papa@gmail.com", "Brainy@gmail.com", "Hefty@gmail.com"],
-    "pendingFollowing": [],
+    "pendingFollowing": ["Clumsy@gmail.com"],
     "following": ["Papa@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/b/b7/Smurfette_old.jpg/revision/latest?cb=20090610000054",
@@ -62,6 +63,17 @@
     "following": ["Papa@gmail.com", "Hefty@gmail.com", "Brainy@gmail.com"],
     "profilePic":
       "https://vignette.wikia.nocookie.net/smurfs/images/d/d7/819028-grouchy_large.jpg/revision/latest?cb=20130624233208",
-    "bio": "I hate life"
+    "bio": "Why am everyone blue?"
+  },
+  {
+    "username": "Clumsy@gmail.com",
+    "displayname": "Clumsy",
+    "pendingFollowers": ["Smurfette@gmail.com", "Papa@gmail.com"],
+    "followers": [],
+    "pendingFollowing": ["Hefty@gmail.com", "Papa@gmail.com"],
+    "following": [],
+    "profilePic":
+      "https://vignette.wikia.nocookie.net/smurfs/images/9/9f/Clumsy3.jpeg/revision/latest?cb=20151124202932",
+    "bio": "I deleted all the code guys"
   }
 ]

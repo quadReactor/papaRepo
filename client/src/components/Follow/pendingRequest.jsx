@@ -1,8 +1,7 @@
 import React from 'react';
-import pendingRequestPerson from './pendingRequestPerson.jsx';
+import PendingRequestPerson from './pendingRequestPerson.jsx';
 import axios from 'axios';
 import { connect } from 'react-redux';
-
 
 // const PendingRequest = () => <div>pending smurfs Request</div>;
 // export default PendingRequest;
@@ -28,15 +27,13 @@ class PendingRequest extends React.Component {
 
   render() {
     // change currentUser to store name
-    return (
-      this.props.pendingFollowers ? 
+    return this.props.pendingFollowers ? (
       <div>
-        {this.props.pendingFollowers.map((person) => {
-          <Person person={person} stop={this.deny} accept={this.accept} />;
-        })}
-      </div> :
-        null
-    );
+        {this.props.pendingFollowers.map((person, index) => (
+          <PendingRequestPerson key={index} person={person} stop={this.deny} accept={this.accept} />
+        ))}
+      </div>
+    ) : null;
   }
 }
 

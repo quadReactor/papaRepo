@@ -2,7 +2,7 @@ import React from 'react';
 
 // Rendering Pending Person
 
-const pendingPerson = ({ person, stop }) => (
+const PendingPerson = ({ person, stop }) => (
   <div>
     {person}
     <input
@@ -15,4 +15,13 @@ const pendingPerson = ({ person, stop }) => (
   </div>
 );
 
-export default pendingPerson;
+export default PendingPerson;
+
+// {person}
+//     <input
+//       type="button"
+//       value="Delete Following"
+//       onClick={() => {
+//         stop(person);
+//       }}
+//     />

@@ -2,7 +2,7 @@ import React from 'react';
 
 // Rendering Pending Person
 // needs accept button
-const pendingRequestPerson = ({ person, stop }) => (
+const PendingRequestPerson = ({ person, stop }) => (
   <div>
     {person}
     <input
@@ -15,4 +15,4 @@ const pendingRequestPerson = ({ person, stop }) => (
   </div>
 );
 
-export default pendingRequestPerson;
+export default PendingRequestPerson;
