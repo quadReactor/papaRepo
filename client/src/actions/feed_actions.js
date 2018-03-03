@@ -23,9 +23,13 @@ export default {
         .catch(err => console.log(err));
     };
   },
-  addComment(user, photoID, page) {
+  addComment(user, photoID, page, message, name) {
     return (dispatch) => {
-      axios.post(`/api/${user}/${photoID}/comments`)
+      const messageObj = {
+        displayname: name,
+        text: message,
+      };
+      axios.post(`/api/${user}/${photoID}/comments`, messageObj)
         .then(() => {
           dispatch({
             type: page,

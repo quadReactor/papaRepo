@@ -43,11 +43,13 @@ class Comments extends React.Component {
               username={comment.username}
               photoID={comment.photoId}
             />) :
-          'No comments... yet!'
+          null
         }
         <AddComment
           photoId={this.props.id}
-          username={this.props.currentUser.username} />
+          username={this.props.currentUser.username}
+          displayname={this.props.currentUser.displayname}
+        />
       </div>
     );
   }

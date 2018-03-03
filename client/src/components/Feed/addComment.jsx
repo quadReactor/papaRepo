@@ -1,11 +1,13 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/feed_actions';
 
 class AddComment extends React.Component {
   constructor() {
     super();
     this.state = {
-      commenting: false,
       message: '',
     };
   }
@@ -14,53 +16,41 @@ class AddComment extends React.Component {
     this.setState({ message: e.target.value });
   }
 
-  renderForm() {
-    return (
-      <div>
-        <textarea
-          placeholder="Add Comment Here"
-          onChange={this.handleMessageChange.bind(this)}
-        />
-        <button onClick={this.save}>Submit</button>
-      </div>
-    );
-  }
-
-  renderNormal() {
-    return (
-      <div>
-        <button
-          onClick={() => {
-            this.setState({ commenting: true });
-          }}
-        >
-          Add Comment
-        </button>
-      </div>
-    );
-  }
-
-  save() {
-    // does post add to text add to body?
-    // best way to pass username and photoId?
-    const val = this.refs.newText.value; // grabs value from text area
-    // axios
-    //   .post(`/api/${this.props.username}/${this.props.photoId}/comments`, { text: val })
-    //   .then(() => {
-    //     this.setState({ commenting: false });
-        console.log(val);
-      };
-  
-
   render() {
     return (
-    <div>
-      {this.state.commenting ?
-      this.renderForm() :
-      this.renderNormal()}
-    </div>
+      <div>
+        Add a comment!
+        <textarea id={this.props.photoId}
+          placeholder="Add Comment Here"
+          onChange={this.handleCommentChange.bind(this)}
+        />
+        <button 
+          onClick={() => {
+            this.props.addComment(
+              this.props.username,
+              this.props.photoId,
+              this.props.page,
+              this.state.message,
+              this.props.displayname,
+            );
+            document.getElementById(this.props.photoId).value = '';
+          }}>Submit</button>
+      </div>
     );
   }
 }
 
-export default AddComment;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    addComment: actions.addComment,
+  }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    page: state.location.type,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddComment);
+
