@@ -60,4 +60,15 @@ export default {
         .catch(err => console.log(err));
     };
   },
+  deletePhoto(photoID, page) {
+    return (dispatch) => {
+      axios.delete(`/api/${photoID}/content`)
+        .then(() => {
+          dispatch({
+            type: page,
+          });
+        })
+        .catch(err => console.log(err));
+    };
+  },
 };
