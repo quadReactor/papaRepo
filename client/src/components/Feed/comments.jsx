@@ -1,53 +1,63 @@
-import React from 'react';
+
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+
 import CommentEntry from './CommentEntry.jsx';
+import AddComment from './AddComment.jsx';
 
-const Comments = () => (
-  <div>
-    <CommentEntry />
-    <CommentEntry />
-    <CommentEntry />
-  </div>
-);
-export default Comments;
+class Comments extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      singlePhotoComments: [],
+    };
+  }
 
-// import React, { Component } from 'react';
-// import CommentEntry from './commentEntry.jsx';
-// import { connect } from 'react-redux';
-// class Comment extends React.Component {
-//   constructor() {
-//     super();
-//   }
-//   render() {
-//     // this.props.comments to be replaced from store data
-//     // pass photoId down to add Comment
-//     // grap username from firbase token
-//     return (
-//       <div>
-//         {this.props.comments.map((comment) => {
-//           <CommentEntry
-//             key={comment._id}
-//             comment={comment}
-//             photoId={comments[0].photoId}
-//             username={firebase.username}
-//           />;
-//         })}
-//         <addComment photoId={comments[0].photoId} username={firebase.username} />
-//       </div>
-//     );
-//   }
-// }
+  getComments() {
+    // axios.get(`/api/${this.props.firebaseUser.username}/${this.props.id}/comments`)
+    axios.get(`/api/${this.props.currentUser.username}/${this.props.id}/comments`)
+      .then((res) => {
+        this.setState({ singlePhotoComments: res.data });
+      });
+  }
 
-// function mapDispatchToProps(dispatch) {
-//   // return bindActionCreators(
-//   //   {
-//   //     login: actions.login,
-//   //   },
-//   //   dispatch,
-//   // );
-// }
+  componentDidMount() {
+    this.getComments();
+  }
+  componentDidUpdate() {
+    this.getComments();
+  }
 
-// function mapStateToProps(state) {
-//   // return { currentUser: state.currentUser };
-// }
+  render() {
+    return (
+      <div>
+        {this.state.singlePhotoComments.length ?
+          this.state.singlePhotoComments
+          .map(comment => <CommentEntry
+              key={comment._id}
+              id={comment._id}
+              text={comment.text}
+              name={comment.displayname}
+              time={comment.created}
+              username={comment.username}
+              photoID={comment.photoId}
+            />) :
+          'No comments... yet!'
+        }
+        <AddComment
+          photoId={this.props.id}
+          username={this.props.currentUser.username} />
+      </div>
+    );
+  }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Comment);
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    // firebaseUser: state.firebaseUser,
+  };
+}
+
+export default connect(mapStateToProps)(Comments);

@@ -1,44 +1,47 @@
-import React from 'react';
-const CommentEntry = () => (
-  <div>
-    I'm a comment!
-  </div>
-);
-export default CommentEntry;
+import React, { Component } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-// import React from 'react';
-// import axios from 'axios';
+import actions from './../../actions/feed_actions';
 
-// class CommentEntry extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.editComment = this.editComment.bind(this);
-//     this.deleteComment = this.editComment.bind(this);
-//   }
+class CommentEntry extends Component {
+  render() {
+    return (
+        <div>
+          <h3>{this.props.name}</h3>
+          <p>{this.props.text}</p>
+          <p>{this.props.time}</p>
+          {/* <button
+            onClick={() => this.props.editComment(
+              this.props.username,
+              this.props.id,
+              this.props.page,
+            )}
+          >Edit</button> */}
+          <button
+            onClick={() => this.props.deleteComment(
+              this.props.username,
+              this.props.id,
+              this.props.page,
+            )}
+          >Delete</button>
+        </div>
+    );
+  }
+}
 
-//   editComment() {
-//     // just delete comment and re add?
-//     // more efficent?
-//   }
-//   deleteComment() {
-//     // delete request to remove comment
-//     // do anthoer get request to rerender comment
-//     axios.delete(`/api/${this.props.username}/${this.props.photoId}/comments`);
-//   }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    editComment: actions.editComment,
+    deleteComment: actions.deleteComment,
+  }, dispatch);
+}
 
-//   render() {
-//     return (
-//         I'm a comment!
-//         <div>
-//           <h3>{this.comment.user}</h3>
-//           <p>{this.comment.text}</p>
-//           <p>{this.comment.created}</p>
-//         </div>
-//         <button>Edit</button>
-//         <button>Delete</button>
-//       </div>
-//     );
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    page: state.location.type,
+  };
+}
 
-// export default CommentEntry;
+export default connect(mapStateToProps, mapDispatchToProps)(CommentEntry);

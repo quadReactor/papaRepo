@@ -83,5 +83,3 @@ const createNew = (u, p, d) => {
   };
   axios.post('/api/signup', signupObj).then(() => axios.get(`/api/${u}/current`));
 };
-
-// add all button

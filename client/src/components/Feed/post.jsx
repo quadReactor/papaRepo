@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import axios from 'axios';
 
 import Comments from './comments.jsx';
-import Like from './Like.jsx';
+import Like from './like.jsx';
 import style from './feed.css';
 
 
@@ -13,19 +10,10 @@ class Post extends Component {
     super(props);
     this.state = {
       showComments: false,
-      singlePhotoComments: [],
     };
-  }
-  getComments() {
-    // axios.get(`/api/${this.props.firebaseUser.username}/${this.props.photo._id}/comments`)
-    axios.get(`/api/${this.props.currentUser.username}/${this.props.photo.tempId}/comments`)
-      .then((res) => {
-        this.setState({ singlePhotoComments: res.data });
-      });
   }
 
   render() {
-    console.log(this.props.photo);
     return (
         <div className={style.post}>
           <img src={this.props.photo.photoUrl} />
@@ -40,15 +28,14 @@ class Post extends Component {
             />
             <button
               onClick={() => {
-                this.getComments();
-                this.setState({ showComments: true });
+                this.setState({ showComments: !this.state.showComments });
               }}
             >
-              {this.state.showComments ? 'Show Comments' : 'Hide Comments'}
+              {this.state.showComments ? 'Hide Comments' : 'Show Comments'}
             </button>
             {
               this.state.showComments ?
-            <Comments comments={this.props.singlePhotoComments}/> :
+            <Comments id={this.props.photo.tempId}/> :
               null
             }
 
@@ -58,12 +45,5 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    currentUser: state.currentUser,
-    // firebaseUser: state.firebaseUser,
-    comments: state.comments,
-  };
-}
 
-export default connect(mapStateToProps)(Post);
+export default Post;
