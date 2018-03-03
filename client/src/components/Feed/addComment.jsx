@@ -10,32 +10,48 @@ class AddComment extends React.Component {
     this.state = {
       message: '',
     };
+    this.handleCommentChange = this.handleCommentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleCommentChange(e) {
     this.setState({ message: e.target.value });
   }
 
+  handleClick() {
+    this.props.addComment(
+      this.props.username,
+      this.props.photoId,
+      this.props.page,
+      this.state.message,
+      this.props.displayname,
+    );
+    document.getElementById(this.props.photoId).value = '';
+    this.props.getComments();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.handleClick();
+  }
+
   render() {
     return (
       <div>
         Add a comment!
-        <textarea id={this.props.photoId}
+        <form onSubmit={this.handleSubmit}>
+          <input id={this.props.photoId}
+          type="text"
           placeholder="Add Comment Here"
+          value={this.state.message}
           onChange={this.handleCommentChange.bind(this)}
-        />
+          />
+        </form>
         <button
-          onClick={() => {
-            this.props.addComment(
-              this.props.username,
-              this.props.photoId,
-              this.props.page,
-              this.state.message,
-              this.props.displayname,
-            );
-            document.getElementById(this.props.photoId).value = '';
-            this.props.getComments();
-          }}>Submit</button>
+          onClick={this.handleClick}
+        >Submit
+        </button>
       </div>
     );
   }

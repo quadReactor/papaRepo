@@ -10,6 +10,7 @@ class AddFollowers extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -29,6 +30,7 @@ class AddFollowers extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.handleClick();
   }
 
   render() {
