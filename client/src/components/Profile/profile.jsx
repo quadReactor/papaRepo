@@ -1,37 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserPost from './UserPost.jsx';
+
+import UserPost from './userPost.jsx';
 import Navbar from './../Navbar/navbar.jsx';
 import NewPost from './NewPost.jsx';
+import style from './profile.css';
 
 class Profile extends React.Component {
-  constructor() {
-    super();
-  }
+
   render() {
     return (
       <div>
         <Navbar />
-        <br />
-        <br />
-        <br />
-        <div>
-          <img src={this.props.currentUser.profilePic} />
-          <h2>Bio</h2>
-          <h3>{this.props.currentUser.displayname}</h3>
-          <div>{this.props.currentUser.bio}</div>
-        </div>
-        <h2>Feed</h2>
-        <div>
-          <p>NewPost below</p>
-          <NewPost />
-          <p>NewPost above</p>
-        </div>
+          <div className={style.body}>
+          <div>
+            <img src={this.props.currentUser.profilePic} />
+            <h2>Bio</h2>
+            <h3>{this.props.currentUser.displayname}</h3>
+            <div>{this.props.currentUser.bio}</div>
+          </div>
+          <h2>Feed</h2>
+          <div>
+            <NewPost />
+          </div>
 
-        <div>
-          {this.props.photos.map(photo => (
-            <UserPost key={photo._id} photo={photo} photoId={photo._id} />
-          ))}
+          <div>
+            {this.props.photos.map(photo => (
+              <UserPost key={photo._id} photo={photo} photoId={photo._id} />
+            ))}
+          </div>
         </div>
       </div>
     );

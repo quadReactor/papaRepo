@@ -16,7 +16,9 @@ class Post extends Component {
   render() {
     return (
         <div className={style.post}>
+          <div classname={style.photo}>
           <img src={this.props.photo.photoUrl} />
+          </div>
           <div>
             <h3>{this.props.photo.displayname}</h3>
             <p>{this.props.photo.description}</p>

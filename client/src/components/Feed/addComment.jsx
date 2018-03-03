@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import actions from './../../actions/feed_actions';
 
 class AddComment extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       message: '',
     };
@@ -24,7 +24,7 @@ class AddComment extends React.Component {
           placeholder="Add Comment Here"
           onChange={this.handleCommentChange.bind(this)}
         />
-        <button 
+        <button
           onClick={() => {
             this.props.addComment(
               this.props.username,
@@ -34,6 +34,7 @@ class AddComment extends React.Component {
               this.props.displayname,
             );
             document.getElementById(this.props.photoId).value = '';
+            this.props.getComments();
           }}>Submit</button>
       </div>
     );

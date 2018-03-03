@@ -1,9 +1,21 @@
+img {
+  display: block;
+  max-width:80%;
+  max-height:500px;
+  width: auto;
+  height: auto;
+}
+
 .body {
   margin: auto;
   margin-top: 100px;
   width: 80%;
   border: solid red;
   padding: 50px;
+}
+
+.photo {
+  width: 500px;
 }
 
 .post {

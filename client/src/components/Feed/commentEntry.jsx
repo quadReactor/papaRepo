@@ -20,11 +20,14 @@ class CommentEntry extends Component {
             )}
           >Edit</button> */}
           <button
-            onClick={() => this.props.deleteComment(
-              this.props.username,
-              this.props.id,
-              this.props.page,
-            )}
+            onClick={() => { 
+              this.props.deleteComment(
+                this.props.username,
+                this.props.id,
+                this.props.page,
+              );
+              this.props.getComments();
+            }}
           >Delete</button>
         </div>
     );

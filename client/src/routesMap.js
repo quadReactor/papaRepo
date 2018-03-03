@@ -26,6 +26,9 @@ export default {
         // let userFromDatabase = await axios.get(`/api/${username}/current`);
         const userFromDatabase = await axios.get(`/api/Papa@gmail.com/current`); //hardcode
         dispatch({ type: 'USER_RECIEVED', payload: userFromDatabase.data[0] });
+        // const userPhotos = await axios.get(`/api/${username}`);
+        const userPhotos = await axios.get('/api/Papa@gmail.com');
+        dispatch({ type: 'PHOTOS_RECIEVED', payload: userPhotos.data });
       } catch (error) {
         console.error(error);
       }

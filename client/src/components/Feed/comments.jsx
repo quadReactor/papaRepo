@@ -12,6 +12,7 @@ class Comments extends React.Component {
     this.state = {
       singlePhotoComments: [],
     };
+    this.getComments = this.getComments.bind(this);
   }
 
   getComments() {
@@ -23,9 +24,6 @@ class Comments extends React.Component {
   }
 
   componentDidMount() {
-    this.getComments();
-  }
-  componentDidUpdate() {
     this.getComments();
   }
 
@@ -42,6 +40,7 @@ class Comments extends React.Component {
               time={comment.created}
               username={comment.username}
               photoID={comment.photoId}
+              getComments={this.getComments}
             />) :
           null
         }
@@ -49,6 +48,7 @@ class Comments extends React.Component {
           photoId={this.props.id}
           username={this.props.currentUser.username}
           displayname={this.props.currentUser.displayname}
+          getComments={this.getComments}
         />
       </div>
     );
