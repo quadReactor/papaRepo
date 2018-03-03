@@ -41,6 +41,7 @@ class Comments extends React.Component {
               username={comment.username}
               photoID={comment.photoId}
               getComments={this.getComments}
+              photoUsername={this.props.photoUsername}
             />) :
           null
         }

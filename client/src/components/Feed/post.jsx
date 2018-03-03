@@ -48,8 +48,11 @@ class Post extends Component {
             </button>
             {
               this.state.showComments ?
-            <Comments id={this.props.photo.tempId}/> :
-              null
+            <Comments
+              id={this.props.photo.tempId}
+              photoUsername={this.props.photo.username}
+            />
+            : null
             }
 
           </div>

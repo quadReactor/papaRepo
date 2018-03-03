@@ -20,7 +20,8 @@ class CommentEntry extends Component {
             )}
           >Edit</button> */}
           {
-            this.props.username === this.props.currentUsername
+            (this.props.username === this.props.currentUsername) ||
+            (this.props.photoUsername === this.props.currentUsername)
             ?
             <button
               onClick={() => {
