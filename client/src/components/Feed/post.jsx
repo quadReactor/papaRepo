@@ -23,7 +23,6 @@ class Post extends Component {
             <p>{this.props.photo.created}</p>
             <Like
               likes={this.props.photo.likes}
-              username={this.props.photo.username}
               photoId={this.props.photo.tempId}
             />
             <button

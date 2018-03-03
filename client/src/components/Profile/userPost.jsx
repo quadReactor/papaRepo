@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import Comments from '../Feed/comments.jsx';
-import Like from '../Feed/Like.jsx';
+import Like from '../Feed/like.jsx';
 import actions from '../../actions/feed_actions';
 
 class UserPost extends Component {

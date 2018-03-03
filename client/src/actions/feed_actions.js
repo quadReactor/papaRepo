@@ -38,4 +38,28 @@ export default {
         .catch(err => console.log(err));
     };
   },
+  likePhoto(user, photoID, page) {
+    console.log('in Like Photo', user, photoID, page)
+    return (dispatch) => {
+      axios.post(`/api/${user}/${photoID}/like`)
+        .then(() => {
+          dispatch({
+            type: page,
+          });
+        })
+        .catch(err => console.log(err));
+    };
+  },
+  unlikePhoto(user, photoID, page) {
+    console.log('in unlike Photo', user, photoID, page)
+    return (dispatch) => {
+      axios.put(`/api/${user}/${photoID}/like`)
+        .then(() => {
+          dispatch({
+            type: page,
+          });
+        })
+        .catch(err => console.log(err));
+    };
+  },
 };

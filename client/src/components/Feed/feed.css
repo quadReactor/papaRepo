@@ -11,3 +11,24 @@
   padding: 40px;
   margin: 20px;
 }
+
+.likeButtonTrue {
+  float: left;
+  background-color: red;
+}
+
+.likeButtonFalse {
+  float: left;
+}
+
+.likeS {
+  float: left;
+}
+
+.heart {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 20px;
+}
