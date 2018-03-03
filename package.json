@@ -4,7 +4,7 @@
   "description": "InstaSmurf",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "nodemon server.js",
     "dev-react": "webpack -d --watch",
     "seed-data": "node insertDummyData.js"
   },
