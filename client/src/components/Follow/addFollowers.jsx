@@ -17,13 +17,12 @@ class AddFollowers extends React.Component {
   }
 
   handleSubmit() {
-    const value = this.state.value;
+    const { value } = this.state;
     axios
       .post(`/api/${this.props.username}/addfollower`, {
         username: value,
       })
-      .then((res) => {
-        console.log('Following Request Sent');
+      .then(() => {
         this.setState({ value: '' });
       });
   }

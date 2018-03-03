@@ -19,16 +19,21 @@ class CommentEntry extends Component {
               this.props.page,
             )}
           >Edit</button> */}
-          <button
-            onClick={() => { 
-              this.props.deleteComment(
-                this.props.username,
-                this.props.id,
-                this.props.page,
-              );
-              this.props.getComments();
-            }}
-          >Delete</button>
+          {
+            this.props.username === this.props.currentUsername
+            ?
+            <button
+              onClick={() => {
+                this.props.deleteComment(
+                  this.props.username,
+                  this.props.id,
+                  this.props.page,
+                );
+                this.props.getComments();
+              }}
+            >Delete Comment</button>
+            : null
+          }
         </div>
     );
   }
@@ -44,6 +49,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     page: state.location.type,
+    currentUsername: state.currentUser.username,
   };
 }
 

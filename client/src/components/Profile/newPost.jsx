@@ -12,8 +12,8 @@ class NewPost extends React.Component {
     this.state = {
       posting: false,
       val: {
-        url: 'Add Url',
-        description: 'Add Description',
+        url: '',
+        description: '',
       },
     };
     this.urlInput = this.urlInput.bind(this);
@@ -42,8 +42,13 @@ class NewPost extends React.Component {
         displayname: this.props.currentUser.displayname,
       })
       .then((res) => {
-        console.log('Content Posted');
-        this.setState({ posting: false });
+        this.setState({ 
+          posting: false,
+          val: {
+            url: '',
+            description: '',
+          },
+        });
       });
   }
   renderForm() {
@@ -52,9 +57,19 @@ class NewPost extends React.Component {
         <form>
           <label>
             URL:
-            <input type="text" value={this.state.val.url} onChange={this.urlInput} /> <br />
+            <input 
+              type="text"
+              value={this.state.val.url}
+              onChange={this.urlInput}
+              placeholder="enter url here"
+            />
             Description:
-            <input type="text" value={this.state.val.description} onChange={this.descInput} />
+            <input
+            type="text"
+            value={this.state.val.description}
+            onChange={this.descInput}
+            placeholder="enter description here"
+            />
           </label>
         </form>
         <button onClick={this.handleSubmit}>Submit</button>
@@ -85,7 +100,6 @@ class NewPost extends React.Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
-    comments: state.comments,
   };
 }
 
