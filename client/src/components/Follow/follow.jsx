@@ -1,10 +1,10 @@
 import React from 'react';
-import Pending from './Pending.jsx';
-import PendingRequest from './PendingRequest.jsx';
-import Following from './Following.jsx';
-import Followers from './Followers.jsx';
+import Pending from './pending.jsx';
+import PendingRequest from './pendingRequest.jsx';
+import Following from './following.jsx';
+import Followers from './followers.jsx';
 import AddFollowers from './AddFollowers.jsx';
-import Navbar from './../Navbar/Navbar.jsx';
+import Navbar from './../Navbar/navbar.jsx';
 
 const Follow = () => (
   <div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Comments from './Comments.jsx';
-import actions from '../../actions/feed_actions';
+
+import Comments from './comments.jsx';
+import Like from './like.jsx';
+import style from './feed.css';
 
 
 class Post extends Component {
@@ -11,87 +11,38 @@ class Post extends Component {
     this.state = {
       showComments: false,
     };
-    this.getComments = this.getComments.bind(this);
-  }
-  getComments(user, photoID) {
-    this.props.getComments(user, photoID);
-  }
-
-  renderPost() {
-    return (
-      <div>
-        <img src={this.props.photo.photoUrl} />
-        <div>
-          <h3>{this.props.photo.displayname}</h3>
-          <p>{this.props.photo.description}</p>
-          <p>{this.props.photo.created}</p>
-          {/* <Like
-            likes={this.props.photo.like}
-            username={this.props.username}
-            photoId={this.props.photoId}
-          /> */}
-          <button
-            onClick={() => {
-              this.getComments(this.props.currentUser.username, this.props.photo.tempId);
-              {/* this.getComments(this.props.currentUser.username, this.props.photo._id); */}
-              this.setState({ showComments: true });
-            }}
-          >
-            View Comments
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  renderPostAndComments() {
-    return (
-      <div>
-        <img src={this.props.photo.photoUrl} />>
-        <div>
-          <h3>{this.props.photo.displayname}</h3>
-          <p>{this.props.photo.description}</p>
-          <p>{this.props.photo.created}</p>
-          {/* <Like
-            likes={this.props.post.like}
-            username={this.props.username}
-            photoId={this.props.photoId}
-          /> */}
-          <button
-            onClick={() => {
-              this.getComments();
-              this.setState({ showComments: false });
-            }}
-          >
-            Hide Comments
-          </button>
-        </div>
-        <div>
-        </div>
-      </div>
-    );
   }
 
   render() {
-    // dont render coments till clicked
-    if (!this.state.showComments) {
-      return this.renderPost();
-    }
-    return this.renderPostAndComments();
+    return (
+        <div className={style.post}>
+          <img src={this.props.photo.photoUrl} />
+          <div>
+            <h3>{this.props.photo.displayname}</h3>
+            <p>{this.props.photo.description}</p>
+            <p>{this.props.photo.created}</p>
+            <Like
+              likes={this.props.photo.likes}
+              photoId={this.props.photo.tempId}
+            />
+            <button
+              onClick={() => {
+                this.setState({ showComments: !this.state.showComments });
+              }}
+            >
+              {this.state.showComments ? 'Hide Comments' : 'Show Comments'}
+            </button>
+            {
+              this.state.showComments ?
+            <Comments id={this.props.photo.tempId}/> :
+              null
+            }
+
+          </div>
+        </div>
+    );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    getComments: actions.getComments,
-  }, dispatch);
-}
 
-function mapStateToProps(state) {
-  return {
-    currentUser: state.currentUser,
-    comments: state.comments,
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default Post;

@@ -28,7 +28,7 @@ export default {
     }
     const data = await getFirebaseUserFromLocalStorage();
     if (!!data && !firebaseUser && shouldGetFirebaseUserFromLocalStorage) {
-      dispatch({
+      await dispatch({
         type: 'RELOAD_USER_STATE_SUCCESS',
         payload: data,
       });

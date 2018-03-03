@@ -1,59 +1,56 @@
-// import React from 'react';
-// import axios from 'axios';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-// class AddComment extends React.Component {
-//   // function to render input box
-//   // input text field
-//   // send button (on click call save fuction)
-//   // function to render button to click when a user wants
-//   // function save Grab data and send post request comment
-//   constructor() {
-//     super();
-//     this.state = {
-//       commeting: false,
-//     };
-//   }
-//   renderForm() {
-//     return (
-//       <div>
-//         <textarea ref="newText" defaultValue="Add Comment Here" />
-//         <button onClick={this.save}>Submit</button>
-//       </div>
-//     );
-//   }
+import actions from './../../actions/feed_actions';
 
-//   renderNormal() {
-//     return (
-//       <div>
-//         <button
-//           onClick={() => {
-//             this.setState({ commeting: true });
-//           }}
-//         >
-//           Add Comment
-//         </button>
-//       </div>
-//     );
-//   }
+class AddComment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      message: '',
+    };
+  }
 
-//   save() {
-//     // does post add to text add to body?
-//     // best way to pass username and photoId?
-//     const val = this.refs.newText.value; // grabs value from text area
-//     axios
-//       .post(`/api/${this.props.username}/${this.props.photoId}/comments`, { text: val })
-//       .then(() => {
-//         this.setState({ commeting: false });
-//         console.log('Comment Posted');
-//       });
-//   }
+  handleCommentChange(e) {
+    this.setState({ message: e.target.value });
+  }
 
-//   render() {
-//     if (this.state.commeting) {
-//       return this.renderForm;
-//     }
-//     return this.renderNormal;
-//   }
-// }
+  render() {
+    return (
+      <div>
+        Add a comment!
+        <textarea id={this.props.photoId}
+          placeholder="Add Comment Here"
+          onChange={this.handleCommentChange.bind(this)}
+        />
+        <button 
+          onClick={() => {
+            this.props.addComment(
+              this.props.username,
+              this.props.photoId,
+              this.props.page,
+              this.state.message,
+              this.props.displayname,
+            );
+            document.getElementById(this.props.photoId).value = '';
+          }}>Submit</button>
+      </div>
+    );
+  }
+}
 
-// export default AddComment;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    addComment: actions.addComment,
+  }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    page: state.location.type,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddComment);
+
