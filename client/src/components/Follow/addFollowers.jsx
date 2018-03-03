@@ -16,7 +16,7 @@ class AddFollowers extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit() {
+  handleClick() {
     const { value } = this.state;
     axios
       .post(`/api/${this.props.username}/addfollower`, {
@@ -27,10 +27,14 @@ class AddFollowers extends React.Component {
       });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="add a follower"
@@ -38,7 +42,7 @@ class AddFollowers extends React.Component {
             onChange={this.handleChange}
           />
         </form>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleClick}>Submit</button>
       </div>
     );
   }
