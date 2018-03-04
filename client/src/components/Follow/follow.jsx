@@ -11,6 +11,9 @@ import style from './follow.css';
 const Follow = () => (
   <div>
     <Navbar />
+    <div className={style.title}>
+      Add/Remove Followers!
+    </div>
     <div className={style.body}>
       <h3 className={style.header}>Find</h3>
       <AddFollowers />

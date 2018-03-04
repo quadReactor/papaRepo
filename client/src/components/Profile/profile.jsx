@@ -13,25 +13,32 @@ class Profile extends React.Component {
       <div>
         <Navbar />
           <div className={style.body}>
-          <div>
-            <img src={this.props.currentUser.profilePic} />
-            {/* <h2>Bio</h2> */}
-            {/* <div>{this.props.currentUser.bio}</div> */}
-          </div>
-          <h2>{this.props.firebaseUser ?
-            this.props.firebaseUser.displayname :
-            null }
-          's Photos</h2>
-          <div>
-            <NewPost />
-          </div>
-          <div>
-          {
-            this.props.photos.length
-            ? this.props.photos
-              .map(photo => <Post key={photo._id} photo={photo} />)
-            : 'You have no photos. Click "Add New Post"!'
-          }
+            <div className={style.feed}>
+              <div className={style.title}>
+                <div className={style.picborder}>
+                  <img
+                    className={style.profilepic}
+                    src={this.props.currentUser.profilePic} />
+                  {/* <h2>Bio</h2> */}
+                  {/* <div>{this.props.currentUser.bio}</div> */}
+                </div>
+                <h2>{this.props.firebaseUser ?
+                  this.props.firebaseUser.displayname :
+                  null }
+                's Photos</h2>
+                <div className={style.addpost}>
+                  <NewPost />
+                </div>
+              </div>
+                <div>
+                {
+                  this.props.photos.length
+                  ? this.props.photos
+                    .map(photo => <Post key={photo._id} photo={photo} />)
+                  : 'You have no photos. Click "Add New Post"!'
+                }
+              
+            </div>
           </div>
         </div>
       </div>

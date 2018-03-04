@@ -15,8 +15,12 @@ class CommentEntry extends Component {
   render() {
     return (
         <div className={style.commentbox}>
-          <h3>{this.props.name}: </h3>
-          <p>"{this.props.text}"</p>
+          <h3 className={style.name}>
+            {this.props.name}:
+          </h3>
+          <p className={style.words}>
+            "{this.props.text}"
+          </p>
           <p className={style.timeago}>
             {this.timeAgo()}
           </p>

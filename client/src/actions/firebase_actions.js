@@ -6,7 +6,6 @@ export default {
     return (dispatch) => {
       utils.loginWithProvider(provider)
         .then((res) => {
-          console.log(res.user)
           if (res.user) {
             const userData = {
               username: res.user.email,

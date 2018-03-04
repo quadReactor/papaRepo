@@ -23,7 +23,6 @@ class Post extends Component {
   }
 
   render() {
-    console.log(this.props.photo.displayname)
     return (
         <div className={style.post}>
           {this.props.user === this.props.photo.username

@@ -1,9 +1,9 @@
 .body {
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 80%;
   border: solid black;
-  padding: 50px;
+  padding: 20px;
   background-color: rgba(244, 244, 244, 0.979);
 }
 
@@ -12,4 +12,15 @@
   font-size: 20px;
   padding-bottom: 13px;
   padding-top: 13px;
+}
+
+.title {
+  text-align: center;
+  margin: auto;
+  margin-top: 100px;
+  width: 80%;
+  border: solid black;
+  padding: 20px;
+  background-color: rgba(244, 244, 244, 0.979);
+  font-size: 30px;
 }
