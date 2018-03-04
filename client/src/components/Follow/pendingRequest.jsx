@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/follow_actions';
 import PendingRequestPerson from './pendingRequestPerson.jsx';
-
-// const PendingRequest = () => <div>pending smurfs Request</div>;
-// export default PendingRequest;
-
-// Render Pending Followers
 
 class PendingRequest extends React.Component {
   constructor() {
@@ -16,26 +14,40 @@ class PendingRequest extends React.Component {
   }
 
   accept(person) {
-    // console.log('accepted');
-    axios.put(`/api/${this.props.username}/approvefollower`, { username: person });
+    axios.put(`/api/${this.props.username}/approvefollower`, { username: person })
+      .then(() => this.props.refreshCurrentUser());
   }
 
   deny(person) {
-    axios.put(`/api/${this.props.username}/denyfollower`, { username: person });
+    axios.put(`/api/${this.props.username}/denyfollower`, { username: person })
+      .then(() => this.props.refreshCurrentUser());
   }
 
   render() {
-    // change currentUser to store name
-    return this.props.pendingFollowers ? (
+    return (
       <div>
-        {this.props.pendingFollowers.map((person, index) => (
-          <PendingRequestPerson key={index} person={person} stop={this.deny} accept={this.accept} />
-        ))}
+      { this.props.pendingFollowers &&
+        this.props.pendingFollowers.length
+        ? this.props.pendingFollowers
+          .map((person, index) => (
+            <PendingRequestPerson
+              key={index}
+              person={person}
+              stop={this.deny}
+              accept={this.accept}
+            />
+          ))
+        : 'none'
+      }
       </div>
-    ) : (
-      <div>No Pending Follower Request</div>
-    ); // null
+    );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -45,4 +57,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(PendingRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(PendingRequest);

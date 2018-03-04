@@ -6,8 +6,6 @@ import { bindActionCreators } from 'redux';
 import actions from './../../actions/follow_actions';
 import PendingPerson from './pendingPerson.jsx';
 
-// Render Pending Following
-
 class Pending extends React.Component {
   constructor() {
     super();
@@ -33,7 +31,7 @@ class Pending extends React.Component {
               stop={this.stopRequest}
             />
           ))
-        : 'none pending'
+        : 'none'
       }
       </div>
     );
