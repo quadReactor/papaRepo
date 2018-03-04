@@ -38,7 +38,7 @@ class NewPost extends React.Component {
       .post(`/api/${this.props.currentUser.username}/content`, {
         description: value.description,
         photoUrl: value.url,
-        displayname: this.props.currentUser.displayname,
+        displayname: this.props.firebaseUser.displayname,
       })
       .then(() => {
         this.setState({
@@ -106,6 +106,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
+    firebaseUser: state.firebaseUser,
   };
 }
 

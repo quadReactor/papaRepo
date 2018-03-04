@@ -17,13 +17,18 @@ class Like extends Component {
     if (
       this.props.likes.includes(this.props.username)
       && this.state.liked !== true
-     ) {this.setState({ liked: true }) 
+    ) {
+      this.setState({ liked: true });
     } else if (
       !(this.props.likes.includes(this.props.username))
       && (this.state.liked !== false)
-    ) {this.setState({ liked: false })}
+    ) {
+      this.setState({ liked: false });
+    }
   }
-
+  componentDidMount() {
+    this.alreadyLiked();
+  }
   componentDidUpdate() {
     this.alreadyLiked();
   }

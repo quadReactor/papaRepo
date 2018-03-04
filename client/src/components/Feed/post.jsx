@@ -18,6 +18,7 @@ class Post extends Component {
   }
 
   render() {
+    console.log(this.props.photo.displayname)
     return (
         <div className={style.post}>
           {this.props.user === this.props.photo.username
@@ -32,7 +33,7 @@ class Post extends Component {
           <img src={this.props.photo.photoUrl} />
           </div>
           <div>
-            <h3>{this.props.photo.displayname}</h3>
+            <p>{this.props.photo.displayname}</p>
             <p>{this.props.photo.description}</p>
             <p>{this.props.photo.created}</p>
             <Like
