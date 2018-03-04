@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import CommentEntry from './CommentEntry.jsx';
 import AddComment from './AddComment.jsx';
+import style from './feed.css';
 
 class Comments extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Comments extends Component {
   render() {
     return (
       <div>
+        <div className={style.commentbox2}>
         {this.state.singlePhotoComments.length ?
           this.state.singlePhotoComments
           .map(comment => <CommentEntry
@@ -44,6 +46,7 @@ class Comments extends Component {
             />) :
           null
         }
+        </div>
         <AddComment
           photoId={this.props.id}
           username={this.props.firebaseUser.username}
