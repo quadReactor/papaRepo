@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/follow_actions';
+
 
 class AddFollowers extends React.Component {
   constructor(props) {
@@ -25,6 +29,7 @@ class AddFollowers extends React.Component {
       })
       .then(() => {
         this.setState({ value: '' });
+        this.props.refreshCurrentUser();
       });
   }
 
@@ -50,10 +55,16 @@ class AddFollowers extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
+}
+
 function mapStateToProps(state) {
   return {
     username: state.currentUser.username,
   };
 }
 
-export default connect(mapStateToProps)(AddFollowers);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFollowers);

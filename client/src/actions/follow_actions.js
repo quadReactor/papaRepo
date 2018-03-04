@@ -1,5 +1,8 @@
-import axios from 'axios';
 
 export default {
-  
-}
+  refreshCurrentUser() {
+    return {
+      type: 'FOLLOW',
+    };
+  },
+};
