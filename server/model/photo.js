@@ -23,8 +23,8 @@ module.exports = {
 
     function getPhoto(user) {
       return Photo
-        .sort({ created: -1 })
         .find({ username: user })
+        .sort({ created: -1 })
         .limit(20);
     }
 
@@ -33,14 +33,18 @@ module.exports = {
         const per = await getPhoto(person);
         friendPhotos = friendPhotos.concat(per);
       }
+      const sortedFriends = friendPhotos
+        .sort((a, b) =>
+          b.created - a.created);
 
-      callback(friendPhotos);
+      callback(sortedFriends);
     }
     processArray(arr);
   },
 
   allFeed: (callback) => {
-    Photo.find()
+    Photo
+      .find()
       .sort({ created: -1 })
       .limit(40)
       .exec((err, data) => {

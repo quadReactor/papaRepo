@@ -12,10 +12,7 @@ img {
   width: 80%;
   border: solid red;
   padding: 50px;
-}
-
-.photo {
-  width: 500px;
+  background-color: rgba(244, 244, 244, 0.911);
 }
 
 .post {

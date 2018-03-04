@@ -6,7 +6,7 @@ import Following from './following.jsx';
 import Followers from './followers.jsx';
 import AddFollowers from './addFollowers.jsx';
 import Navbar from './../Navbar/navbar.jsx';
-import style from './follow.css'
+import style from './follow.css';
 
 const Follow = () => (
   <div>
