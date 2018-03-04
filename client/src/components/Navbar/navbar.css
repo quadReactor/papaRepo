@@ -11,7 +11,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid #bbb;
+  border-bottom: 2px solid blue;
 }
 .homeleft {
   float: left;
@@ -21,14 +21,14 @@ a {
 .left {
   float: left;
   padding: 14px 16px;
-  border-left: 1px solid #bbb;
+  border-left: 2px solid blue;
 }
 
 .follow {
   float: left;
   padding: 14px 16px;
-  border-right: 1px solid #bbb;
-  border-left: 1px solid #bbb;
+  border-right: 2px solid blue;
+  border-left: 2px solid blue;
 }
 
 .logout {
@@ -49,11 +49,11 @@ a {
 
 .logout {
   border-right: none;
-  border-left: 1px solid #bbb;
+  border-left: 2px solid blue;
 }
 
 .profile {
-  border-left: 1px solid #bbb;
+  border-left: 2px solid blue;
 }
 
 .navbar {

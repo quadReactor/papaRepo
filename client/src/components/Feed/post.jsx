@@ -30,7 +30,9 @@ class Post extends Component {
             >Delete</button>
             : null}
           <div className={style.photo}>
-          <img src={this.props.photo.photoUrl} />
+            <img className={style.image}
+              src={this.props.photo.photoUrl}
+            />
           </div>
           <div>
             <p>{this.props.photo.displayname}</p>
