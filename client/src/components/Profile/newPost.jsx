@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import axios from 'axios';
-import actions from '../../actions/feed_actions';
 
-// Implement File Upload here
-// Implemented MVP Url submission
+import axios from 'axios';
+import actions from '../../actions/post_actions';
+
 class NewPost extends React.Component {
   constructor() {
     super();
@@ -41,14 +40,15 @@ class NewPost extends React.Component {
         photoUrl: value.url,
         displayname: this.props.currentUser.displayname,
       })
-      .then((res) => {
-        this.setState({ 
+      .then(() => {
+        this.setState({
           posting: false,
           val: {
             url: '',
             description: '',
           },
         });
+        this.props.refreshCurrentUser();
       });
   }
   renderForm() {
@@ -97,10 +97,16 @@ class NewPost extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
+}
+
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
   };
 }
 
-export default connect(mapStateToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
