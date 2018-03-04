@@ -42,7 +42,7 @@ class Post extends Component {
             />
           </div>
           <div className={style.leftbox}>
-            <p className={style.displayname}>{this.props.photo.displayname}</p>
+            <p className={style.displayname}>{this.props.photo.displayname} </p>
             <p className={style.description}>{this.props.photo.description}</p>
             <p className={style.created}>{this.timeAgo()}</p>
             <Like
@@ -50,6 +50,7 @@ class Post extends Component {
               photoId={this.props.photo._id}
             />
             <button
+              className={style.showcomments}
               onClick={() => {
                 this.setState({ showComments: !this.state.showComments });
               }}

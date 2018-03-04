@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import moment from 'moment';
 
 import actions from './../../actions/feed_actions';
+import style from './feed.css';
 
 class CommentEntry extends Component {
   timeAgo() {
@@ -13,10 +14,12 @@ class CommentEntry extends Component {
 
   render() {
     return (
-        <div>
-          <h3>{this.props.name}</h3>
-          <p>{this.props.text}</p>
-          <p>{this.timeAgo()}</p>
+        <div className={style.commentbox}>
+          <h3>{this.props.name}: </h3>
+          <p>"{this.props.text}"</p>
+          <p className={style.timeago}>
+            {this.timeAgo()}
+          </p>
           {/* <button
             onClick={() => this.props.editComment(
               this.props.username,
@@ -25,8 +28,8 @@ class CommentEntry extends Component {
             )}
           >Edit</button> */}
           {
-            (this.props.username === this.props.currentUsername) ||
-            (this.props.photoUsername === this.props.currentUsername)
+            (this.props.username === this.props.firebaseUsername) ||
+            (this.props.photoUsername === this.props.firebaseUsername)
             ?
             <button
               onClick={() => {
@@ -55,7 +58,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     page: state.location.type,
-    currentUsername: state.currentUser.username,
+    firebaseUsername: state.firebaseUser.username,
   };
 }
 

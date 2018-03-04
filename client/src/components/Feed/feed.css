@@ -58,9 +58,37 @@
   border-radius: 4px;
 }
 
+.like {
+  margin: 5px;
+}
+
 .likeS {
   float: left;
+  margin-top: 2px;
+  margin-right: 50px;
+  margin-left: 6px;
+  padding-bottom: 3px;
   
+}
+
+.showcomments {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  padding: 3px 6px;
+  text-align: center;
+  font-size: 10px;
+  margin-right: 80px;
+  margin-top: 6px;
+  margin-left: 5px;
+  outline: 0;
+}
+
+.showcomments:hover {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  outline: 0;
 }
 
 .heart {
@@ -71,7 +99,7 @@
   width: 13px;
 }
 .delete{
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   background-color: rgba(244, 244, 244, 0.979);
   border: none;
@@ -79,13 +107,13 @@
   padding: 3px 6px;
   text-align: center;
   display: inline-block;
-  font-size: 25px;
+  font-size: 10px;
   border-bottom: solid black;
   border-right: solid black;
 }
 
 .delete:hover {
-    background-color: rgb(255, 0, 0); /* Green */
+    background-color: rgb(255, 0, 0);
     color: white;
 }
 
@@ -102,6 +130,7 @@
 
 .created {
   padding: 5px;
+  font-size: 13px;
 }
 
 .description {
@@ -110,4 +139,30 @@
 
 .leftbox {
   margin: 10px;
+}
+
+.commentbox {
+  margin: 5px;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.addcomment {
+  width: 40%;
+  margin: 5px;
+}
+
+.button {
+  padding: 5px;
+  margin-top: 3px;
+}
+
+.input {
+  padding: 5px;
+  margin-top: 3px;
+  width: 300px;
+}
+
+.timeago {
+  font-size: 13px;
 }

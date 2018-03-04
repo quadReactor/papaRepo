@@ -54,7 +54,7 @@ class Like extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className={style.like}>
           <button
             className={
               this.state.liked ?
@@ -71,7 +71,7 @@ class Like extends Component {
             className={style.heart}
             src="http://clipground.com/images/white-heart-clipart-png-10.png" />
           </button>
-        <div className={style.likeS}>'s {this.props.likes.length}</div>
+        <div className={style.likeS}> Like Count: {this.props.likes.length}</div>
         </div>
       </div>
     );

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import actions from './../../actions/feed_actions';
+import style from './feed.css';
 
 class AddComment extends Component {
   constructor(props) {
@@ -38,9 +39,10 @@ class AddComment extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.addcomment}>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <input 
+            className={style.input}
             id={this.props.photoId}
             type="text"
             placeholder="Add Comment Here"
@@ -49,6 +51,7 @@ class AddComment extends Component {
           />
         </form>
         <button
+          className={style.button}
           onClick={this.handleClick}
         >Submit
         </button>
