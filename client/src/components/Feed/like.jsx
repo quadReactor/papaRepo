@@ -14,13 +14,36 @@ class Like extends Component {
   }
 
   alreadyLiked() {
-    return this.props.likes.includes(this.props.username) ?
-      this.setState({ liked: true }) :
-      this.setState({ liked: false });
+    if (
+      this.props.likes.includes(this.props.username)
+      && this.state.liked !== true
+     ) {this.setState({ liked: true }) 
+    } else if (
+      !(this.props.likes.includes(this.props.username))
+      && (this.state.liked !== false)
+    ) {this.setState({ liked: false })}
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.alreadyLiked();
+  }
+
+  likePhoto() {
+    this.props.likePhoto(
+      this.props.username,
+      this.props.photoId,
+      this.props.page,
+    );
+    this.props.refreshCurrentUserWithPage(this.props.page);
+  }
+
+  unlikePhoto() {
+    this.props.unlikePhoto(
+      this.props.username,
+      this.props.photoId,
+      this.props.page,
+    );
+    this.props.refreshCurrentUserWithPage(this.props.page);
   }
 
   render() {
@@ -34,17 +57,9 @@ class Like extends Component {
               style.likeButtonFalse
             }
             onClick={() => {
-              return this.state.liked ?
-              this.props.unlikePhoto(
-                this.props.username,
-                this.props.photoId,
-                this.props.page,
-                ) :
-              this.props.likePhoto(
-                this.props.username,
-                this.props.photoId,
-                this.props.page,
-              );
+              return this.state.liked
+              ? this.unlikePhoto()
+              : this.likePhoto();
             }}
           >
           <img
@@ -62,12 +77,13 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     unlikePhoto: actions.unlikePhoto,
     likePhoto: actions.likePhoto,
+    refreshCurrentUserWithPage: actions.refreshCurrentUserWithPage,
   }, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
-    username: state.currentUser.username,
+    username: state.firebaseUser.username,
     page: state.location.type,
   };
 }

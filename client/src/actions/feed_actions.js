@@ -71,4 +71,9 @@ export default {
         .catch(err => console.log(err));
     };
   },
+  refreshCurrentUserWithPage(page) {
+    return {
+      type: page,
+    };
+  },
 };

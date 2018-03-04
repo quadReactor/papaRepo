@@ -20,8 +20,8 @@ export default {
     const { type } = getState().location;
     let shouldGetFirebaseUserFromLocalStorage = true;
     if (
-      type === 'HOME' || 
-      type === 'LOGIN' || 
+      type === 'HOME' ||
+      type === 'LOGIN' ||
       type === 'LOGOUT'
     ) {
       shouldGetFirebaseUserFromLocalStorage = false;

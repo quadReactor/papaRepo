@@ -6,7 +6,7 @@ import axios from 'axios';
 import CommentEntry from './CommentEntry.jsx';
 import AddComment from './AddComment.jsx';
 
-class Comments extends React.Component {
+class Comments extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +16,7 @@ class Comments extends React.Component {
   }
 
   getComments() {
-    // axios.get(`/api/${this.props.firebaseUser.username}/${this.props.id}/comments`)
-    axios.get(`/api/${this.props.currentUser.username}/${this.props.id}/comments`)
+    axios.get(`/api/${this.props.firebaseUser.username}/${this.props.id}/comments`)
       .then((res) => {
         this.setState({ singlePhotoComments: res.data });
       });
@@ -47,8 +46,8 @@ class Comments extends React.Component {
         }
         <AddComment
           photoId={this.props.id}
-          username={this.props.currentUser.username}
-          displayname={this.props.currentUser.displayname}
+          username={this.props.firebaseUser.username}
+          displayname={this.props.firebaseUser.displayname}
           getComments={this.getComments}
         />
       </div>
@@ -58,8 +57,7 @@ class Comments extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.currentUser,
-    // firebaseUser: state.firebaseUser,
+    firebaseUser: state.firebaseUser,
   };
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import actions from './../../actions/follow_actions';
 import FollowingPerson from './followingPerson.jsx';
 
-class Following extends React.Component {
+class Following extends Component {
   constructor() {
     super();
     this.stopFollowing = this.stopFollowing.bind(this);

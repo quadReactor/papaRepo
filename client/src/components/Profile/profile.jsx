@@ -18,7 +18,10 @@ class Profile extends React.Component {
             {/* <h2>Bio</h2> */}
             {/* <div>{this.props.currentUser.bio}</div> */}
           </div>
-          <h2>{this.props.currentUser.displayname}'s Photos</h2>
+          <h2>{this.props.firebaseUser ?
+            this.props.firebaseUser.displayname :
+            null }
+          's Photos</h2>
           <div>
             <NewPost />
           </div>
@@ -39,6 +42,7 @@ class Profile extends React.Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
+    firebaseUser: state.firebaseUser,
     photos: state.photos,
   };
 }

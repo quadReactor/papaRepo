@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import actions from './../../actions/feed_actions';
 
-class AddComment extends React.Component {
+class AddComment extends Component {
   constructor(props) {
     super(props);
     this.state = {

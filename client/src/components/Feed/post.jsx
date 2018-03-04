@@ -37,7 +37,7 @@ class Post extends Component {
             <p>{this.props.photo.created}</p>
             <Like
               likes={this.props.photo.likes}
-              photoId={this.props.photo.tempId}
+              photoId={this.props.photo._id}
             />
             <button
               onClick={() => {
@@ -49,7 +49,7 @@ class Post extends Component {
             {
               this.state.showComments ?
             <Comments
-              id={this.props.photo.tempId}
+              id={this.props.photo._id}
               photoUsername={this.props.photo.username}
             />
             : null
@@ -70,7 +70,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     page: state.location.type,
-    user: state.currentUser.username,
+    user: state.firebaseUser.username,
   };
 }
 
