@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import axios from 'axios';
 import actions from '../../actions/post_actions';
+import style from './profile.css'
 
 class NewPost extends React.Component {
   constructor() {
@@ -57,7 +58,8 @@ class NewPost extends React.Component {
         <form>
           <label>
             URL:
-            <input 
+            <input
+              className={style.form}
               type="text"
               value={this.state.val.url}
               onChange={this.urlInput}
@@ -65,6 +67,7 @@ class NewPost extends React.Component {
             />
             Description:
             <input
+            className={style.form}
             type="text"
             value={this.state.val.description}
             onChange={this.descInput}
@@ -80,6 +83,7 @@ class NewPost extends React.Component {
     return (
       <div>
         <button
+          className={style.form}
           onClick={() => {
             this.setState({ posting: true });
           }}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 
 import actions from './../../actions/feed_actions';
 
@@ -17,30 +18,38 @@ class Post extends Component {
     };
   }
 
+  timeAgo() {
+    return moment(this.props.photo.created).fromNow();
+  }
+
   render() {
-    console.log(this.props.photo.displayname)
     return (
         <div className={style.post}>
           {this.props.user === this.props.photo.username
-            ? <button onClick={
-              () => this.props.deletePhoto(
-                this.props.photo._id,
-                this.props.page,
+            ? <button
+              className={style.delete}
+              onClick={
+                () => this.props.deletePhoto(
+                  this.props.photo._id,
+                  this.props.page,
               )}
             >Delete</button>
             : null}
           <div className={style.photo}>
-          <img src={this.props.photo.photoUrl} />
+            <img className={style.image}
+              src={this.props.photo.photoUrl}
+            />
           </div>
-          <div>
-            <p>{this.props.photo.displayname}</p>
-            <p>{this.props.photo.description}</p>
-            <p>{this.props.photo.created}</p>
+          <div className={style.leftbox}>
+            <p className={style.displayname}>{this.props.photo.displayname} </p>
+            <p className={style.description}>{this.props.photo.description}</p>
+            <p className={style.created}>{this.timeAgo()}</p>
             <Like
               likes={this.props.photo.likes}
               photoId={this.props.photo._id}
             />
             <button
+              className={style.showcomments}
               onClick={() => {
                 this.setState({ showComments: !this.state.showComments });
               }}

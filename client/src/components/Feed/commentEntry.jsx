@@ -2,16 +2,28 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 
 import actions from './../../actions/feed_actions';
+import style from './feed.css';
 
 class CommentEntry extends Component {
+  timeAgo() {
+    return moment(this.props.time).fromNow();
+  }
+
   render() {
     return (
-        <div>
-          <h3>{this.props.name}</h3>
-          <p>{this.props.text}</p>
-          <p>{this.props.time}</p>
+        <div className={style.commentbox}>
+          <h3 className={style.name}>
+            {this.props.name}:
+          </h3>
+          <p className={style.words}>
+            "{this.props.text}"
+          </p>
+          <p className={style.timeago}>
+            {this.timeAgo()}
+          </p>
           {/* <button
             onClick={() => this.props.editComment(
               this.props.username,
@@ -20,8 +32,8 @@ class CommentEntry extends Component {
             )}
           >Edit</button> */}
           {
-            (this.props.username === this.props.currentUsername) ||
-            (this.props.photoUsername === this.props.currentUsername)
+            (this.props.username === this.props.firebaseUsername) ||
+            (this.props.photoUsername === this.props.firebaseUsername)
             ?
             <button
               onClick={() => {
@@ -50,7 +62,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     page: state.location.type,
-    currentUsername: state.currentUser.username,
+    firebaseUsername: state.firebaseUser.username,
   };
 }
 

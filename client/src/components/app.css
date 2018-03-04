@@ -4,5 +4,6 @@ body {
   width: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
