@@ -6,3 +6,10 @@
   padding: 50px;
   background-color: rgba(244, 244, 244, 0.911);
 }
+
+.header {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 13px;
+  padding-top: 13px;
+}
