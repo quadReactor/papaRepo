@@ -1,4 +1,5 @@
 const Photo = require('../../db/photos');
+const Comment = require('../../db/comment');
 const db = require('../../db');
 
 module.exports = {
@@ -58,11 +59,17 @@ module.exports = {
   },
 
   removePhoto: (input, callback) => {
-    Photo.remove({ _id: input.params.photoId }).exec((err, data) => {
+    Comment.remove({ photoId: input.params.photoId }).exec((err, data) => {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, data);
+        Photo.remove({ _id: input.params.photoId }).exec((err, data) => {
+          if (err) {
+            callback(err, null);
+          } else {
+            callback(null, data);
+          }
+        });
       }
     });
   },

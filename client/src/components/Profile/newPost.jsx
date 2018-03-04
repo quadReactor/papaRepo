@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import axios from 'axios';
-import actions from '../../actions/feed_actions';
 
-// Implement File Upload here
-// Implemented MVP Url submission
+import axios from 'axios';
+import actions from '../../actions/post_actions';
+
 class NewPost extends React.Component {
   constructor() {
     super();
     this.state = {
       posting: false,
       val: {
-        url: 'Add Url',
-        description: 'Add Description',
+        url: '',
+        description: '',
       },
     };
     this.urlInput = this.urlInput.bind(this);
@@ -41,9 +40,15 @@ class NewPost extends React.Component {
         photoUrl: value.url,
         displayname: this.props.currentUser.displayname,
       })
-      .then((res) => {
-        console.log('Content Posted');
-        this.setState({ posting: false });
+      .then(() => {
+        this.setState({
+          posting: false,
+          val: {
+            url: '',
+            description: '',
+          },
+        });
+        this.props.refreshCurrentUser();
       });
   }
   renderForm() {
@@ -52,9 +57,19 @@ class NewPost extends React.Component {
         <form>
           <label>
             URL:
-            <input type="text" value={this.state.val.url} onChange={this.urlInput} /> <br />
+            <input 
+              type="text"
+              value={this.state.val.url}
+              onChange={this.urlInput}
+              placeholder="enter url here"
+            />
             Description:
-            <input type="text" value={this.state.val.description} onChange={this.descInput} />
+            <input
+            type="text"
+            value={this.state.val.description}
+            onChange={this.descInput}
+            placeholder="enter description here"
+            />
           </label>
         </form>
         <button onClick={this.handleSubmit}>Submit</button>
@@ -82,11 +97,16 @@ class NewPost extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
+}
+
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
-    comments: state.comments,
   };
 }
 
-export default connect(mapStateToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost);

@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import FollowerPerson from './followerPerson';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/follow_actions';
+import FollowerPerson from './followerPerson.jsx';
 
 class Followers extends React.Component {
   constructor() {
@@ -10,22 +13,33 @@ class Followers extends React.Component {
   }
 
   deleteFollower(person) {
-    // console.log('i was clicked', person);
-    axios.put(`/api/${this.props.username}/removefollower`, { username: person });
+    axios.put(`/api/${this.props.username}/removefollower`, { username: person })
+      .then(() => this.props.refreshCurrentUser());
   }
 
   render() {
-    // change currentUser to store name
-    return this.props.followers ? (
+    return (
       <div>
-        {this.props.followers.map((person, index) => (
-          <FollowerPerson key={index} person={person} stop={this.deleteFollower} />
-        ))}
+      { this.props.followers &&
+        this.props.followers.length
+        ? this.props.followers
+          .map((person, index) => (
+            <FollowerPerson
+              key={index}
+              person={person}
+              stop={this.deleteFollower} />
+          ))
+        : 'none'
+      }
       </div>
-    ) : (
-      <div>No Followers</div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -35,4 +49,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Followers);
+export default connect(mapStateToProps, mapDispatchToProps)(Followers);

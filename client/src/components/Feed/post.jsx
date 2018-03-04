@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/feed_actions';
 
 import Comments from './comments.jsx';
 import Like from './like.jsx';
@@ -16,7 +20,17 @@ class Post extends Component {
   render() {
     return (
         <div className={style.post}>
+          {this.props.user === this.props.photo.username
+            ? <button onClick={
+              () => this.props.deletePhoto(
+                this.props.photo._id,
+                this.props.page,
+              )}
+            >Delete</button>
+            : null}
+          <div className={style.photo}>
           <img src={this.props.photo.photoUrl} />
+          </div>
           <div>
             <h3>{this.props.photo.displayname}</h3>
             <p>{this.props.photo.description}</p>
@@ -34,8 +48,11 @@ class Post extends Component {
             </button>
             {
               this.state.showComments ?
-            <Comments id={this.props.photo.tempId}/> :
-              null
+            <Comments
+              id={this.props.photo.tempId}
+              photoUsername={this.props.photo.username}
+            />
+            : null
             }
 
           </div>
@@ -44,5 +61,17 @@ class Post extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    deletePhoto: actions.deletePhoto,
+  }, dispatch);
+}
 
-export default Post;
+function mapStateToProps(state) {
+  return {
+    page: state.location.type,
+    user: state.currentUser.username,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

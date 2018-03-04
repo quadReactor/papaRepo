@@ -1,0 +1,7 @@
+.body {
+  margin: auto;
+  margin-top: 100px;
+  width: 80%;
+  border: solid red;
+  padding: 50px;
+}

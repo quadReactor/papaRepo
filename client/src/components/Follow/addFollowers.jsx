@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { bindActionCreators } from 'redux';
+
+import actions from './../../actions/follow_actions';
+
 
 class AddFollowers extends React.Component {
   constructor(props) {
@@ -10,28 +14,34 @@ class AddFollowers extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit() {
-    const value = this.state.value;
+  handleClick() {
+    const { value } = this.state;
     axios
       .post(`/api/${this.props.username}/addfollower`, {
         username: value,
       })
-      .then((res) => {
-        console.log('Following Request Sent');
+      .then(() => {
         this.setState({ value: '' });
+        this.props.refreshCurrentUser();
       });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.handleClick();
   }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="add a follower"
@@ -39,10 +49,16 @@ class AddFollowers extends React.Component {
             onChange={this.handleChange}
           />
         </form>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleClick}>Submit</button>
       </div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -51,4 +67,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(AddFollowers);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFollowers);

@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import PendingPerson from './pendingPerson';
+import { bindActionCreators } from 'redux';
 
-// Render Pending Following
+import actions from './../../actions/follow_actions';
+import PendingPerson from './pendingPerson.jsx';
 
 class Pending extends React.Component {
   constructor() {
@@ -13,21 +14,34 @@ class Pending extends React.Component {
   }
 
   stopRequest(person) {
-    axios.put(`/api/${this.props.username}/stoppendingfollowing`, { username: person });
+    axios.put(`/api/${this.props.username}/stoppendingfollowing`, { username: person })
+      .then(() => this.props.refreshCurrentUser());
   }
 
   render() {
-    // change currentUser to store name
-    return this.props.pendingFollowing ? (
+    return (
       <div>
-        {this.props.pendingFollowing.map((person, index) => (
-          <PendingPerson key={index} person={person} stop={this.stopRequest} />
-        ))}
+      { this.props.pendingFollowing &&
+        this.props.pendingFollowing.length
+        ? this.props.pendingFollowing
+          .map((person, index) => (
+            <PendingPerson
+              key={index}
+              person={person}
+              stop={this.stopRequest}
+            />
+          ))
+        : 'none'
+      }
       </div>
-    ) : (
-      <div>No Pending Following</div>
-    ); // null
+    );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    refreshCurrentUser: actions.refreshCurrentUser,
+  }, dispatch);
 }
 
 function mapStateToProps(state) {
@@ -37,4 +51,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Pending);
+export default connect(mapStateToProps, mapDispatchToProps)(Pending);

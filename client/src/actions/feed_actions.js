@@ -39,7 +39,6 @@ export default {
     };
   },
   likePhoto(user, photoID, page) {
-    console.log('in Like Photo', user, photoID, page)
     return (dispatch) => {
       axios.post(`/api/${user}/${photoID}/like`)
         .then(() => {
@@ -51,9 +50,19 @@ export default {
     };
   },
   unlikePhoto(user, photoID, page) {
-    console.log('in unlike Photo', user, photoID, page)
     return (dispatch) => {
       axios.put(`/api/${user}/${photoID}/like`)
+        .then(() => {
+          dispatch({
+            type: page,
+          });
+        })
+        .catch(err => console.log(err));
+    };
+  },
+  deletePhoto(photoID, page) {
+    return (dispatch) => {
+      axios.delete(`/api/${photoID}/content`)
         .then(() => {
           dispatch({
             type: page,

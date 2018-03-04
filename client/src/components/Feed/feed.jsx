@@ -19,7 +19,10 @@ class Feed extends Component {
         {
           this.props.photos.length
           ? this.props.photos
-            .map(photo => <Post key={photo._id} photo={photo} />)
+            .map(photo => <Post 
+              key={photo._id}
+              photo={photo}
+            />)
           : 'No Photos to show! Follow other smurfs or switch to "Everyone" Tab'
         }
         </div>
