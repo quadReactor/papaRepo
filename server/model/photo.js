@@ -4,7 +4,9 @@ const db = require('../../db');
 
 module.exports = {
   userFeed: (input, callback) => {
-    Photo.find({ username: input.params.username })
+    return Photo
+      .find({ username: input.params.username })
+      .sort({ created: -1 })
       .limit(20)
       .exec((err, data) => {
         if (err) {
@@ -20,7 +22,10 @@ module.exports = {
     const arr = data[0].following;
 
     function getPhoto(user) {
-      return Photo.find({ username: user });
+      return Photo
+        .sort({ created: -1 })
+        .find({ username: user })
+        .limit(20);
     }
 
     async function processArray(array) {
@@ -36,8 +41,8 @@ module.exports = {
 
   allFeed: (callback) => {
     Photo.find()
+      .sort({ created: -1 })
       .limit(40)
-      .sort('created')
       .exec((err, data) => {
         if (err) {
           callback(err, null);
