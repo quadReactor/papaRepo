@@ -39,7 +39,6 @@ class AddComment extends Component {
   render() {
     return (
       <div>
-        Add a comment!
         <form onSubmit={this.handleSubmit}>
           <input
             id={this.props.photoId}

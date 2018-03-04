@@ -11,7 +11,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid black;
 }
 .homeleft {
   float: left;
@@ -21,14 +21,14 @@ a {
 .left {
   float: left;
   padding: 14px 16px;
-  border-left: 2px solid blue;
+  border-left: 2px solid black;
 }
 
 .follow {
   float: left;
   padding: 14px 16px;
-  border-right: 2px solid blue;
-  border-left: 2px solid blue;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 }
 
 .logout {
@@ -38,22 +38,13 @@ a {
 
 }
 
-.navbar :hover {
-  color: rgb(143, 187, 248);
-}
-
-.homeleft :hover {
-  color: rgb(143, 187, 248);
-}
-
-
 .logout {
   border-right: none;
-  border-left: 2px solid blue;
+  border-left: 2px solid black;
 }
 
 .profile {
-  border-left: 2px solid blue;
+  border-left: 2px solid black;
 }
 
 .navbar {
@@ -63,14 +54,14 @@ a {
   padding: 0px;
   font-size: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: rgb(243, 49, 49);
+  color: black;
 }
 
 .navbar :visited {
-  color:rgb(243, 49, 49);
+  color: black;
 }
 .navbar :hover{
-  color:rgb(143, 187, 248);
+  color: rgb(255, 73, 73);
 }
 
  .home{
@@ -92,7 +83,7 @@ a {
   padding: 5px 5px;
   font-family: 'billabong';
   font-size: 30px;
-  color: rgb(243, 49, 49);
+  color: rgb(248, 48, 48);
 }
 
 .home {

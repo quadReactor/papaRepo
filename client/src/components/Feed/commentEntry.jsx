@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 
 import actions from './../../actions/feed_actions';
 
 class CommentEntry extends Component {
+  timeAgo() {
+    return moment(this.props.time).fromNow();
+  }
+
   render() {
     return (
         <div>
           <h3>{this.props.name}</h3>
           <p>{this.props.text}</p>
-          <p>{this.props.time}</p>
+          <p>{this.timeAgo()}</p>
           {/* <button
             onClick={() => this.props.editComment(
               this.props.username,

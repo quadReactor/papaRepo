@@ -2,12 +2,13 @@
   display: block;
   width: auto;
   height: auto;
+  max-width: 600px;
   max-height:500px;
   float: right;
 }
 
 .feed {
-  border: solid blue;
+  border: solid black;
   margin: 13px;
   background-image: url(https://i.pinimg.com/originals/0b/4a/df/0b4adf78582559cd657c6a6e1a2f5a7d.jpg);
   width: auto;
@@ -20,14 +21,14 @@
   margin: auto;
   margin-top: 100px;
   width: 85%;
-  border: solid blue;
+  border: solid black;
   padding: 20px;
   background-color: rgba(244, 244, 244, 0.979);
 }
 
 .post {
   background-color: rgba(244, 244, 244, 0.952);
-  border: solid blue;
+  border: solid black;
   margin: 20px;
   height: auto;
   overflow:auto;
@@ -35,7 +36,7 @@
 
 .title {
   background-color: rgba(244, 244, 244, 0.952);
-  border: solid blue;
+  border: solid black;
   margin: 20px;
   height: auto;
   overflow:auto;
@@ -47,14 +48,19 @@
 .likeButtonTrue {
   float: left;
   background-color: red;
+  outline: 0;
+  border-radius: 4px;
 }
 
 .likeButtonFalse {
   float: left;
+  outline: 0;
+  border-radius: 4px;
 }
 
 .likeS {
   float: left;
+  
 }
 
 .heart {
@@ -62,11 +68,46 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: 20px;
+  width: 13px;
+}
+.delete{
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: rgba(244, 244, 244, 0.979);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 3px 6px;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  border-bottom: solid black;
+  border-right: solid black;
+}
+
+.delete:hover {
+    background-color: rgb(255, 0, 0); /* Green */
+    color: white;
 }
 
 .photo {
   float: right;
-  border: 2px solid black;
-  margin: 15px;
+  margin: 25px;
+  border: solid black;
+}
+
+.displayname {
+  padding: 5px;
+  font-weight: bold;
+}
+
+.created {
+  padding: 5px;
+}
+
+.description {
+  padding: 5px;
+}
+
+.leftbox {
+  margin: 10px;
 }
