@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxPromise from 'redux-promise';
 import { connectRoutes } from 'redux-first-router';
 import thunk from 'redux-thunk';
@@ -14,8 +15,6 @@ export default (history) => {
     enhancer,
   } = connectRoutes(history, routesMap, authenticator);
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-
   const rootReducer = combineReducers({ ...reducers, location: reducer });
   const middlewares = applyMiddleware(middleware, thunk);
   const enhancers = composeEnhancers(enhancer, middlewares);
@@ -23,3 +22,10 @@ export default (history) => {
 
   return createStore(rootReducer, enhancers);
 };
+
+
+const composeEnhancers = (...args) =>
+  typeof window !== 'undefined'
+    ? composeWithDevTools({})(...args)
+    : compose(...args)
+

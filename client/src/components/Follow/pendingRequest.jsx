@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import actions from './../../actions/follow_actions';
 import PendingRequestPerson from './pendingRequestPerson.jsx';
 
-class PendingRequest extends React.Component {
+class PendingRequest extends Component {
   constructor() {
     super();
     this.accept = this.accept.bind(this);

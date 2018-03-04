@@ -20,17 +20,20 @@ export default {
     const { type } = getState().location;
     let shouldGetFirebaseUserFromLocalStorage = true;
     if (
-      type === 'HOME' || 
-      type === 'LOGIN' || 
+      type === 'HOME' ||
+      type === 'LOGIN' ||
       type === 'LOGOUT'
     ) {
       shouldGetFirebaseUserFromLocalStorage = false;
     }
     const data = await getFirebaseUserFromLocalStorage();
     if (!!data && !firebaseUser && shouldGetFirebaseUserFromLocalStorage) {
-      await dispatch({
+      dispatch({
         type: 'RELOAD_USER_STATE_SUCCESS',
         payload: data,
+      });
+      dispatch({
+        type: type,
       });
     }
   },

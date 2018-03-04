@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import actions from './../../actions/feed_actions';
 
-class AddComment extends React.Component {
+class AddComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,11 +41,12 @@ class AddComment extends React.Component {
       <div>
         Add a comment!
         <form onSubmit={this.handleSubmit}>
-          <input id={this.props.photoId}
-          type="text"
-          placeholder="Add Comment Here"
-          value={this.state.message}
-          onChange={this.handleCommentChange.bind(this)}
+          <input
+            id={this.props.photoId}
+            type="text"
+            placeholder="Add Comment Here"
+            value={this.state.message}
+            onChange={this.handleCommentChange.bind(this)}
           />
         </form>
         <button

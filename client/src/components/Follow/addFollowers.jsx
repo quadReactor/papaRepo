@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { bindActionCreators } from 'redux';
@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import actions from './../../actions/follow_actions';
 
 
-class AddFollowers extends React.Component {
+class AddFollowers extends Component {
   constructor(props) {
     super(props);
     this.state = {

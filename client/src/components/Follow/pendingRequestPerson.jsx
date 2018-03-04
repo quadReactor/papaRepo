@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// Rendering Pending Person
-// needs accept button
+
 const PendingRequestPerson = ({
   person, stop, accept, pendingFollowers,
 }) => (

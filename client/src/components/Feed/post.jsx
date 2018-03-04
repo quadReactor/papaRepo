@@ -18,6 +18,7 @@ class Post extends Component {
   }
 
   render() {
+    console.log(this.props.photo.displayname)
     return (
         <div className={style.post}>
           {this.props.user === this.props.photo.username
@@ -32,12 +33,12 @@ class Post extends Component {
           <img src={this.props.photo.photoUrl} />
           </div>
           <div>
-            <h3>{this.props.photo.displayname}</h3>
+            <p>{this.props.photo.displayname}</p>
             <p>{this.props.photo.description}</p>
             <p>{this.props.photo.created}</p>
             <Like
               likes={this.props.photo.likes}
-              photoId={this.props.photo.tempId}
+              photoId={this.props.photo._id}
             />
             <button
               onClick={() => {
@@ -49,7 +50,7 @@ class Post extends Component {
             {
               this.state.showComments ?
             <Comments
-              id={this.props.photo.tempId}
+              id={this.props.photo._id}
               photoUsername={this.props.photo.username}
             />
             : null
@@ -70,7 +71,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     page: state.location.type,
-    user: state.currentUser.username,
+    user: state.firebaseUser.username,
   };
 }
 

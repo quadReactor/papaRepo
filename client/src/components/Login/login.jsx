@@ -10,22 +10,18 @@ class Login extends Component {
   render() {
     return (
       <div className={style.login}>
-        <h1 className={style.billabong}>InstaSmurf</h1>
-        <h4 className={style.loginWith}>Login with</h4>
+          <a className={style.billabong}>InstaSmurf</a>
+          <a className={style.loginWith}>Login with</a>
           <a className={style.buttons}
-            onClick={() => {
-              this.props.login('google');
-            }}
+              onClick={() => {
+                this.props.login('google');
+              }}
           >Google</a>
           <a className={style.buttons}
-            onClick={() => {
-              this.props.login('github');
-            }}
+              onClick={() => {
+                this.props.login('github');
+              }}
           >Github</a>
-          <img
-            src='https://gameofroles.files.wordpress.com/2011/12/smurfs-imps-2008-3.jpg'
-            className={style.image}
-            />
       </div>
     );
   }
