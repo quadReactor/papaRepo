@@ -69,7 +69,7 @@ class Like extends Component {
           >
           <img
             className={style.heart}
-            src="http://clipground.com/images/white-heart-clipart-png-10.png" />
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Heart-SG2001-transparent.png/480px-Heart-SG2001-transparent.png" />
           </button>
         <div className={style.likeS}> Like Count: {this.props.likes.length}</div>
         </div>

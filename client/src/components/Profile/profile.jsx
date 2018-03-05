@@ -39,7 +39,7 @@ class Profile extends React.Component {
                   this.props.photos.length
                   ? this.props.photos
                     .map(photo => <Post key={photo._id} photo={photo} />)
-                  : 'You have no photos. Click "Add New Post"!'
+                  : <div className={style.title}>You have no photos. Click "Add New Post"!</div>
                 }
             </div>
           </div>
