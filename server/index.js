@@ -8,8 +8,10 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const morgan = require("morgan");
 const router = require("./router/index.js");
+const fileUpload = require('express-fileupload');
 
 app.use(morgan("dev"));
+app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

@@ -3,104 +3,79 @@ var multer  = require('multer'),
     fs = require('fs'),
     AWS = require('aws-sdk');
 
-//AWS.config.loadFromPath('../../configS3.json'); configure the api key UNCOMMENT!!!!!!!!!!!!!!!!!!
+AWS.config.loadFromPath(__dirname + '/../../configS3.json');
+console.log("in host");
 
 var s3 = new AWS.S3();
 
 //Create bucket. Note: bucket name must be unique.
-//Requires only bucketName via post 
-//check [http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#createBucket-property] for more info
-exports.createBucket = function (req, res) {
-    var item = req.body;
-    var params = { Bucket: item.bucketName };
+//Requires only bucketName to be passed 
+exports.createBucket = function (bucketName, cb) {
+    var params = { Bucket: bucketName };
     s3.createBucket(params, function (err, data) {
         if (err) {
-            return res.send({ "error": err });
+            console.log("error create s3", err );
         }
-        res.send({ data });
+        cb(data)
     });
 }
 
 //List all buckets owned by the authenticate sender of the request. Note: bucket name must be unique.
-//check http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#listBuckets-property for more info
-exports.listBuckets = function (req, res) {
+exports.listBuckets = function (cb) {
     s3.listBuckets({}, function (err, data) {
         if (err) {
-            return res.send({ "error": err });
+            console.log("error list s3", err );
         }
-        res.send({ data });
+        cb(data)
     });
 }
 
 //Delete bucket.
-//Require bucketName via delete 
-//check http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#deleteBucket-property for more info
-exports.deleteBucket = function (req, res) {
-    var item = req.body;
-    var params = { Bucket: item.bucketName };
+//Require bucketName passed
+exports.deleteBucket = function (bucketName, cb) {
+    var params = { Bucket: bucketName };
     s3.deleteBucket(params, function (err, data) {
         if (err) {
-            return res.send({ "error": err });
+            console.log("error delete s3", err );
         }
-        res.send({ data });
+        cb(data);
     });
 }
 
-//Delete bucket cors configuration. 
-// Requires bucketName via delete
-//check http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#deleteBucketCors-property for more info
-exports.deleteBucketCors = function (req, res) {
-    var item = req.body;
-    var params = { Bucket: item.bucketName };
-    s3.deleteBucketCors(params, function (err, data) {
+//Retrieves all pictures from a single bucket in Amazon s3
+exports.getObjects = function (bucketName, cb) {
+    var params = { Bucket: bucketName };
+    s3.listObjects(params, function (err, data) {
         if (err) {
-            return res.send({ "error": err });
+            console.log(`error listAll in bucket: ${bucketName}`, err );
         }
-        res.send({ data });
+        cb(data) //array of objects
     });
 }
 
-//Retrieves objects from Amazon s3
-//check http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getObject-property to configure params properties
-//eg var params = {Bucket: 'bucketname', Key:'keyname'}
-exports.getObjects = function (req, res) {
-    var item = req.body;
-    var params = { Bucket: req.params.bucketName };
-    s3.getObject(params, function (err, data) {
-        if (err) {
-            return res.send({ "error": err });
-        }
-        res.send({ data });
-    });
-}
-
-//Delete qn object
-//check http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#deleteObject-property for more info
-exports.deleteObject = function (req, res) {
-    var item = req.body;
-    var params = { Bucket: item.bucketName, Key: item.key };
+//Delete an object
+exports.deleteObject = function (bucketName, keyName, cb ) {
+    var params = { Bucket: bucketName, Key: keyName };
     s3.deleteObjects(params, function (err, data) {
         if (err) {
-            return res.send({ "error": err });
+            console.log(`error deleting key: ${keyName} in bucket: ${bucketName}`, err );
         }
-        res.send({ data });
+        cb(data);
     });
 }
 
-//cloud image uploader using multer-s3 
-//Pass the bucket name to the bucketName param to upload the file to the bucket 
-exports.uploadFile = function (req, res) {
-    var item = req.body;
-    var upload = multer({
-        storage: multerS3({
-            s3: s3,
-            bucket: item.bucketName,
-            metadata: function (req, file, cb) {
-                cb(null, { fieldName: file.fieldname });
-            },
-            key: function (req, file, cb) {
-                cb(null, Date.now().toString())
-            }
-        })
-    })
+
+//Pass the bucket name and file given from user
+//Username , file with buffer and a cb
+exports.uploadFile = function (user, file, cb) {
+
+    s3.upload({
+        Bucket: user,
+        Key: file.name,
+        Body: file.data,
+        ACL: 'public-read'
+      },function (data) {
+        console.log('Successfully uploaded package.');
+        cb(data)
+      });
 }

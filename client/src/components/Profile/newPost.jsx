@@ -12,6 +12,7 @@ class NewPost extends React.Component {
     this.state = {
       posting: false,
       val: {
+        file:null,
         url: '',
         description: '',
       },
@@ -23,10 +24,14 @@ class NewPost extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // urlInput(event) {
+  //   const value = this.state.val;
+  //   value.url = event.target.value;
+  //   this.setState({ val: value });
+  // }
+
   urlInput(event) {
-    const value = this.state.val;
-    value.url = event.target.value;
-    this.setState({ val: value });
+    this.setState({file:event.target.files[0]})
   }
   descInput(event) {
     const value = this.state.val;
@@ -35,12 +40,23 @@ class NewPost extends React.Component {
   }
   handleSubmit() {
     const value = this.state.val;
+    console.log(this.state.file)
+    let file = this.state.file;
+    const formData = new FormData();
+    formData.append('file',file);
+    //formData.append('photoUrl',value.url);
+    formData.append('displayname',this.props.firebaseUser.displayname);
+    formData.append('description',value.description);
+
+    // {
+    //   description: value.description,
+    //   photoUrl: value.url,
+    //   file: this.state.file,
+    //   displayname: this.props.firebaseUser.displayname,
+    //   file: this.state.file
+    // }
     axios
-      .post(`/api/${this.props.currentUser.username}/content`, {
-        description: value.description,
-        photoUrl: value.url,
-        displayname: this.props.firebaseUser.displayname,
-      })
+      .post(`/api/${this.props.currentUser.username}/content`, formData)
       .then(() => {
         this.setState({
           posting: false,
@@ -52,19 +68,33 @@ class NewPost extends React.Component {
         this.props.refreshCurrentUser();
       });
   }
+  // {
+  //   return (
+  //     <div>
+  //       <form>
+  //         <label>
+  //           URL:
+  //           <input
+  //             className={style.form}
+  //             type="text"
+  //             value={this.state.val.url}
+  //             onChange={this.urlInput}
+  //             placeholder="enter url here"
+  //           />
+
+
   renderForm() {
     return (
       <div>
         <form>
           <label>
-            URL:
-            <input
+          Upload:
+              <input 
+              type="file" 
+              onChange={this.urlInput} 
               className={style.form}
-              type="text"
-              value={this.state.val.url}
-              onChange={this.urlInput}
-              placeholder="enter url here"
-            />
+              />
+
             Description:
             <input
             className={style.form}

@@ -4,4 +4,4 @@ node_modules
 package-lock.json
 bundle.js
 config.js
-configS3.js
+configS3.json
