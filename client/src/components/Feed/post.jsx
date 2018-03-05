@@ -35,10 +35,16 @@ class Post extends Component {
               )}
             >Delete</button>
             : null}
-          <div className={style.photo}>
-            <img className={style.image}
+            <div className={style.photo}>
+            {this.props.photo.photoUrl.slice(-3) === 'mp4'
+            ?
+              <video className={style.image} controls>
+                <source src={this.props.photo.photoUrl} type="video/mp4" />
+              </video>
+
+            : <img className={style.image}
               src={this.props.photo.photoUrl}
-            />
+            />}
           </div>
           <div className={style.leftbox}>
             <p className={style.displayname}>{this.props.photo.displayname} </p>

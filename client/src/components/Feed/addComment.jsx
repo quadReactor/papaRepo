@@ -41,7 +41,7 @@ class AddComment extends Component {
     return (
       <div className={style.addcomment}>
         <form onSubmit={this.handleSubmit}>
-          <input 
+          <input
             className={style.input}
             id={this.props.photoId}
             type="text"

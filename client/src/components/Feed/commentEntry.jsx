@@ -19,7 +19,7 @@ class CommentEntry extends Component {
             {this.props.name}:
           </h3>
           <p className={style.words}>
-            "{this.props.text}"
+            {this.props.text}
           </p>
           <p className={style.timeago}>
             {this.timeAgo()}
@@ -36,6 +36,7 @@ class CommentEntry extends Component {
             (this.props.photoUsername === this.props.firebaseUsername)
             ?
             <button
+              className={style.deleteComment}
               onClick={() => {
                 this.props.deleteComment(
                   this.props.username,
@@ -44,7 +45,7 @@ class CommentEntry extends Component {
                 );
                 this.props.getComments();
               }}
-            >Delete Comment</button>
+            >Delete</button>
             : null
           }
         </div>

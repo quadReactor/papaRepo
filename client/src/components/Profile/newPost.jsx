@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import axios from 'axios';
-import actions from '../../actions/post_actions';
-import style from './profile.css'
+import postActions from '../../actions/post_actions';
+import loadingActions from '../../actions/loading_actions';
+import style from './profile.css';
 
 class NewPost extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class NewPost extends React.Component {
     this.state = {
       posting: false,
       val: {
-        file:null,
+        file: null,
         url: '',
         description: '',
       },
@@ -24,37 +25,24 @@ class NewPost extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // urlInput(event) {
-  //   const value = this.state.val;
-  //   value.url = event.target.value;
-  //   this.setState({ val: value });
-  // }
-
   urlInput(event) {
-    this.setState({file:event.target.files[0]})
+    this.setState({ file: event.target.files[0] })
   }
+
   descInput(event) {
     const value = this.state.val;
     value.description = event.target.value;
     this.setState({ val: value });
   }
   handleSubmit() {
+    this.props.loadingTrue();
     const value = this.state.val;
-    console.log(this.state.file)
-    let file = this.state.file;
+    const { file } = this.state;
     const formData = new FormData();
-    formData.append('file',file);
-    //formData.append('photoUrl',value.url);
-    formData.append('displayname',this.props.firebaseUser.displayname);
-    formData.append('description',value.description);
+    formData.append('file', file);
+    formData.append('displayname', this.props.firebaseUser.displayname);
+    formData.append('description', value.description);
 
-    // {
-    //   description: value.description,
-    //   photoUrl: value.url,
-    //   file: this.state.file,
-    //   displayname: this.props.firebaseUser.displayname,
-    //   file: this.state.file
-    // }
     axios
       .post(`/api/${this.props.currentUser.username}/content`, formData)
       .then(() => {
@@ -65,22 +53,10 @@ class NewPost extends React.Component {
             description: '',
           },
         });
+        this.props.loadingFalse();
         this.props.refreshCurrentUser();
       });
   }
-  // {
-  //   return (
-  //     <div>
-  //       <form>
-  //         <label>
-  //           URL:
-  //           <input
-  //             className={style.form}
-  //             type="text"
-  //             value={this.state.val.url}
-  //             onChange={this.urlInput}
-  //             placeholder="enter url here"
-  //           />
 
 
   renderForm() {
@@ -89,8 +65,8 @@ class NewPost extends React.Component {
         <form>
           <label>
           Upload:
-              <input 
-              type="file" 
+              <input
+              type="file"
               onChange={this.urlInput} 
               className={style.form}
               />
@@ -133,7 +109,10 @@ class NewPost extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    refreshCurrentUser: actions.refreshCurrentUser,
+    refreshCurrentUser: postActions.refreshCurrentUser,
+    loadingTrue: loadingActions.loadingTrue,
+    loadingFalse: loadingActions.loadingFalse,
+
   }, dispatch);
 }
 
