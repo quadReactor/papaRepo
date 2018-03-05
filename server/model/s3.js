@@ -66,7 +66,7 @@ exports.deleteObject = function (bucketName, keyName, cb ) {
 
 
 //Pass the bucket name and file given from user
-// username , file with buffer and a cb
+//Username , file with buffer and a cb
 exports.uploadFile = function (user, file, cb) {
 
     s3.upload({

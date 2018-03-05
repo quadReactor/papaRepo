@@ -65,10 +65,10 @@ module.exports = {
     //New Bucket Creation MVP+
     //host.createBucket("helooeoloeeee", (data) => {console.log("i did it", data)} )
 
-    bucket = "helooeoloeeee";
+    bucket = "helooeoloeeee"; //testing bucket for MVP
     host.uploadFile("helooeoloeeee",input.files.file,(data) => {
     console.log("From AWS", data)
-    //`https://${input.files.file.name}.s3.amazonaws.com/${input.files.file.name}`
+    //`https://${input.files.file.name}.s3.amazonaws.com/${input.files.file.name}`  ---> URL FORM
 
     const newPhoto = new Photo({
       username: input.params.username, // email
