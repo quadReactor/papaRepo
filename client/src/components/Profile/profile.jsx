@@ -32,7 +32,7 @@ class Profile extends React.Component {
                 </div>
               </div>
                 <div className={style.loading}>
-                  <Loading />
+                  {this.props.loading ? <Loading /> : null}
                 </div>
                 <div>
                 {
@@ -54,6 +54,7 @@ function mapStateToProps(state) {
     currentUser: state.currentUser,
     firebaseUser: state.firebaseUser,
     photos: state.photos,
+    loading: state.loading,
   };
 }
 
