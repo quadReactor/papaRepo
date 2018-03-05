@@ -22,7 +22,7 @@ class Feed extends Component {
               {
                 this.props.photos.length
                 ? this.props.photos
-                  .map(photo => <Post 
+                  .map(photo => <Post
                     key={photo._id}
                     photo={photo}
                   />)

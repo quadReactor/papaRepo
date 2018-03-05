@@ -36,6 +36,7 @@ class CommentEntry extends Component {
             (this.props.photoUsername === this.props.firebaseUsername)
             ?
             <button
+              className={style.deleteComment}
               onClick={() => {
                 this.props.deleteComment(
                   this.props.username,
@@ -44,7 +45,7 @@ class CommentEntry extends Component {
                 );
                 this.props.getComments();
               }}
-            >Delete Comment</button>
+            >Delete</button>
             : null
           }
         </div>

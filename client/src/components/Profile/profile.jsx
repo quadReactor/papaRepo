@@ -30,10 +30,10 @@ class Profile extends React.Component {
                 <div className={style.addpost}>
                   <NewPost />
                 </div>
-              </div>
                 <div className={style.loading}>
                   {this.props.loading ? <Loading /> : null}
                 </div>
+              </div>
                 <div>
                 {
                   this.props.photos.length

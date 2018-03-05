@@ -65,8 +65,8 @@ class NewPost extends React.Component {
         <form>
           <label>
           Upload:
-              <input 
-              type="file" 
+              <input
+              type="file"
               onChange={this.urlInput} 
               className={style.form}
               />
