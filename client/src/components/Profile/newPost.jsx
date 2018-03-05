@@ -24,6 +24,12 @@ class NewPost extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // urlInput(event) {
+  //   const value = this.state.val;
+  //   value.url = event.target.value;
+  //   this.setState({ val: value });
+  // }
+
   urlInput(event) {
     this.setState({file:event.target.files[0]})
   }
@@ -62,6 +68,21 @@ class NewPost extends React.Component {
         this.props.refreshCurrentUser();
       });
   }
+  // {
+  //   return (
+  //     <div>
+  //       <form>
+  //         <label>
+  //           URL:
+  //           <input
+  //             className={style.form}
+  //             type="text"
+  //             value={this.state.val.url}
+  //             onChange={this.urlInput}
+  //             placeholder="enter url here"
+  //           />
+
+
   renderForm() {
     return (
       <div>

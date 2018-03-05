@@ -56,7 +56,16 @@ module.exports = {
         }
       });
   },
-
+  // addPhoto: (input, callback) => {
+  //   const newPhoto = new Photo({
+  //     username: input.params.username, // email
+  //     displayname: input.body.displayname,
+  //     description: input.body.description,
+  //     photoUrl: input.body.photoUrl,
+  //     likes: [],
+  //   });
+  //   newPhoto.save(callback());
+  // },
   addPhoto: (input, callback) => {
     console.log("name:", input.body.displayname)
     console.log("description:", input.body.description)
