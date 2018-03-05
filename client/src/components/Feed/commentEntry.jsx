@@ -19,7 +19,7 @@ class CommentEntry extends Component {
             {this.props.name}:
           </h3>
           <p className={style.words}>
-            "{this.props.text}"
+            {this.props.text}
           </p>
           <p className={style.timeago}>
             {this.timeAgo()}

@@ -28,6 +28,12 @@
   font-size: 30px;
 }
 
+.loading {
+  position: fixed;
+  top: 300px;
+  left: 300px;
+}
+
 .profilepic {
   max-width: 200px;
   max-height:200px;

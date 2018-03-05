@@ -1,7 +1,7 @@
 const Photo = require('../../db/photos');
 const Comment = require('../../db/comment');
 const db = require('../../db');
-const host = require('./s3');
+const host = require('./../service/s3');
 
 module.exports = {
   userFeed: (input, callback) => {

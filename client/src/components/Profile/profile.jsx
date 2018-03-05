@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import Post from './../Feed/post.jsx';
 import Navbar from './../Navbar/navbar.jsx';
-import NewPost from './NewPost.jsx';
+import NewPost from './newPost.jsx';
+import Loading from './../Loading/loading.jsx';
 import style from './profile.css';
 
 class Profile extends React.Component {
@@ -30,6 +31,9 @@ class Profile extends React.Component {
                   <NewPost />
                 </div>
               </div>
+                <div className={style.loading}>
+                  <Loading />
+                </div>
                 <div>
                 {
                   this.props.photos.length
@@ -37,7 +41,6 @@ class Profile extends React.Component {
                     .map(photo => <Post key={photo._id} photo={photo} />)
                   : 'You have no photos. Click "Add New Post"!'
                 }
-              
             </div>
           </div>
         </div>
