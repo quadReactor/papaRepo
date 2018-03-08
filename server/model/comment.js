@@ -36,7 +36,7 @@ module.exports = {
   editComment: (input, callback) => {
     Comment.findOneAndUpdate(
       { _id: input.params.commentId },
-      { $set: { text: input.body.text } },
+      { $set: { text: input.body.text } }
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
