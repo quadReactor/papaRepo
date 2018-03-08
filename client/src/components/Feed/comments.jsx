@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import CommentEntry from './CommentEntry.jsx';
-import AddComment from './AddComment.jsx';
+import CommentEntry from './commentEntry.jsx';
+import AddComment from './addComment.jsx';
 import style from './feed.css';
 
 class Comments extends Component {
