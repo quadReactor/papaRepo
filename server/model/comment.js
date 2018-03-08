@@ -37,12 +37,12 @@ module.exports = {
     Comment.findOneAndUpdate(
       { _id: input.params.commentId },
       { $set: { text: input.body.text } },
-    ).exec((err,data) => {
+    ).exec((err, data) => {
       if (err) {
         callback(err, null);
       } else {
         callback(null, data);
-      //}
+      }
     });
   },
 };
