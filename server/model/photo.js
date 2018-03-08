@@ -108,7 +108,7 @@ module.exports = {
   addLike: (input, callback) => {
     Photo.findOneAndUpdate(
       { _id: input.params.photoId },
-      { $push: { likes: input.params.username } },
+      { $push: { likes: input.params.username } }
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
