@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import Feed from './Feed/feed.jsx';
 import Profile from './Profile/profile.jsx';
-import Login from './Login/Login.jsx';
+import Login from './Login/login.jsx';
 import Follow from './Follow/follow.jsx';
-import Logout from './Logout/Logout.jsx';
+import Logout from './Logout/logout.jsx';
 import style from './app.css';
 
 class App extends Component {
