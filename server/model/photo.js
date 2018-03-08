@@ -84,7 +84,7 @@ module.exports = {
       displayname: input.body.displayname,
       description: input.body.description,
       photoUrl: `https://${bucket}.s3.amazonaws.com/${input.files.file.name}`,
-      likes: [],
+      likes: []
     });
     newPhoto.save(callback());})
   },
@@ -121,7 +121,7 @@ module.exports = {
   removeLike: (input, callback) => {
     Photo.findOneAndUpdate(
       { _id: input.params.photoId },
-      { $pull: { likes: { $in: [input.params.username] } } },
+      { $pull: { likes: { $in: [input.params.username] } } }
     ).exec((err, data) => {
       if (err) {
         callback(err, null);
@@ -129,5 +129,5 @@ module.exports = {
         callback(null, data);
       }
     });
-  },
+  }
 };
